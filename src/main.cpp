@@ -1,5 +1,6 @@
 #include <SFML\OpenGL.hpp>
 #include <SFML\Graphics.hpp>
+#include "GameObject.h"
 
 int main()
 {
@@ -128,6 +129,10 @@ int main()
 	// Create a clock for measuring the time elapsed
 	sf::Clock clock;
 
+	// Create Game Objects and their components
+	GameObject myObject;
+	myObject.attachModel();
+
 	// Start game loop
 	while (window.isOpen())
 	{
@@ -151,8 +156,8 @@ int main()
 		// Draw the background
 		
 		window.pushGLStates();
-		//window.draw(background);
-		window.clear();
+		window.draw(background);
+		//window.clear();
 		window.popGLStates();
 
 		// Clear the depth buffer
@@ -171,14 +176,13 @@ int main()
 		glRotatef(clock.getElapsedTime().asSeconds() * 90.f, 0.f, 0.f, 1.f);
 
 		// Draw the cube
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		//glDrawArrays(GL_TRIANGLES, 0, 36);
+		myObject.draw(window);
 
 		// Draw some text on top of our OpenGL object
-		/*
 		window.pushGLStates();
 		window.draw(text);
 		window.popGLStates();
-		*/
 
 		// Finally, display the rendered frame on screen
 		window.display();

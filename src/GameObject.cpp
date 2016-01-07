@@ -5,22 +5,22 @@ GameObject::GameObject()
 	
 }
 
+void GameObject::attachModel()
+{
+	m_pCPModel = new CPModel();
+}
+
 void GameObject::attachControllable()
 {
 	m_pCPControllable = new CPControllable();
 }
 
-int GameObject::onKeyPress()
+void GameObject::draw(sf::RenderWindow& window) const
 {
-	if (m_pCPControllable != nullptr)
+	if (m_pCPModel != nullptr)
 	{
-		return m_pCPControllable->onKeyPress();
+		m_pCPModel->draw(window);
 	}
-	else
-	{
-		std::cout << "No instance on Controllable" << std::endl << std::endl;
-	}
-	return -1;
 }
 
 /* Example of function with handling for different components but same function name

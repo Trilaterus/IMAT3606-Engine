@@ -17,13 +17,14 @@ public:
 	GameObject();
 
 	// attachcomponent
+	void attachModel();
 	void attachControllable();
 
 	// dettachcomponent (?)
 
 
 	// All component functions including duplicates
-	int onKeyPress(); // CPControllable
+	void draw(sf::RenderWindow& window) const;
 };
 
 #endif // GAMEOBJECT_H
