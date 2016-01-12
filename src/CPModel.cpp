@@ -3,12 +3,6 @@
 void CPModel::init()
 {
 	clock.restart();
-	m_vfPosition.x = 0;
-	m_vfPosition.y = 0;
-	m_vfPosition.z = 0.f;
-	m_vfAngles.x = 0;
-	m_vfAngles.y = 0;
-	m_vfAngles.z = 0;
 	m_bIsRotating = false;
 }
 
@@ -66,7 +60,9 @@ void CPModel::setAngle(float fXAngle, float fYAngle, float fZAngle)
 
 void CPModel::move(float fIncrement)
 {
-
+	float fRadianAngle = (m_vfAngles.x * 3.14) / 180;
+	m_vfPosition.z += fIncrement * cos(fRadianAngle);
+	m_vfPosition.x += fIncrement * sin(fRadianAngle);
 }
 
 void CPModel::move(float fXChange, float fYChange, float fZChange)
@@ -154,7 +150,7 @@ void CPModel::draw(sf::RenderWindow& window) const
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
-	glRotatef(m_vfAngles.x, 1.f, 0.f, 0.f);
+	glRotatef(m_vfAngles.x, 0.f, 1.f, 0.f);
 	glRotatef(m_vfAngles.y, 0.f, 1.f, 0.f);
 	glRotatef(m_vfAngles.z, 0.f, 0.f, 1.f);
 
@@ -175,10 +171,12 @@ void CPModel::drawModel(sf::RenderWindow& window) const
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glRotatef(m_vfAngles.x, 1.f, 0.f, 0.f);
+	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
+	glRotatef(m_vfAngles.x, 0.f, 1.f, 0.f);
 	glRotatef(m_vfAngles.y, 0.f, 1.f, 0.f);
 	glRotatef(m_vfAngles.z, 0.f, 0.f, 1.f);
-	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
+
+	//glRotatef(90, 0.f, 1.f, 0.f); here is where you could add camera transformations to apply it to all the models
 
 	glDrawArrays(GL_TRIANGLES, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexCoords().size() / 3);
 

@@ -2,6 +2,7 @@
 #include <SFML\Graphics.hpp>
 #include "GameObject.h"
 #include "UIText.h"
+#include <GLM\glm.hpp>
 
 int main()
 {
@@ -12,6 +13,7 @@ int main()
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML graphics with OpenGL", sf::Style::Default, contextSettings);
 	window.setVerticalSyncEnabled(true);
+	window.setFramerateLimit(60);
 
 	// Create a sprite for the background
 	sf::Texture backgroundTexture;
@@ -31,18 +33,25 @@ int main()
 	glDepthMask(GL_TRUE);
 	glClearDepth(1.f);
 
-	// Disable lighting
-	// glDisable(GL_LIGHTING);
-
-	// Enable lighting (Would be easy to encapsulate in a class.. I hope)
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Enable lighting (Would be easy to encapsulate in a component.. I hope)
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	// Change light position
 	GLfloat lightpos[] = { 10, 10, 10, 1.0 };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 	// Changle light colour
-	GLfloat colour[] = { 1.f, 0.7f, 0.7f, 1.0f };
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, colour);
+	GLfloat colour1[] = { 1.f, 0.7f, 0.7f, 1.0f }; // example here and in draw area of how to add material colour to objects
+	GLfloat colour2[] = { 0.7f, 0.7f, 1.0f, 1.0f };
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Set up controllable camera
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Cull triangles which normal is not towards the camera
+	glEnable(GL_CULL_FACE);
+	sf::Vector2f cameraPos(0.0f, -3.0f);
+	sf::Vector3f cameraAngle;
 
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
@@ -60,19 +69,31 @@ int main()
 	// Create a clock for measuring the time elapsed
 	sf::Clock clock;
 
-	// // // // // // // // // // //
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Load files into Singletons
-	ModelSingleton::instance().loadModel("Monkey", "resources/objs/monkey.obj");
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	std::string sObjPath = "resources/objs/";
+	ModelSingleton::instance().loadModel("Monkey", sObjPath + "monkey.obj");
+	ModelSingleton::instance().loadModel("Floor", sObjPath + "plane.obj");
 
-	// // // // // // // // // // //
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create Game Objects and their components
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	GameObject myObject;
 	myObject.attachModel("Monkey");
+	myObject.setPosition(0, 0, -3);
 
-	// // // // // // // // // // //
+	GameObject myFloor;
+	myFloor.attachModel("Floor");
+	myFloor.setPosition(0, -10, -10);
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create UI elements
-	UIText myText("Hello World!", window.getSize().x / 2, window.getSize().y / 2);
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	UIText myText("Hello World!", 5, 5);
 	myText.setColour(sf::Color::Blue);
+
+	sf::Clock myClock;
 
 	// Start game loop
 	while (window.isOpen())
@@ -93,48 +114,28 @@ int main()
 			if (event.type == sf::Event::Resized)
 				glViewport(0, 0, event.size.width, event.size.height);
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-				myObject.move(0.1, 0, 0);
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-				myObject.move(-0.1, 0, 0);
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-				myObject.move(0, 0, 0.1);
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-				myObject.move(0, 0, -0.1);
-
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				myObject.setAngle(-1, 0, 0);
+				cameraPos.x += 1;
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				myObject.setAngle(1, 0, 0);
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				myObject.move(0, 0, 1);
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				myObject.move(0, 0, -1);
-
-			sf::Vector2f MousePos;
-			MousePos.x = sf::Mouse::getPosition(window).x;
-			MousePos.y = sf::Mouse::getPosition(window).y;
-			if (myText.getBounds().contains(MousePos))
-				myText.setColour(sf::Color::Red);
-			else
-				myText.setColour(sf::Color::Blue);
 		}
 
 		// Update objects here
+		myFloor.update(window);
+		myObject.rotateModel(1.0, 1, 0, 0);
+		myObject.update(window);
+		myText.setString(std::to_string((int)(1 / myClock.getElapsedTime().asSeconds())));
+		myClock.restart();
 
 		// Draw the background
-		window.pushGLStates();
-		window.draw(background);
-		window.popGLStates();
+		//window.pushGLStates();
+		//window.draw(background);
+		//window.popGLStates();
+		window.clear();
 
 		// Draw OpenGL objects here
-		myObject.update(window);
+		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour1);
+		myFloor.drawModel(window);
+		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour2);
 		myObject.drawModel(window);
 
 		// Draw some text on top of our OpenGL object

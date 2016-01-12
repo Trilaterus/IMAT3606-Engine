@@ -22,6 +22,11 @@ void UIText::setColour(sf::Color sfColour)
 	m_sfColour = sfColour;
 }
 
+void UIText::setString(std::string sText)
+{
+	m_sText = sText;
+}
+
 void UIText::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	sf::Text text;
