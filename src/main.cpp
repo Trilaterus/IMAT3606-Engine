@@ -34,6 +34,13 @@ int main()
 	// Disable lighting
 	// glDisable(GL_LIGHTING);
 
+	// Enable lighting
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	// Change light position
+	GLfloat lightpos[] = { 10, 10, 10, 1.0 };
+	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
+
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
 

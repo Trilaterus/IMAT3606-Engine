@@ -4,8 +4,8 @@ void CPModel::init()
 {
 	clock.restart();
 	m_vfPosition.z = -3.f;
-	m_vfAngles.y = 90;
-	m_vfAngles.x = 180;
+	m_vfAngles.y = 270;
+	m_vfAngles.z = 0;
 	m_bIsRotating = false;
 }
 
@@ -57,8 +57,8 @@ void CPModel::rotate(float fAngle, float fX, float fY, float fZ)
 void CPModel::update(sf::RenderWindow& window)
 {
 	// Update positon based on "mouse relative to screen" position
-	m_vfPosition.x = sf::Mouse::getPosition(window).x * 200.f / window.getSize().x - 100.f;
-	m_vfPosition.y = -sf::Mouse::getPosition(window).y * 200.f / window.getSize().y + 100.f;
+	m_vfPosition.x = sf::Mouse::getPosition(window).x * 2.f / window.getSize().x - 1.f;
+	m_vfPosition.y = -sf::Mouse::getPosition(window).y * 2.f / window.getSize().y + 1.f;
 
 	m_vfAngles += m_vfQuaternion;
 }
