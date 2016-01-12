@@ -17,7 +17,7 @@ private:
 public:
 	static FontSingleton& instance(); // get instance of FontSingleton
 
-	bool loadFont(std::string sName, std::string sFileName); // save font to singleton
+	bool loadFont(std::string sName, std::string sFileName); // save font to singleton under a specified name
 	sf::Font& getFont(std::string sName); // get font by map name
 };
 

@@ -32,7 +32,7 @@ int main()
 	glClearDepth(1.f);
 
 	// Disable lighting
-	glDisable(GL_LIGHTING);
+	// glDisable(GL_LIGHTING);
 
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
@@ -51,13 +51,17 @@ int main()
 	sf::Clock clock;
 
 	// // // // // // // // // // //
+	// Load files into Singletons
+	ModelSingleton::instance().loadModel("Monkey", "resources/objs/monkey.obj");
+
+	// // // // // // // // // // //
 	// Create Game Objects and their components
 	GameObject myObject;
-	myObject.attachModel();
+	myObject.attachModel("Monkey");
 
 	// // // // // // // // // // //
 	// Create UI elements
-	UIText myText("Hello World!", 10, 10);
+	UIText myText("Hello World!", window.getSize().x / 2, window.getSize().y / 2);
 	myText.setColour(sf::Color::Blue);
 
 	// Start game loop
@@ -91,12 +95,11 @@ int main()
 		// Draw the background
 		window.pushGLStates();
 		window.draw(background);
-		//window.clear();
 		window.popGLStates();
 
 		// Draw OpenGL objects here
 		myObject.update(window);
-		myObject.draw(window);
+		myObject.drawModel(window);
 
 		// Draw some text on top of our OpenGL object
 		window.pushGLStates();

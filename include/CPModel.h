@@ -3,7 +3,7 @@
 
 #include <SFML\Graphics.hpp>
 #include <SFML\OpenGL.hpp>
-#include "ObjectLoader.h"
+#include "ModelSingleton.h"
 
 class CPModel
 {
@@ -14,13 +14,13 @@ private:
 	GLuint m_iTexture;
 	bool m_bIsRotating;
 	sf::Vector3f m_vfQuaternion;
-	ObjectLoader m_ObjectVectors;
+	std::string m_sModelName;
 
 	void init(); // Called in every constructor
 
 public:
 	CPModel();
-	CPModel(std::string sFileName);
+	CPModel(std::string sModelName); // The string identifier in the map of ModelSingleton
 	~CPModel();
 
 	void rotate(float fAngle, float fX, float fY, float fZ);

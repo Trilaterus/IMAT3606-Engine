@@ -171,7 +171,7 @@ std::vector<float> ObjectLoader::getVertexNormals()
 	return m_vfVertexNormals;
 }
 
-GLvoid* ObjectLoader::getVertexCoordsFirst() const
+float* ObjectLoader::getVertexCoordsFirst()
 {
 	return &m_vfVertexCoords.at(0);
 }
@@ -201,9 +201,9 @@ void ObjectLoader::setFilePath(std::string filename)
 	m_sFileName = filename;
 }
 
-void ObjectLoader::loadObject()
+bool ObjectLoader::loadObject()
 {
-		if (!m_sFileName.empty())
+	if (!m_sFileName.empty())
 	{
 		std::ifstream model (m_sFileName, std::ifstream::ios_base::in);
 
@@ -291,6 +291,7 @@ void ObjectLoader::loadObject()
 		{
 			std::cout << "fail" << std::endl;
 			model.close();
+			return false;
 		}
 
 		/* CONVERT FILE STUFF INTO ARRAY */
@@ -313,9 +314,11 @@ void ObjectLoader::loadObject()
 			m_vfVertexNormals.push_back(m_vfVertexNormalsIndex.at((*it -1) * 3 + 1));
 			m_vfVertexNormals.push_back(m_vfVertexNormalsIndex.at((*it -1) * 3 + 2));
 		}
+		return true;
 	}
 	else
 	{
 		std::cout << "File not loaded" << std::endl;
+		return false;
 	}
 }

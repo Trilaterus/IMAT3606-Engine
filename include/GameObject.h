@@ -19,13 +19,16 @@ public:
 
 	// attachcomponent
 	void attachModel();
+	void attachModel(std::string sModelName);
 	void attachControllable();
 
 	// dettachcomponent (?)
 
 
 	// All component functions including duplicates
+
 	void rotateModel(float fAngle, float fX, float fY, float fZ); // Model,
+	void drawModel(sf::RenderWindow& window) const; // Model,
 
 	void update(sf::RenderWindow& window); // Model,
 	void draw(sf::RenderWindow& window) const; // Model,

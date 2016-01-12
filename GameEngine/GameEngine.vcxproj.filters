@@ -69,8 +69,11 @@
     <ClCompile Include="..\src\FontSingleton.cpp">
       <Filter>Source Files\Singletons</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ModelSingleton.cpp">
+      <Filter>Source Files\Singletons</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\ObjectLoader.cpp">
-      <Filter>Source Files\Components</Filter>
+      <Filter>Source Files\Singletons</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,8 +104,11 @@
     <ClInclude Include="..\include\FontSingleton.h">
       <Filter>Header Files\Singletons</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\ModelSingleton.h">
+      <Filter>Header Files\Singletons</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\ObjectLoader.h">
-      <Filter>Header Files\Components</Filter>
+      <Filter>Header Files\Singletons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

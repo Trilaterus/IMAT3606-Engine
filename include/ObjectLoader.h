@@ -34,7 +34,7 @@ public:
 	std::vector<float> getTextureNormals(); // &
 	std::vector<float> getVertexNormals(); // &
 
-	GLvoid* getVertexCoordsFirst() const;
+	float* getVertexCoordsFirst();
 	float* getVertexNormsFirst();
 	float* getVertexTextureFirst();
 
@@ -43,7 +43,7 @@ public:
 
 	void setFilePath(std::string filename);
 
-	void loadObject();
+	bool loadObject();
 };
 
 #endif

@@ -3,7 +3,9 @@
 void CPModel::init()
 {
 	clock.restart();
-	m_vfPosition.z = -100.f;
+	m_vfPosition.z = -3.f;
+	m_vfAngles.y = 90;
+	m_vfAngles.x = 180;
 	m_bIsRotating = false;
 }
 
@@ -33,12 +35,11 @@ CPModel::CPModel()
 	glBindTexture(GL_TEXTURE_2D, m_iTexture);
 }
 
-CPModel::CPModel(std::string sFileName)
+CPModel::CPModel(std::string sModelName)
 {
 	init();
 
-	m_ObjectVectors.setFilePath(sFileName);
-	m_ObjectVectors.loadObject();
+	m_sModelName = sModelName;
 }
 
 CPModel::~CPModel()
@@ -137,14 +138,25 @@ void CPModel::draw(sf::RenderWindow& window) const
 
 void CPModel::drawModel(sf::RenderWindow& window) const
 {
-	//This clears the colour and depth buffer.
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glPushMatrix();
-
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
-	glVertexPointer(3, GL_FLOAT, 0, m_ObjectVectors.getVertexCoordsFirst());
-	glNormalPointer(GL_FLOAT, 0, m_ObjectVectors.getVertexNormsFirst());
+	glVertexPointer(3, GL_FLOAT, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexCoordsFirst());
+	glNormalPointer(GL_FLOAT, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexNormsFirst());
 
-	glDrawArrays(GL_TRIANGLES, 0, m_ObjectVectors.getVertexCoords().size() / 3);
+	//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+	//This clears the colour and depth buffer.
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
+	glRotatef(m_vfAngles.x, 1.f, 0.f, 0.f);
+	glRotatef(m_vfAngles.y, 0.f, 1.f, 0.f);
+	glRotatef(m_vfAngles.z, 0.f, 0.f, 1.f);
+
+	glDrawArrays(GL_TRIANGLES, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexCoords().size() / 3);
+
+	glDisableClientState(GL_NORMAL_ARRAY);
+	//glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 }

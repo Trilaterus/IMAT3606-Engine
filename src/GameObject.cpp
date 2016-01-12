@@ -18,6 +18,11 @@ void GameObject::attachModel()
 	m_pCPModel = new CPModel();
 }
 
+void GameObject::attachModel(std::string sModelName)
+{
+	m_pCPModel = new CPModel(sModelName);
+}
+
 void GameObject::attachControllable()
 {
 	m_pCPControllable = new CPControllable();
@@ -28,6 +33,14 @@ void GameObject::rotateModel(float fAngle, float fX, float fY, float fZ)
 	if (m_pCPModel != nullptr)
 	{
 		m_pCPModel->rotate(fAngle, fX, fY, fZ);
+	}
+}
+
+void GameObject::drawModel(sf::RenderWindow& window) const
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->drawModel(window);
 	}
 }
 

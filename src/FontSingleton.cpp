@@ -19,7 +19,7 @@ bool FontSingleton::loadFont(std::string sName, std::string sFileName)
 	sf::Font font;
 	if (!font.loadFromFile(sFileName))
 	{
-		std::cout << "FontSingleton: Error loading - " << sFileName << std::endl;
+		std::cout << "FontSingleton: Error loading from - " << sFileName << std::endl;
 		return false;
 	}
 	else
