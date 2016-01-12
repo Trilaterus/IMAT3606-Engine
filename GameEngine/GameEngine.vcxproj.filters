@@ -25,11 +25,17 @@
     <Filter Include="Header Files\Managers">
       <UniqueIdentifier>{da73b610-617d-465e-a919-237dfe86d229}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Screens">
-      <UniqueIdentifier>{2c902bc5-81dc-4be7-87f4-580290ea26ca}</UniqueIdentifier>
+    <Filter Include="Source Files\UI Elements">
+      <UniqueIdentifier>{d0b2a796-c7f7-490c-900a-2d344c7e657d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Screens">
-      <UniqueIdentifier>{499e5fd6-333b-4dbc-a20d-b3c55f79460b}</UniqueIdentifier>
+    <Filter Include="Header Files\UIElements">
+      <UniqueIdentifier>{e3f92ba3-1578-4cb7-a6a0-b6371626da60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Singletons">
+      <UniqueIdentifier>{9461d529-800e-4f41-adfa-03c5479c9e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Singletons">
+      <UniqueIdentifier>{eed85f4b-faed-40fc-bd0d-aa6a52e158a3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +63,12 @@
     <ClCompile Include="..\src\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\UIText.cpp">
+      <Filter>Source Files\UI Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\FontSingleton.cpp">
+      <Filter>Source Files\Singletons</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Component.h">
@@ -79,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="..\include\Window.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\UIText.h">
+      <Filter>Header Files\UIElements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\FontSingleton.h">
+      <Filter>Header Files\Singletons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

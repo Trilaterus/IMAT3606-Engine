@@ -1,6 +1,7 @@
 #include <SFML\OpenGL.hpp>
 #include <SFML\Graphics.hpp>
 #include "GameObject.h"
+#include "UIText.h"
 
 int main()
 {
@@ -57,9 +58,14 @@ int main()
 	// Create a clock for measuring the time elapsed
 	sf::Clock clock;
 
+	// // // // // // // // // // //
 	// Create Game Objects and their components
 	GameObject myObject;
 	myObject.attachModel();
+
+	// // // // // // // // // // //
+	// Create UI elements
+	UIText myText("Hello World!", 10, 10);
 
 	// Start game loop
 	while (window.isOpen())
@@ -100,7 +106,7 @@ int main()
 
 		// Draw some text on top of our OpenGL object
 		window.pushGLStates();
-		window.draw(text);
+		window.draw(myText);
 		window.popGLStates();
 
 		// Finally, display the rendered frame on screen
