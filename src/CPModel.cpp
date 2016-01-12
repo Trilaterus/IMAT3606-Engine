@@ -1,12 +1,17 @@
 #include "CPModel.h"
 
-CPModel::CPModel()
+void CPModel::init()
 {
 	clock.restart();
 	m_vfPosition.z = -100.f;
 	m_bIsRotating = false;
+}
 
-	// Load an OpenGL texture.
+CPModel::CPModel()
+{
+	init();
+
+	// Default option loads an OpenGL textured cube.
 	// We could directly use a sf::Texture as an OpenGL texture (with its Bind() member function),
 	// but here we want more control on it (generate mipmaps, ...) so we create a new one from an image
 	m_iTexture = 0;
@@ -26,6 +31,14 @@ CPModel::CPModel()
 	// Bind the texture
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, m_iTexture);
+}
+
+CPModel::CPModel(std::string sFileName)
+{
+	init();
+
+	m_ObjectVectors.setFilePath(sFileName);
+	m_ObjectVectors.loadObject();
 }
 
 CPModel::~CPModel()
@@ -120,4 +133,18 @@ void CPModel::draw(sf::RenderWindow& window) const
 	glRotatef(m_vfAngles.z, 0.f, 0.f, 1.f);
 
 	glDrawArrays(GL_TRIANGLES, 0, 36);
+}
+
+void CPModel::drawModel(sf::RenderWindow& window) const
+{
+	//This clears the colour and depth buffer.
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glPushMatrix();
+
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, m_ObjectVectors.getVertexCoordsFirst());
+	glNormalPointer(GL_FLOAT, 0, m_ObjectVectors.getVertexNormsFirst());
+
+	glDrawArrays(GL_TRIANGLES, 0, m_ObjectVectors.getVertexCoords().size() / 3);
 }

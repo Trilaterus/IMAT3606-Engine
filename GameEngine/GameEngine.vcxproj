@@ -96,6 +96,7 @@
     <ClCompile Include="..\src\FontSingleton.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\ObjectLoader.cpp" />
     <ClCompile Include="..\src\UIText.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>
@@ -107,6 +108,7 @@
     <ClInclude Include="..\include\EventManager.h" />
     <ClInclude Include="..\include\FontSingleton.h" />
     <ClInclude Include="..\include\GameObject.h" />
+    <ClInclude Include="..\include\ObjectLoader.h" />
     <ClInclude Include="..\include\UIText.h" />
     <ClInclude Include="..\include\Window.h" />
   </ItemGroup>
