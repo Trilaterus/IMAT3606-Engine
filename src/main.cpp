@@ -19,14 +19,6 @@ int main()
 		return EXIT_FAILURE;
 	sf::Sprite background(backgroundTexture);
 
-	// Create some text to draw on top of our OpenGL object
-	sf::Font font;
-	if (!font.loadFromFile("resources/sansation.ttf"))
-		return EXIT_FAILURE;
-	sf::Text text("SFML / OpenGL demo", font);
-	text.setColor(sf::Color(255, 255, 255, 170));
-	text.setPosition(250.f, 450.f);
-
 	// Make the window the active target for OpenGL calls
 	// Note: If using sf::Texture or sf::Shader with OpenGL,
 	// be sure to call sf::Texture::getMaximumSize() and/or
@@ -66,6 +58,7 @@ int main()
 	// // // // // // // // // // //
 	// Create UI elements
 	UIText myText("Hello World!", 10, 10);
+	myText.setColour(sf::Color::Blue);
 
 	// Start game loop
 	while (window.isOpen())
@@ -93,8 +86,9 @@ int main()
 				myObject.rotateModel(0, 1.0, 1.0, 1.0);
 		}
 
+		// Update objects here
+
 		// Draw the background
-		
 		window.pushGLStates();
 		window.draw(background);
 		//window.clear();
