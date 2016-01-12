@@ -3,6 +3,50 @@
 CPModel::CPModel()
 {
 	clock.restart();
+	m_vfPosition.z = -100.f;
+	m_bIsRotating = false;
+
+	// Load an OpenGL texture.
+	// We could directly use a sf::Texture as an OpenGL texture (with its Bind() member function),
+	// but here we want more control on it (generate mipmaps, ...) so we create a new one from an image
+	m_iTexture = 0;
+	{
+		sf::Image image;
+		if (!image.loadFromFile("resources/texture.jpg"))
+		{
+			// Error
+		}
+		glGenTextures(1, &m_iTexture);
+		glBindTexture(GL_TEXTURE_2D, m_iTexture);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	}
+
+	// Bind the texture
+	glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, m_iTexture);
+}
+
+CPModel::~CPModel()
+{
+	glDeleteTextures(1, &m_iTexture);
+}
+
+void CPModel::rotate(float fAngle, float fX, float fY, float fZ)
+{
+	m_vfQuaternion.x = fAngle * fX;
+	m_vfQuaternion.y = fAngle * fY;
+	m_vfQuaternion.z = fAngle * fZ;
+}
+
+void CPModel::update(sf::RenderWindow& window)
+{
+	// Update positon based on "mouse relative to screen" position
+	m_vfPosition.x = sf::Mouse::getPosition(window).x * 200.f / window.getSize().x - 100.f;
+	m_vfPosition.y = -sf::Mouse::getPosition(window).y * 200.f / window.getSize().y + 100.f;
+
+	m_vfAngles += m_vfQuaternion;
 }
 
 void CPModel::draw(sf::RenderWindow& window) const
@@ -61,47 +105,19 @@ void CPModel::draw(sf::RenderWindow& window) const
 	glTexCoordPointer(2, GL_FLOAT, 5 * sizeof(GLfloat), cube + 3);
 
 	// Disable normal and color vertex components
-	glDisableClientState(GL_NORMAL_ARRAY);
-	glDisableClientState(GL_COLOR_ARRAY);
+	//glDisableClientState(GL_NORMAL_ARRAY);
+	//glDisableClientState(GL_COLOR_ARRAY);
 
 	// Clear the depth buffer
 	glClear(GL_DEPTH_BUFFER_BIT);
 
-	// We get the position of the mouse cursor, so that we can move the box accordingly
-	float x = sf::Mouse::getPosition(window).x * 200.f / window.getSize().x - 100.f;
-	float y = -sf::Mouse::getPosition(window).y * 200.f / window.getSize().y + 100.f;
-
 	// Apply some transformations
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glTranslatef(x, y, -100.f);
-	glRotatef(clock.getElapsedTime().asSeconds() * 50.f, 1.f, 0.f, 0.f);
-	glRotatef(clock.getElapsedTime().asSeconds() * 30.f, 0.f, 1.f, 0.f);
-	glRotatef(clock.getElapsedTime().asSeconds() * 90.f, 0.f, 0.f, 1.f);
+	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
+	glRotatef(m_vfAngles.x, 1.f, 0.f, 0.f);
+	glRotatef(m_vfAngles.y, 0.f, 1.f, 0.f);
+	glRotatef(m_vfAngles.z, 0.f, 0.f, 1.f);
 
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
-
-/* draw code for rotating coloured triangle
-float ratio;
-int width, height;
-glfwGetFramebufferSize(window->getGLFWWindow(), &width, &height);
-ratio = width / (float)height;
-
-glViewport(0, 0, width, height);
-glClear(GL_COLOR_BUFFER_BIT);
-glMatrixMode(GL_PROJECTION);
-glLoadIdentity();
-glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
-glMatrixMode(GL_MODELVIEW);
-glLoadIdentity();
-glRotatef((float)glfwGetTime() * 50.f, 0.f, 0.f, 1.f);
-glBegin(GL_TRIANGLES);
-glColor3f(1.f, 0.f, 0.f);
-glVertex3f(-0.6f, -0.4f, 0.f);
-glColor3f(0.f, 1.f, 0.f);
-glVertex3f(0.6f, -0.4f, 0.f);
-glColor3f(0.f, 0.f, 1.f);
-glVertex3f(0.f, 0.6f, 0.f);
-glEnd();
-*/

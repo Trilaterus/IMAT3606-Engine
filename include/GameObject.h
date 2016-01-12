@@ -15,6 +15,7 @@ private:
 
 public:
 	GameObject();
+	~GameObject();
 
 	// attachcomponent
 	void attachModel();
@@ -24,7 +25,10 @@ public:
 
 
 	// All component functions including duplicates
-	void draw(sf::RenderWindow& window) const;
+	void rotateModel(float fAngle, float fX, float fY, float fZ); // Model,
+
+	void update(sf::RenderWindow& window); // Model,
+	void draw(sf::RenderWindow& window) const; // Model,
 };
 
 #endif // GAMEOBJECT_H

@@ -25,6 +25,12 @@
     <Filter Include="Header Files\Managers">
       <UniqueIdentifier>{da73b610-617d-465e-a919-237dfe86d229}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Screens">
+      <UniqueIdentifier>{2c902bc5-81dc-4be7-87f4-580290ea26ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Screens">
+      <UniqueIdentifier>{499e5fd6-333b-4dbc-a20d-b3c55f79460b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">

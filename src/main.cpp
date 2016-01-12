@@ -33,21 +33,6 @@ int main()
 	// setActive(), as those functions will cause a context switch
 	window.setActive();
 
-	// Load an OpenGL texture.
-	// We could directly use a sf::Texture as an OpenGL texture (with its Bind() member function),
-	// but here we want more control on it (generate mipmaps, ...) so we create a new one from an image
-	GLuint texture = 0;
-	{
-		sf::Image image;
-		if (!image.loadFromFile("resources/texture.jpg"))
-			return EXIT_FAILURE;
-		glGenTextures(1, &texture);
-		glBindTexture(GL_TEXTURE_2D, texture);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.getSize().x, image.getSize().y, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.getPixelsPtr());
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-	}
-
 	// Enable Z-buffer read and write
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
@@ -64,63 +49,6 @@ int main()
 	glLoadIdentity();
 	GLfloat ratio = static_cast<float>(window.getSize().x) / window.getSize().y;
 	glFrustum(-ratio, ratio, -1.f, 1.f, 1.f, 500.f);
-
-	// Bind the texture
-	glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, texture);
-
-	// Define a 3D cube (6 faces made of 2 triangles composed by 3 vertices)
-	static const GLfloat cube[] =
-	{
-		// positions    // texture coordinates
-		-20, -20, -20, 0, 0,
-		-20, 20, -20, 1, 0,
-		-20, -20, 20, 0, 1,
-		-20, -20, 20, 0, 1,
-		-20, 20, -20, 1, 0,
-		-20, 20, 20, 1, 1,
-
-		20, -20, -20, 0, 0,
-		20, 20, -20, 1, 0,
-		20, -20, 20, 0, 1,
-		20, -20, 20, 0, 1,
-		20, 20, -20, 1, 0,
-		20, 20, 20, 1, 1,
-
-		-20, -20, -20, 0, 0,
-		20, -20, -20, 1, 0,
-		-20, -20, 20, 0, 1,
-		-20, -20, 20, 0, 1,
-		20, -20, -20, 1, 0,
-		20, -20, 20, 1, 1,
-
-		-20, 20, -20, 0, 0,
-		20, 20, -20, 1, 0,
-		-20, 20, 20, 0, 1,
-		-20, 20, 20, 0, 1,
-		20, 20, -20, 1, 0,
-		20, 20, 20, 1, 1,
-
-		-20, -20, -20, 0, 0,
-		20, -20, -20, 1, 0,
-		-20, 20, -20, 0, 1,
-		-20, 20, -20, 0, 1,
-		20, -20, -20, 1, 0,
-		20, 20, -20, 1, 1,
-
-		-20, -20, 20, 0, 0,
-		20, -20, 20, 1, 0,
-		-20, 20, 20, 0, 1,
-		-20, 20, 20, 0, 1,
-		20, -20, 20, 1, 0,
-		20, 20, 20, 1, 1
-	};
-
-	// Enable position and texture coordinates vertex components
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glVertexPointer(3, GL_FLOAT, 5 * sizeof(GLfloat), cube);
-	glTexCoordPointer(2, GL_FLOAT, 5 * sizeof(GLfloat), cube + 3);
 
 	// Disable normal and color vertex components
 	glDisableClientState(GL_NORMAL_ARRAY);
@@ -151,6 +79,12 @@ int main()
 			// Adjust the viewport when the window is resized
 			if (event.type == sf::Event::Resized)
 				glViewport(0, 0, event.size.width, event.size.height);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				myObject.rotateModel(10, 1.0, 0.0, 0.0);
+
+			if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				myObject.rotateModel(0, 1.0, 1.0, 1.0);
 		}
 
 		// Draw the background
@@ -160,23 +94,8 @@ int main()
 		//window.clear();
 		window.popGLStates();
 
-		// Clear the depth buffer
-		glClear(GL_DEPTH_BUFFER_BIT);
-
-		// We get the position of the mouse cursor, so that we can move the box accordingly
-		float x = sf::Mouse::getPosition(window).x * 200.f / window.getSize().x - 100.f;
-		float y = -sf::Mouse::getPosition(window).y * 200.f / window.getSize().y + 100.f;
-
-		// Apply some transformations
-		glMatrixMode(GL_MODELVIEW);
-		glLoadIdentity();
-		glTranslatef(x, y, -100.f);
-		glRotatef(clock.getElapsedTime().asSeconds() * 50.f, 1.f, 0.f, 0.f);
-		glRotatef(clock.getElapsedTime().asSeconds() * 30.f, 0.f, 1.f, 0.f);
-		glRotatef(clock.getElapsedTime().asSeconds() * 90.f, 0.f, 0.f, 1.f);
-
-		// Draw the cube
-		//glDrawArrays(GL_TRIANGLES, 0, 36);
+		// Draw OpenGL objects here
+		myObject.update(window);
 		myObject.draw(window);
 
 		// Draw some text on top of our OpenGL object
@@ -187,9 +106,6 @@ int main()
 		// Finally, display the rendered frame on screen
 		window.display();
 	}
-
-	// Don't forget to destroy our texture
-	glDeleteTextures(1, &texture);
 
 	return EXIT_SUCCESS;
 }
