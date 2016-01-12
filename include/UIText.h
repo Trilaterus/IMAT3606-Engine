@@ -14,6 +14,7 @@ private:
 public:
 	UIText(std::string sText, float fXPos, float fYPos);
 
+	sf::Rect<float> getBounds();
 	void setColour(sf::Color sfColour);
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;

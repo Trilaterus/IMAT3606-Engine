@@ -95,6 +95,12 @@ int main()
 
 			if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 				myObject.rotateModel(0, 1.0, 1.0, 1.0);
+
+			sf::Vector2f MousePos;
+			MousePos.x = sf::Mouse::getPosition(window).x;
+			MousePos.y = sf::Mouse::getPosition(window).y;
+			if (myText.getBounds().contains(MousePos))
+				myText.setColour(sf::Color::Red);
 		}
 
 		// Update objects here

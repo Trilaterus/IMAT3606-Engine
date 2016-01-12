@@ -8,6 +8,15 @@ UIText::UIText(std::string sText, float fXPos, float fYPos)
 	m_sfColour = sf::Color::Black;
 }
 
+sf::Rect<float> UIText::getBounds()
+{
+	sf::Text text;
+	text.setFont(FontSingleton::instance().getFont("default"));
+	text.setPosition(m_vPosition);
+	text.setString(m_sText);
+	return text.getGlobalBounds();
+}
+
 void UIText::setColour(sf::Color sfColour)
 {
 	m_sfColour = sfColour;
