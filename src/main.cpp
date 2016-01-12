@@ -34,12 +34,15 @@ int main()
 	// Disable lighting
 	// glDisable(GL_LIGHTING);
 
-	// Enable lighting
+	// Enable lighting (Would be easy to encapsulate in a class.. I hope)
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	// Change light position
 	GLfloat lightpos[] = { 10, 10, 10, 1.0 };
 	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
+	// Changle light colour
+	GLfloat colour[] = { 1.f, 0.7f, 0.7f, 1.0f };
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, colour);
 
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
@@ -91,16 +94,36 @@ int main()
 				glViewport(0, 0, event.size.width, event.size.height);
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-				myObject.rotateModel(10, 1.0, 0.0, 0.0);
+				myObject.move(0.1, 0, 0);
 
-			if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-				myObject.rotateModel(0, 1.0, 1.0, 1.0);
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+				myObject.move(-0.1, 0, 0);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+				myObject.move(0, 0, 0.1);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+				myObject.move(0, 0, -0.1);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+				myObject.setAngle(-1, 0, 0);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+				myObject.setAngle(1, 0, 0);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+				myObject.move(0, 0, 1);
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+				myObject.move(0, 0, -1);
 
 			sf::Vector2f MousePos;
 			MousePos.x = sf::Mouse::getPosition(window).x;
 			MousePos.y = sf::Mouse::getPosition(window).y;
 			if (myText.getBounds().contains(MousePos))
 				myText.setColour(sf::Color::Red);
+			else
+				myText.setColour(sf::Color::Blue);
 		}
 
 		// Update objects here

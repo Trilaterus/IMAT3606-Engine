@@ -29,6 +29,10 @@ public:
 
 	void rotateModel(float fAngle, float fX, float fY, float fZ); // Model,
 	void drawModel(sf::RenderWindow& window) const; // Model,
+	void setAngle(float fXAngle, float fYAngle, float fZAngle); // Model,
+	void move(float fIncrement); // Model,
+	void move(float fXChange, float fYChange, float fZChange); // Model,
+	void setPosition(float fXPos, float fYPos, float fZPos); // Model,
 
 	void update(sf::RenderWindow& window); // Model,
 	void draw(sf::RenderWindow& window) const; // Model,

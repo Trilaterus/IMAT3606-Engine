@@ -3,8 +3,11 @@
 void CPModel::init()
 {
 	clock.restart();
-	m_vfPosition.z = -3.f;
-	m_vfAngles.y = 270;
+	m_vfPosition.x = 0;
+	m_vfPosition.y = 0;
+	m_vfPosition.z = 0.f;
+	m_vfAngles.x = 0;
+	m_vfAngles.y = 0;
 	m_vfAngles.z = 0;
 	m_bIsRotating = false;
 }
@@ -54,12 +57,34 @@ void CPModel::rotate(float fAngle, float fX, float fY, float fZ)
 	m_vfQuaternion.z = fAngle * fZ;
 }
 
+void CPModel::setAngle(float fXAngle, float fYAngle, float fZAngle)
+{
+	m_vfAngles.x = fXAngle;
+	m_vfAngles.y = fYAngle;
+	m_vfAngles.z = fZAngle;
+}
+
+void CPModel::move(float fIncrement)
+{
+
+}
+
+void CPModel::move(float fXChange, float fYChange, float fZChange)
+{
+	m_vfPosition.x += fXChange;
+	m_vfPosition.y += fYChange;
+	m_vfPosition.z += fZChange;
+}
+
+void CPModel::setPosition(float fXPos, float fYPos, float fZPos)
+{
+	m_vfPosition.x = fXPos;
+	m_vfPosition.y = fYPos;
+	m_vfPosition.z = fZPos;
+}
+
 void CPModel::update(sf::RenderWindow& window)
 {
-	// Update positon based on "mouse relative to screen" position
-	m_vfPosition.x = sf::Mouse::getPosition(window).x * 2.f / window.getSize().x - 1.f;
-	m_vfPosition.y = -sf::Mouse::getPosition(window).y * 2.f / window.getSize().y + 1.f;
-
 	m_vfAngles += m_vfQuaternion;
 }
 
@@ -150,10 +175,10 @@ void CPModel::drawModel(sf::RenderWindow& window) const
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
 	glRotatef(m_vfAngles.x, 1.f, 0.f, 0.f);
 	glRotatef(m_vfAngles.y, 0.f, 1.f, 0.f);
 	glRotatef(m_vfAngles.z, 0.f, 0.f, 1.f);
+	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);
 
 	glDrawArrays(GL_TRIANGLES, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexCoords().size() / 3);
 

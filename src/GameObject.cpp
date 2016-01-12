@@ -36,6 +36,38 @@ void GameObject::rotateModel(float fAngle, float fX, float fY, float fZ)
 	}
 }
 
+void GameObject::setAngle(float fXAngle, float fYAngle, float fZAngle)
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->setAngle(fXAngle, fYAngle, fZAngle);
+	}
+}
+
+void GameObject::move(float fIncrement)
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->move(fIncrement);
+	}
+}
+
+void GameObject::move(float fXChange, float fYChange, float fZChange)
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->move(fXChange, fYChange, fZChange);
+	}
+}
+
+void GameObject::setPosition(float fXPos, float fYPos, float fZPos)
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->setPosition(fXPos, fYPos, fZPos);
+	}
+}
+
 void GameObject::drawModel(sf::RenderWindow& window) const
 {
 	if (m_pCPModel != nullptr)
