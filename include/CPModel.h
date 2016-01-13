@@ -30,8 +30,8 @@ public:
 	void setPosition(float fXPos, float fYPos, float fZPos); // Set the position regardless of the previous position
 
 	void update(sf::RenderWindow& window);
-	void draw(sf::RenderWindow& window) const;
-	void drawModel(sf::RenderWindow& window) const;
+	void drawModel(sf::RenderWindow& window) const; // this would draw it not based on camera (potentially useful for 3D UI (?!?! Must TEST!)
+	void drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const; // Draw objects relative to camera
 };
 
 #endif

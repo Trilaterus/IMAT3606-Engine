@@ -13,6 +13,10 @@ GameObject::~GameObject()
 	}
 }
 
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+// Model Functions
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 void GameObject::attachModel()
 {
 	m_pCPModel = new CPModel();
@@ -23,11 +27,6 @@ void GameObject::attachModel(std::string sModelName)
 	m_pCPModel = new CPModel(sModelName);
 }
 
-void GameObject::attachControllable()
-{
-	m_pCPControllable = new CPControllable();
-}
-
 void GameObject::rotateModel(float fAngle, float fX, float fY, float fZ)
 {
 	if (m_pCPModel != nullptr)
@@ -36,7 +35,7 @@ void GameObject::rotateModel(float fAngle, float fX, float fY, float fZ)
 	}
 }
 
-void GameObject::setAngle(float fXAngle, float fYAngle, float fZAngle)
+void GameObject::setModelAngle(float fXAngle, float fYAngle, float fZAngle)
 {
 	if (m_pCPModel != nullptr)
 	{
@@ -44,7 +43,7 @@ void GameObject::setAngle(float fXAngle, float fYAngle, float fZAngle)
 	}
 }
 
-void GameObject::move(float fIncrement)
+void GameObject::moveModel(float fIncrement)
 {
 	if (m_pCPModel != nullptr)
 	{
@@ -52,7 +51,7 @@ void GameObject::move(float fIncrement)
 	}
 }
 
-void GameObject::move(float fXChange, float fYChange, float fZChange)
+void GameObject::moveModel(float fXChange, float fYChange, float fZChange)
 {
 	if (m_pCPModel != nullptr)
 	{
@@ -60,7 +59,7 @@ void GameObject::move(float fXChange, float fYChange, float fZChange)
 	}
 }
 
-void GameObject::setPosition(float fXPos, float fYPos, float fZPos)
+void GameObject::setModelPosition(float fXPos, float fYPos, float fZPos)
 {
 	if (m_pCPModel != nullptr)
 	{
@@ -76,19 +75,112 @@ void GameObject::drawModel(sf::RenderWindow& window) const
 	}
 }
 
+void GameObject::drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->drawModel(window, vCamAngle, vCamPos);
+	}
+}
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+// Camera Functions
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+void GameObject::attachCamera()
+{
+	m_pCPCamera = new CPCamera;
+}
+
+sf::Vector3f GameObject::getCameraPosition()
+{
+	if (m_pCPCamera != nullptr)
+	{
+		return m_pCPCamera->getPosition();
+	}
+}
+
+sf::Vector3f GameObject::getCameraAngle() const
+{
+	if (m_pCPCamera != nullptr)
+	{
+		return m_pCPCamera->getAngle();
+	}
+}
+
+void GameObject::setCameraPosition(sf::Vector3f vPosition)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->setPosition(vPosition);
+	}
+}
+
+void GameObject::setCameraPosition(float fX, float fY, float fZ)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->setPosition(fX, fY, fZ);
+	}
+}
+
+void GameObject::moveCamera(float fX, float fY, float fZ)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->move(fX, fY, fZ);
+	}
+}
+
+void GameObject::moveCameraForward(float fIncrement)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->moveForward(fIncrement);
+	}
+}
+
+void GameObject::strafeCameraRight(float fIncrement)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->strafeRight(fIncrement);
+	}
+}
+
+void GameObject::setCameraAngle(sf::Vector3f vAngle)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->setAngle(vAngle);
+	}
+}
+
+void GameObject::setCameraAngle(float fX, float fY, float fZ)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->setAngle(fX, fY, fZ);
+	}
+}
+
+void GameObject::rotateCamera(float fX, float fY, float fZ)
+{
+	if (m_pCPCamera != nullptr)
+	{
+		m_pCPCamera->rotate(fX, fY, fZ);
+	}
+}
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+// Duplicate Functions
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 void GameObject::update(sf::RenderWindow& window)
 {
 	if (m_pCPModel != nullptr)
 	{
 		m_pCPModel->update(window);
-	}
-}
-
-void GameObject::draw(sf::RenderWindow& window) const
-{
-	if (m_pCPModel != nullptr)
-	{
-		m_pCPModel->draw(window);
 	}
 }
 

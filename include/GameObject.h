@@ -6,12 +6,13 @@
 #include "CPModel.h"
 #include <iostream>
 #include "CPControllable.h"
+#include "CPCamera.h"
 
 class GameObject
 {
 private:
 	CPModel* m_pCPModel;
-	CPControllable* m_pCPControllable;
+	CPCamera* m_pCPCamera;
 
 public:
 	GameObject();
@@ -20,22 +21,39 @@ public:
 	// attachcomponent
 	void attachModel();
 	void attachModel(std::string sModelName);
-	void attachControllable();
+	void attachCamera();
 
 	// dettachcomponent (?)
 
 
-	// All component functions including duplicates
+	// All component functions
 
-	void rotateModel(float fAngle, float fX, float fY, float fZ); // Model,
-	void drawModel(sf::RenderWindow& window) const; // Model,
-	void setAngle(float fXAngle, float fYAngle, float fZAngle); // Model,
-	void move(float fIncrement); // Model,
-	void move(float fXChange, float fYChange, float fZChange); // Model,
-	void setPosition(float fXPos, float fYPos, float fZPos); // Model,
+	// MODEL
+
+	void rotateModel(float fAngle, float fX, float fY, float fZ);
+	void drawModel(sf::RenderWindow& window) const;
+	void drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const;
+	void setModelAngle(float fXAngle, float fYAngle, float fZAngle);
+	void moveModel(float fIncrement);
+	void moveModel(float fXChange, float fYChange, float fZChange);
+	void setModelPosition(float fXPos, float fYPos, float fZPos);
+
+	// CAMERA
+
+	sf::Vector3f getCameraPosition();
+	sf::Vector3f getCameraAngle() const;
+	void setCameraPosition(sf::Vector3f vPosition);
+	void setCameraPosition(float fX, float fY, float fZ);
+	void moveCamera(float fX, float fY, float fZ);
+	void moveCameraForward(float fIncrement);
+	void strafeCameraRight(float fIncrement);
+	void setCameraAngle(sf::Vector3f vAngle);
+	void setCameraAngle(float fX, float fY, float fZ);
+	void rotateCamera(float fX, float fY, float fZ);
+
+	// DUPLICATES 
 
 	void update(sf::RenderWindow& window); // Model,
-	void draw(sf::RenderWindow& window) const; // Model,
 };
 
 #endif // GAMEOBJECT_H

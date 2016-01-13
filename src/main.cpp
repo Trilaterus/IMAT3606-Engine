@@ -2,7 +2,6 @@
 #include <SFML\Graphics.hpp>
 #include "GameObject.h"
 #include "UIText.h"
-#include <GLM\glm.hpp>
 
 int main()
 {
@@ -19,7 +18,6 @@ int main()
 	sf::Texture backgroundTexture;
 	if (!backgroundTexture.loadFromFile("resources/background.jpg"))
 		return EXIT_FAILURE;
-	sf::Sprite background(backgroundTexture);
 
 	// Make the window the active target for OpenGL calls
 	// Note: If using sf::Texture or sf::Shader with OpenGL,
@@ -45,14 +43,6 @@ int main()
 	GLfloat colour1[] = { 1.f, 0.7f, 0.7f, 1.0f }; // example here and in draw area of how to add material colour to objects
 	GLfloat colour2[] = { 0.7f, 0.7f, 1.0f, 1.0f };
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Set up controllable camera
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Cull triangles which normal is not towards the camera
-	glEnable(GL_CULL_FACE);
-	sf::Vector2f cameraPos(0.0f, -3.0f);
-	sf::Vector3f cameraAngle;
-
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
 
@@ -70,6 +60,26 @@ int main()
 	sf::Clock clock;
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Set up controllable camera
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	glEnable(GL_CULL_FACE); // Cull triangles which normal is not towards the camera
+	GameObject myCamera;
+	myCamera.attachCamera();
+	float fCameraSensitivity = 90; // 180 is significant for half of a full rotation, this formula makes it so that if the mouse moves the distance of the window the camera will rotate a full 360 degrees
+	sf::Vector2i vWindowCenter(window.getSize().x / 2, window.getSize().y / 2);
+	sf::Mouse::setPosition(vWindowCenter, window);
+	window.setMouseCursorVisible(false); // Hide the mouse cursor
+	UIText myCamText("Cam Text", 5, 30);
+	myCamText.setColour(sf::Color::Green); // tracks the X axis rotation (since added functionality to stop camera from going upside down, caps at 90 and -90)
+	bool bCamLeft, bCamRight, bCamFore, bCamBack; // used to create smooth camera movement
+	sf::Texture tCrosshair;
+	tCrosshair.loadFromFile("resources/textures/aquaCrosshair.png");
+	sf::Sprite myCrosshair;
+	myCrosshair.setTexture(tCrosshair);
+	myCrosshair.setPosition(vWindowCenter.x, vWindowCenter.y);
+
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Load files into Singletons
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	std::string sObjPath = "resources/objs/";
@@ -81,11 +91,11 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	GameObject myObject;
 	myObject.attachModel("Monkey");
-	myObject.setPosition(0, 0, -3);
+	myObject.setModelPosition(0, 0, -8);
 
 	GameObject myFloor;
 	myFloor.attachModel("Floor");
-	myFloor.setPosition(0, -10, -10);
+	myFloor.setModelPosition(0, -10, -15);
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create UI elements
@@ -114,33 +124,72 @@ int main()
 			if (event.type == sf::Event::Resized)
 				glViewport(0, 0, event.size.width, event.size.height);
 
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				cameraPos.x += 1;
+			// Change camera angle if mouse moves
+			if (event.type == sf::Event::MouseMoved)
+			{
+				if (sf::Mouse::getPosition(window) != vWindowCenter)
+				{
+					float XDiff = sf::Mouse::getPosition(window).x - vWindowCenter.x;
+					float YDiff = sf::Mouse::getPosition(window).y - vWindowCenter.y;
+					float XAngle = (XDiff / vWindowCenter.x) * fCameraSensitivity;
+					float YAngle = (YDiff / vWindowCenter.y) * fCameraSensitivity;
+					myCamera.rotateCamera(YAngle, XAngle, 0.0f); 
+					sf::Mouse::setPosition(vWindowCenter, window);
+				}
+			}
 
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+				bCamLeft = true;
+			else
+				bCamLeft = false;
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+				bCamRight = true;
+			else
+				bCamRight = false;
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+				bCamFore = true;
+			else
+				bCamFore = false;
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+				bCamBack = true;
+			else
+				bCamBack = false;
 		}
 
 		// Update objects here
 		myFloor.update(window);
-		myObject.rotateModel(1.0, 1, 0, 0);
+		myObject.rotateModel(1.0f, 0.0f, 1.0f, 0.0f);
 		myObject.update(window);
 		myText.setString(std::to_string((int)(1 / myClock.getElapsedTime().asSeconds())));
 		myClock.restart();
+		myCamText.setString(std::to_string((int)myCamera.getCameraAngle().y));
+		if (bCamLeft)
+			myCamera.strafeCameraRight(-0.5f);
+		if (bCamRight)
+			myCamera.strafeCameraRight(0.5f);
+		if (bCamFore)
+			myCamera.moveCameraForward(0.5f);
+		if (bCamBack)
+			myCamera.moveCameraForward(-0.5f);
 
-		// Draw the background
-		//window.pushGLStates();
-		//window.draw(background);
-		//window.popGLStates();
+		// To draw any SFML behind the OpenGL use window.pushGLStates() and .popGLStates() similar to
+		// drawing things after the OpenGL rendering here
 		window.clear();
 
 		// Draw OpenGL objects here
 		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour1);
-		myFloor.drawModel(window);
+		myFloor.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());// , myCamera.getAngle());
 		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour2);
-		myObject.drawModel(window);
+		myObject.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());// , myCamera.getAngle());
 
 		// Draw some text on top of our OpenGL object
 		window.pushGLStates();
 		window.draw(myText);
+		window.draw(myCamText);
+		window.draw(myCrosshair);
 		window.popGLStates();
 
 		// Finally, display the rendered frame on screen
