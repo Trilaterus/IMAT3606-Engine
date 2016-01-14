@@ -11,6 +11,19 @@ int main()
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML graphics with OpenGL", sf::Style::Default, contextSettings);
+	
+	sf::Texture myTexture;
+	if (!myTexture.loadFromFile("resources/textures/splash.png"))
+	{
+		return 0;
+	}
+	sf::Sprite mySplashScreen;
+	mySplashScreen.setTexture(myTexture);
+	window.pushGLStates();
+	window.draw(mySplashScreen);
+	window.popGLStates();
+	window.display();
+	
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
 
@@ -21,6 +34,7 @@ int main()
 	// setActive(), as those functions will cause a context switch
 	window.setActive();
 
+
 	// Enable Z-buffer read and write
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
@@ -30,22 +44,13 @@ int main()
 	// Enable lighting (Would be easy to encapsulate in a component.. I hope)
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	glEnable(GL_LIGHTING);
-	glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE);
 
 	GameObject myLight;
-	sf::Vector3f vfLightPos(0, 2, -8);
+	sf::Vector3f vfLightPos(10, 10, -10);
 	myLight.attachLight();
 	myLight.setLightPosition(vfLightPos);
 	myLight.setDiffuse(sf::Vector3f(1.0f, 1.0f, 1.0f));
 	myLight.updateLightAll();
-	// Also attach ball model to light to see where it is
-	myLight.attachModel("SmallBall");
-	myLight.setModelPosition(vfLightPos.x, vfLightPos.y, vfLightPos.z);
-
-	// Set some colours for object materials (will be changed to be added to CPModel)
-	GLfloat colour[] = { 1.0f, 1.0f, 1.0f, 1.0f }; // No colour
-	GLfloat colour1[] = { 1.f, 0.7f, 0.7f, 1.0f }; // Light red
-	GLfloat colour2[] = { 0.7f, 0.7f, 1.0f, 1.0f }; // Light blue
 
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
@@ -66,8 +71,8 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Set up controllable camera
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Cull face disabled as objs downloaded from external sources have not got proper normals
-	//glEnable(GL_CULL_FACE); // Cull triangles which normal is not towards the camera
+	// Can disable cull face if some objs normals are wrong (usually cuz downloaded off internet)
+	glEnable(GL_CULL_FACE); // Cull triangles which normal is not towards the camera
 	GameObject myCamera;
 	myCamera.attachCamera();
 	float fCameraSensitivity = 90; // 180 is significant for half of a full rotation, this formula makes it so that if the mouse moves the distance of the window the camera will rotate a full 360 degrees
@@ -93,16 +98,38 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	GameObject myObject;
 	myObject.attachModel("Monkey");
-	myObject.setModelPosition(0, 0, -8);
+	myObject.setModelPosition(0, 0, -10);
+	myObject.setModelColour(1, 0.7, 0.7);
+
+	GameObject myPodium;
+	myPodium.attachModel("Podium");
+	myPodium.setModelPosition(0, -2, -10);
+	myPodium.setModelColour(0.5, 0.5, 0.5);
 
 	GameObject myFloor;
 	myFloor.attachModel("Floor");
-	myFloor.setModelPosition(0, -10, -15);
+	myFloor.setModelPosition(0, -4.5, 0);
+	myFloor.setModelColour(0.8, 0.9, 0.8);
 
 	GameObject mySword;
 	mySword.attachModel("Sword");
 	mySword.setModelPosition(7, -3, -8);
 	mySword.setModelAngle(80, 10, -20);
+
+	GameObject myForest;
+	myForest.attachModel("Forest");
+	myForest.setModelPosition(0, -4, 0);
+	myForest.setModelColour(0.54, 0.27, 0.07);
+
+	/*
+	GameObject myStars[30];
+	for (int i = 0; i < 30; i++)
+	{
+		myStars[i].attachModel("Ball");
+		myStars[i].setModelColour(1, 1, 1);
+		myStars[i].setModelPosition
+	}
+	*/
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create UI elements
@@ -191,16 +218,18 @@ int main()
 
 		// Update lights first
 		myLight.updateLightPos(myCamera.getCameraAngle(), myCamera.getCameraPosition());
-		myLight.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+
+		//This clears the colour and depth buffer.
+		glClear(GL_DEPTH_BUFFER_BIT);
 
 		// Draw OpenGL objects here
-		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour1);
 		myFloor.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
-		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour2);
+		myPodium.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
 		myObject.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		myForest.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
 		// By not passing the camera offsets I can draw 3D objects that don't move when
 		// the camera does, hence giving the effect of a UI or held object
-		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour);
+		glClear(GL_DEPTH_BUFFER_BIT);
 		mySword.drawModel(window);
 
 		// Draw some text on top of our OpenGL object

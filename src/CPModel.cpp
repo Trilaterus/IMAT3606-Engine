@@ -4,6 +4,7 @@ void CPModel::init()
 {
 	clock.restart();
 	m_bIsRotating = false;
+	m_vfColour = { 1.0f, 1.0f, 1.0f };
 }
 
 CPModel::CPModel()
@@ -79,6 +80,11 @@ void CPModel::setPosition(float fXPos, float fYPos, float fZPos)
 	m_vfPosition.z = fZPos;
 }
 
+void CPModel::setColour(float R, float G, float B)
+{
+	m_vfColour = { R, G, B };
+}
+
 void CPModel::update(sf::RenderWindow& window)
 {
 	m_vfAngles += m_vfQuaternion;
@@ -86,15 +92,15 @@ void CPModel::update(sf::RenderWindow& window)
 
 void CPModel::drawModel(sf::RenderWindow& window) const
 {
+	GLfloat colour[] = { m_vfColour.x, m_vfColour.y, m_vfColour.z };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour);
+
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexCoordsFirst());
 	glNormalPointer(GL_FLOAT, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexNormsFirst());
 
 	//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-	//This clears the colour and depth buffer.
-	glClear(GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -113,15 +119,15 @@ void CPModel::drawModel(sf::RenderWindow& window) const
 
 void CPModel::drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
 {
+	GLfloat colour[] = { m_vfColour.x, m_vfColour.y, m_vfColour.z };
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour);
+
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
 	glVertexPointer(3, GL_FLOAT, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexCoordsFirst());
 	glNormalPointer(GL_FLOAT, 0, ModelSingleton::instance().getModel(m_sModelName).getVertexNormsFirst());
 
 	//glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-	//This clears the colour and depth buffer.
-	glClear(GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();

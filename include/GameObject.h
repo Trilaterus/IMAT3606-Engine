@@ -40,6 +40,7 @@ public:
 	void moveModel(float fIncrement);
 	void moveModel(float fXChange, float fYChange, float fZChange);
 	void setModelPosition(float fXPos, float fYPos, float fZPos);
+	void setModelColour(float fR, float fG, float fB);
 
 	// CAMERA
 

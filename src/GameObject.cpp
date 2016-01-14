@@ -83,6 +83,14 @@ void GameObject::drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf:
 	}
 }
 
+void GameObject::setModelColour(float fR, float fG, float fB)
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->setColour(fR, fG, fB);
+	}
+}
+
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 // Camera Functions
 // // // // // // // // // // // // // // // // // // // // // // // // // // //

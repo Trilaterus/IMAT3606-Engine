@@ -20,7 +20,28 @@
   </model>
 
   <model>
-    <id>SmallBall</id>
+    <id>Podium</id>
+    <filepath>resources/objs/podium.obj</filepath>
+  </model>
+
+  <model>
+    <id>Tree1</id>
+    <filepath>resources/objs/tree1.obj</filepath>
+  </model>
+
+  <model>
+    <id>Tree2</id>
+    <filepath>resources/objs/tree2.obj</filepath>
+  </model>
+
+  <model>
+    <id>Forest</id>
+    <filepath>resources/objs/entireforest.obj</filepath>
+  </model>
+
+  <model>
+    <id>Ball</id>
     <filepath>resources/objs/tinyball.obj</filepath>
   </model>
+
 </document>

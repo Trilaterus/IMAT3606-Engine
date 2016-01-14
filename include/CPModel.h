@@ -15,6 +15,7 @@ private:
 	bool m_bIsRotating;
 	sf::Vector3f m_vfQuaternion;
 	std::string m_sModelName;
+	sf::Vector3f m_vfColour;
 
 	void init(); // Called in every constructor
 
@@ -28,6 +29,7 @@ public:
 	void move(float fIncrement); // change the position by the increment based on the direction its facing
 	void move(float fXChange, float fYChange, float fZChange); // change the position based on the increments
 	void setPosition(float fXPos, float fYPos, float fZPos); // Set the position regardless of the previous position
+	void setColour(float fR, float fG, float fB); // Change the material colour of the object
 
 	void update(sf::RenderWindow& window);
 	void drawModel(sf::RenderWindow& window) const; // this would draw it not based on camera (potentially useful for 3D UI (?!?! Must TEST!)
