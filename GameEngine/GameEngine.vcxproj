@@ -99,6 +99,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\ModelSingleton.cpp" />
     <ClCompile Include="..\src\ObjectLoader.cpp" />
+    <ClCompile Include="..\src\RandomResource.cpp" />
     <ClCompile Include="..\src\TinyXML\tinyxml2.cpp" />
     <ClCompile Include="..\src\UIText.cpp" />
     <ClCompile Include="..\src\Window.cpp" />
@@ -114,6 +115,7 @@
     <ClInclude Include="..\include\GameObject.h" />
     <ClInclude Include="..\include\ModelSingleton.h" />
     <ClInclude Include="..\include\ObjectLoader.h" />
+    <ClInclude Include="..\include\RandomResource.h" />
     <ClInclude Include="..\include\TinyXML\tinyxml2.h" />
     <ClInclude Include="..\include\UIText.h" />
     <ClInclude Include="..\include\Window.h" />

@@ -2,6 +2,7 @@
 #include <SFML\Graphics.hpp>
 #include "GameObject.h"
 #include "UIText.h"
+#include "RandomResource.h"
 
 int main()
 {
@@ -10,7 +11,7 @@ int main()
 	contextSettings.depthBits = 24;
 
 	// Create the main window
-	sf::RenderWindow window(sf::VideoMode(800, 600), "SFML graphics with OpenGL", sf::Style::Default, contextSettings);
+	sf::RenderWindow window(sf::VideoMode(800, 600), "TQFTWMS ", sf::Style::Default, contextSettings);
 	
 	sf::Texture myTexture;
 	if (!myTexture.loadFromFile("resources/textures/splash.png"))
@@ -115,21 +116,25 @@ int main()
 	mySword.attachModel("Sword");
 	mySword.setModelPosition(7, -3, -8);
 	mySword.setModelAngle(80, 10, -20);
+	mySword.setModelColour(0.862745, 0.0784314, 0.235294);
+	bool bSpin = false;
+	float fAngle = 0.0;
+	float fSpeed = -15.0;
 
 	GameObject myForest;
 	myForest.attachModel("Forest");
 	myForest.setModelPosition(0, -4, 0);
 	myForest.setModelColour(0.54, 0.27, 0.07);
 
-	/*
-	GameObject myStars[30];
-	for (int i = 0; i < 30; i++)
+	const int iStarTotal = 100;
+	GameObject myStars[iStarTotal];
+	RandomResource rand;
+	for (int i = 0; i < iStarTotal; i++)
 	{
 		myStars[i].attachModel("Ball");
 		myStars[i].setModelColour(1, 1, 1);
-		myStars[i].setModelPosition
+		myStars[i].setModelPosition(rand.generateFloat(-250, 250), rand.generateFloat(100, 200), rand.generateFloat(-250, 250));
 	}
-	*/
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create UI elements
@@ -192,8 +197,11 @@ int main()
 			else
 				bCamBack = false;
 
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 				myLight.toggleLight();
+
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				bSpin = true;
 		}
 
 		// Update objects here
@@ -211,6 +219,23 @@ int main()
 			myCamera.moveCameraForward(0.2f);
 		if (bCamBack)
 			myCamera.moveCameraForward(-0.2f);
+		if (bSpin)
+		{
+			fAngle += fSpeed;
+			if (fAngle < 360 &&
+				fAngle > -360)
+			{
+				mySword.rotateModel(fSpeed, 1, 0, 0);
+				mySword.update(window);
+			}
+			else
+			{
+				bSpin = false;
+				mySword.setModelAngle(80, 10, -20);
+				mySword.update(window);
+				fAngle = 0.0;
+			}
+		}
 
 		// To draw any SFML behind the OpenGL use window.pushGLStates() and .popGLStates() similar to
 		// drawing things after the OpenGL rendering here
@@ -227,6 +252,10 @@ int main()
 		myPodium.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
 		myObject.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
 		myForest.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		for (int i = 0; i < iStarTotal; i++)
+		{
+			myStars[i].drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		}
 		// By not passing the camera offsets I can draw 3D objects that don't move when
 		// the camera does, hence giving the effect of a UI or held object
 		glClear(GL_DEPTH_BUFFER_BIT);

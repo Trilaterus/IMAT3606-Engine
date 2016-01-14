@@ -40,6 +40,12 @@
     <Filter Include="Resource Files\XML">
       <UniqueIdentifier>{ad9b4ea7-a92b-47cd-ba57-4b3026dfdaaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Resources">
+      <UniqueIdentifier>{0b7467af-b4ce-4493-812b-08cddca98d3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resources">
+      <UniqueIdentifier>{ab1abdef-d06d-4035-aea9-3af68b76eedc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -75,14 +81,17 @@
     <ClCompile Include="..\src\ModelSingleton.cpp">
       <Filter>Source Files\Singletons</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\ObjectLoader.cpp">
-      <Filter>Source Files\Singletons</Filter>
-    </ClCompile>
-    <ClCompile Include="..\src\TinyXML\tinyxml2.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\CPLightSource.cpp">
       <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ObjectLoader.cpp">
+      <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TinyXML\tinyxml2.cpp">
+      <Filter>Source Files\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\RandomResource.cpp">
+      <Filter>Source Files\Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,14 +125,17 @@
     <ClInclude Include="..\include\ModelSingleton.h">
       <Filter>Header Files\Singletons</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\ObjectLoader.h">
-      <Filter>Header Files\Singletons</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\TinyXML\tinyxml2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\CPLightSource.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TinyXML\tinyxml2.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ObjectLoader.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RandomResource.h">
+      <Filter>Header Files\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
