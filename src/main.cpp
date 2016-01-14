@@ -30,15 +30,22 @@ int main()
 	// Enable lighting (Would be easy to encapsulate in a component.. I hope)
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	
-	// Set some colours
+	glLightModeli(GL_LIGHT_MODEL_LOCAL_VIEWER, GL_FALSE);
+
+	GameObject myLight;
+	sf::Vector3f vfLightPos(0, 2, -8);
+	myLight.attachLight();
+	myLight.setLightPosition(vfLightPos);
+	myLight.setDiffuse(sf::Vector3f(1.0f, 1.0f, 1.0f));
+	myLight.updateLightAll();
+	// Also attach ball model to light to see where it is
+	myLight.attachModel("SmallBall");
+	myLight.setModelPosition(vfLightPos.x, vfLightPos.y, vfLightPos.z);
+
+	// Set some colours for object materials (will be changed to be added to CPModel)
 	GLfloat colour[] = { 1.0f, 1.0f, 1.0f, 1.0f }; // No colour
 	GLfloat colour1[] = { 1.f, 0.7f, 0.7f, 1.0f }; // Light red
 	GLfloat colour2[] = { 0.7f, 0.7f, 1.0f, 1.0f }; // Light blue
-	// Change light position
-	GLfloat lightpos1[] = { 10, 10, 10, 1.0 };
-	glLightfv(GL_LIGHT0, GL_POSITION, lightpos1);
 
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
@@ -75,7 +82,6 @@ int main()
 	sf::Sprite myCrosshair;
 	myCrosshair.setTexture(tCrosshair);
 	myCrosshair.setPosition(vWindowCenter.x, vWindowCenter.y);
-
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Load files into Singletons
@@ -158,6 +164,9 @@ int main()
 				bCamBack = true;
 			else
 				bCamBack = false;
+
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+				myLight.toggleLight();
 		}
 
 		// Update objects here
@@ -168,17 +177,21 @@ int main()
 		myClock.restart();
 		myCamText.setString(std::to_string((int)myCamera.getCameraAngle().y));
 		if (bCamLeft)
-			myCamera.strafeCameraRight(-0.5f);
+			myCamera.strafeCameraRight(-0.2f);
 		if (bCamRight)
-			myCamera.strafeCameraRight(0.5f);
+			myCamera.strafeCameraRight(0.2f);
 		if (bCamFore)
-			myCamera.moveCameraForward(0.5f);
+			myCamera.moveCameraForward(0.2f);
 		if (bCamBack)
-			myCamera.moveCameraForward(-0.5f);
+			myCamera.moveCameraForward(-0.2f);
 
 		// To draw any SFML behind the OpenGL use window.pushGLStates() and .popGLStates() similar to
 		// drawing things after the OpenGL rendering here
 		window.clear();
+
+		// Update lights first
+		myLight.updateLightPos(myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		myLight.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
 
 		// Draw OpenGL objects here
 		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour1);

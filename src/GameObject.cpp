@@ -173,6 +173,71 @@ void GameObject::rotateCamera(float fX, float fY, float fZ)
 }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
+// LightSource Functions
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+void GameObject::attachLight()
+{
+	m_pCPLight = new CPLightSource;
+}
+
+void GameObject::setLightPosition(sf::Vector3f vfPosition)
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->setPosition(vfPosition);
+	}
+}
+
+void GameObject::setAmbient(sf::Vector3f vfAmbient)
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->setAmbient(vfAmbient);
+	}
+}
+
+void GameObject::setDiffuse(sf::Vector3f vfDiffuse)
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->setDiffuse(vfDiffuse);
+	}
+}
+
+void GameObject::setSpecular(sf::Vector3f vfSpecular)
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->setSpecular(vfSpecular);
+	}
+}
+
+void GameObject::toggleLight()
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->toggleLight();
+	}
+}
+
+void GameObject::updateLightAll()
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->updateAll();
+	}
+}
+
+void GameObject::updateLightPos(sf::Vector3f vCamAngle, sf::Vector3f vCamPos)
+{
+	if (m_pCPLight != nullptr)
+	{
+		m_pCPLight->updatePosition(vCamAngle, vCamPos);
+	}
+}
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
 // Duplicate Functions
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -183,17 +248,3 @@ void GameObject::update(sf::RenderWindow& window)
 		m_pCPModel->update(window);
 	}
 }
-
-/* Example of function with handling for different components but same function name
-void GameObject::setPosition(float fXPos, float fYPos)
-{
-	if (m_pComponentMovable != nullptr)
-	{
-		m_pComponentMovable->setPosition(fXPos, fYPos);
-	}
-	else
-	{
-		// Safely do nothing
-	}
-}
-*/

@@ -18,4 +18,9 @@
     <id>Sword</id>
     <filepath>resources/objs/sword.obj</filepath>
   </model>
+
+  <model>
+    <id>SmallBall</id>
+    <filepath>resources/objs/tinyball.obj</filepath>
+  </model>
 </document>

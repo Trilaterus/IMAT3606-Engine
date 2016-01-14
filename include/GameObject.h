@@ -7,12 +7,14 @@
 #include <iostream>
 #include "CPControllable.h"
 #include "CPCamera.h"
+#include "CPLightSource.h"
 
 class GameObject
 {
 private:
 	CPModel* m_pCPModel;
 	CPCamera* m_pCPCamera;
+	CPLightSource* m_pCPLight;
 
 public:
 	GameObject();
@@ -22,6 +24,7 @@ public:
 	void attachModel();
 	void attachModel(std::string sModelName);
 	void attachCamera();
+	void attachLight();
 
 	// dettachcomponent (?)
 
@@ -50,6 +53,17 @@ public:
 	void setCameraAngle(sf::Vector3f vAngle);
 	void setCameraAngle(float fX, float fY, float fZ);
 	void rotateCamera(float fX, float fY, float fZ);
+
+	// LIGHT
+
+	void setLightPosition(sf::Vector3f vfPosition);
+	void setAmbient(sf::Vector3f vfAmbient);
+	void setDiffuse(sf::Vector3f vfDiffuse);
+	void setSpecular(sf::Vector3f vfSpecular);
+
+	void toggleLight();
+	void updateLightAll();
+	void updateLightPos(sf::Vector3f vCamAngle, sf::Vector3f vCamPos);
 
 	// DUPLICATES 
 

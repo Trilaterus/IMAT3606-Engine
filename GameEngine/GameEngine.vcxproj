@@ -91,6 +91,7 @@
     <ClCompile Include="..\src\Component.cpp" />
     <ClCompile Include="..\src\CPCamera.cpp" />
     <ClCompile Include="..\src\CPControllable.cpp" />
+    <ClCompile Include="..\src\CPLightSource.cpp" />
     <ClCompile Include="..\src\CPModel.cpp" />
     <ClCompile Include="..\src\EventManager.cpp" />
     <ClCompile Include="..\src\FontSingleton.cpp" />
@@ -106,6 +107,7 @@
     <ClInclude Include="..\include\Component.h" />
     <ClInclude Include="..\include\CPCamera.h" />
     <ClInclude Include="..\include\CPControllable.h" />
+    <ClInclude Include="..\include\CPLightSource.h" />
     <ClInclude Include="..\include\CPModel.h" />
     <ClInclude Include="..\include\EventManager.h" />
     <ClInclude Include="..\include\FontSingleton.h" />
