@@ -51,7 +51,7 @@ void ModelSingleton::init()
 					object.setFilePath(sFilePath);
 					if (!object.loadObject())
 					{
-						std::cout << "ModelSingleton: Error loading from XML!" << std::endl;
+						std::cout << "ModelSingleton: Error loading object!" << std::endl;
 					}
 					m_AllModels[sID] = object;
 				}

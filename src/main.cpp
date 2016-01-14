@@ -31,12 +31,14 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
+	
+	// Set some colours
+	GLfloat colour[] = { 1.0f, 1.0f, 1.0f, 1.0f }; // No colour
+	GLfloat colour1[] = { 1.f, 0.7f, 0.7f, 1.0f }; // Light red
+	GLfloat colour2[] = { 0.7f, 0.7f, 1.0f, 1.0f }; // Light blue
 	// Change light position
-	GLfloat lightpos[] = { 10, 10, 10, 1.0 };
-	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
-	// Changle light colour
-	GLfloat colour1[] = { 1.f, 0.7f, 0.7f, 1.0f }; // example here and in draw area of how to add material colour to objects
-	GLfloat colour2[] = { 0.7f, 0.7f, 1.0f, 1.0f };
+	GLfloat lightpos1[] = { 10, 10, 10, 1.0 };
+	glLightfv(GL_LIGHT0, GL_POSITION, lightpos1);
 
 	// Configure the viewport (the same size as the window)
 	glViewport(0, 0, window.getSize().x, window.getSize().y);
@@ -45,7 +47,7 @@ int main()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	GLfloat ratio = static_cast<float>(window.getSize().x) / window.getSize().y;
-	glFrustum(-ratio, ratio, -1.f, 1.f, 1.f, 500.f);
+	glFrustum(-ratio, ratio, -1.f, 1.f, 1.0f, 500.f);
 
 	// Disable normal and color vertex components
 	glDisableClientState(GL_NORMAL_ARRAY);
@@ -57,7 +59,8 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Set up controllable camera
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	glEnable(GL_CULL_FACE); // Cull triangles which normal is not towards the camera
+	// Cull face disabled as objs downloaded from external sources have not got proper normals
+	//glEnable(GL_CULL_FACE); // Cull triangles which normal is not towards the camera
 	GameObject myCamera;
 	myCamera.attachCamera();
 	float fCameraSensitivity = 90; // 180 is significant for half of a full rotation, this formula makes it so that if the mouse moves the distance of the window the camera will rotate a full 360 degrees
@@ -89,6 +92,11 @@ int main()
 	GameObject myFloor;
 	myFloor.attachModel("Floor");
 	myFloor.setModelPosition(0, -10, -15);
+
+	GameObject mySword;
+	mySword.attachModel("Sword");
+	mySword.setModelPosition(7, -3, -8);
+	mySword.setModelAngle(80, 10, -20);
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create UI elements
@@ -174,9 +182,13 @@ int main()
 
 		// Draw OpenGL objects here
 		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour1);
-		myFloor.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());// , myCamera.getAngle());
+		myFloor.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
 		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour2);
-		myObject.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());// , myCamera.getAngle());
+		myObject.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		// By not passing the camera offsets I can draw 3D objects that don't move when
+		// the camera does, hence giving the effect of a UI or held object
+		glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour);
+		mySword.drawModel(window);
 
 		// Draw some text on top of our OpenGL object
 		window.pushGLStates();

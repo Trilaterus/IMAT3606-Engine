@@ -13,4 +13,9 @@
     <id>Floor</id>
     <filepath>resources/objs/plane.obj</filepath>
   </model>
+
+  <model>
+    <id>Sword</id>
+    <filepath>resources/objs/sword.obj</filepath>
+  </model>
 </document>

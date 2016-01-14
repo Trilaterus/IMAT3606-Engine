@@ -302,12 +302,14 @@ bool ObjectLoader::loadObject()
 			m_vfVertexCoords.push_back(m_vfVertexCoordsIndex.at((*it -1) * 3 + 1));
 			m_vfVertexCoords.push_back(m_vfVertexCoordsIndex.at((*it -1) * 3 + 2));
 		}
+		/* This is where texture normals would be stored... since I have no textures I've commented it out
 		for (std::vector<int>::iterator it = m_viFaceTNIndex.begin(); it != m_viFaceTNIndex.end(); ++it)
 		{
 			m_vfTextureNormals.push_back(m_vfTextureNormalsIndex.at((*it -1) * 3));
 			m_vfTextureNormals.push_back(m_vfTextureNormalsIndex.at((*it -1) * 3 + 1));
 			m_vfTextureNormals.push_back(m_vfTextureNormalsIndex.at((*it -1) * 3 + 2));
 		}
+		*/
 		for (std::vector<int>::iterator it = m_viFaceVNIndex.begin(); it != m_viFaceVNIndex.end(); ++it)
 		{
 			m_vfVertexNormals.push_back(m_vfVertexNormalsIndex.at((*it -1) * 3));
