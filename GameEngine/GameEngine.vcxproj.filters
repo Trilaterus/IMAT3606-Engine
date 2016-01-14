@@ -37,6 +37,9 @@
     <Filter Include="Source Files\Singletons">
       <UniqueIdentifier>{eed85f4b-faed-40fc-bd0d-aa6a52e158a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\XML">
+      <UniqueIdentifier>{ad9b4ea7-a92b-47cd-ba57-4b3026dfdaaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp">
@@ -75,6 +78,9 @@
     <ClCompile Include="..\src\ObjectLoader.cpp">
       <Filter>Source Files\Singletons</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TinyXML\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Component.h">
@@ -110,5 +116,13 @@
     <ClInclude Include="..\include\ObjectLoader.h">
       <Filter>Header Files\Singletons</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\TinyXML\tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="resources\xml\ModelMeshXML.xml">
+      <Filter>Resource Files\XML</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

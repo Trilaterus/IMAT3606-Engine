@@ -14,11 +14,6 @@ int main()
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
 
-	// Create a sprite for the background
-	sf::Texture backgroundTexture;
-	if (!backgroundTexture.loadFromFile("resources/background.jpg"))
-		return EXIT_FAILURE;
-
 	// Make the window the active target for OpenGL calls
 	// Note: If using sf::Texture or sf::Shader with OpenGL,
 	// be sure to call sf::Texture::getMaximumSize() and/or
@@ -82,9 +77,7 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Load files into Singletons
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	std::string sObjPath = "resources/objs/";
-	ModelSingleton::instance().loadModel("Monkey", sObjPath + "monkey.obj");
-	ModelSingleton::instance().loadModel("Floor", sObjPath + "plane.obj");
+	ModelSingleton::instance().init();
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create Game Objects and their components

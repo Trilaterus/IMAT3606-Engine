@@ -1,0 +1,16 @@
+<document>
+  <model>
+    <id>default</id>
+    <filepath>resources/objs/default.obj</filepath>
+  </model>
+
+  <model>
+    <id>Monkey</id>
+    <filepath>resources/objs/monkey.obj</filepath>
+  </model>
+
+  <model>
+    <id>Floor</id>
+    <filepath>resources/objs/plane.obj</filepath>
+  </model>
+</document>

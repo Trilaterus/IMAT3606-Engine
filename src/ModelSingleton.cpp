@@ -2,19 +2,73 @@
 
 ModelSingleton::ModelSingleton()
 {
-	ObjectLoader object;
-	object.setFilePath("resources/objs/default.obj");
-	if (!object.loadObject())
-	{
-		std::cout << "ModelSingleton: Error loading default file!" << std::endl;
-	}
-	m_AllModels["default"] = object;
+
 }
 
 ModelSingleton& ModelSingleton::instance()
 {
 	static ModelSingleton instance;
 	return instance;
+}
+
+void ModelSingleton::init()
+{
+	tinyxml2::Whitespace::COLLAPSE_WHITESPACE;
+	tinyxml2::XMLDocument ModelXML;
+	ModelXML.LoadFile("resources/xml/ModelMeshXML.xml");
+	tinyxml2::XMLElement* eDocument = ModelXML.FirstChildElement("document");
+	if (eDocument)
+	{
+		tinyxml2::XMLElement* eModel = eDocument->FirstChildElement("model");
+		bool bParsing = true;
+		while (bParsing)
+		{
+			if (eModel)
+			{
+				std::string sID;
+				std::string sFilePath;
+
+				// Get model ID
+				tinyxml2::XMLElement* eID = eModel->FirstChildElement("id");
+				if (eID)
+				{
+					sID = eID->GetText();
+				}
+
+				// Get model FilePath
+				tinyxml2::XMLElement* eFilePath = eModel->FirstChildElement("filepath");
+				if (eFilePath)
+				{
+					sFilePath = eFilePath->GetText();
+				}
+
+				// Check both strings to ensure neither are empty
+				if (sID != "" ||
+					sFilePath != "")
+				{
+					// Load model using information retrieved into ModelSinglton
+					ObjectLoader object;
+					object.setFilePath(sFilePath);
+					if (!object.loadObject())
+					{
+						std::cout << "ModelSingleton: Error loading from XML!" << std::endl;
+					}
+					m_AllModels[sID] = object;
+				}
+				else
+				{
+					std::cout << "ModelSingleton: Empty text sections in XML!" << std::endl;
+				}
+
+				eModel = eModel->NextSiblingElement("model");
+			}
+			else
+			{
+				// No more <model>s found, end parsing
+				bParsing = false;
+			}
+		}
+	}
 }
 
 bool ModelSingleton::loadModel(std::string sName, std::string sFileName)
