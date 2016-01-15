@@ -16,7 +16,8 @@ private:
 public:
 	Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window); // Can only construct from valid XML file and by having some form of camera
 
-	void update(sf::Event sfEvent);
+	void handleEvent(sf::Event sfEvent);
+	void update();
 	void draw();
 };
 

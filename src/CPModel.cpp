@@ -151,6 +151,10 @@ void CPModel::drawModel(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
 		glRotatef(vCamAngle.z, 0.f, 0.f, 1.f);
 		glTranslatef(vCamPos.x, vCamPos.y, vCamPos.z);
 	}
+	else
+	{
+		glClear(GL_DEPTH_BUFFER_BIT);
+	}
 
 	// Then normal object transformations
 	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);

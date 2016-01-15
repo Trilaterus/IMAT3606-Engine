@@ -4,14 +4,14 @@
     <ID>myLight</ID>
     <Light>
       <Position>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
+        <x>10</x>
+        <y>10</y>
+        <z>-10</z>
       </Position>
       <Diffuse>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
+        <r>1</r>
+        <g>1</g>
+        <b>1</b>
       </Diffuse>
     </Light>
   </Object>
@@ -23,12 +23,12 @@
       <Position>
         <x>0</x>
         <y>0</y>
-        <z>0</z>
+        <z>-10</z>
       </Position>
       <Colour>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
+        <r>1</r>
+        <g>0.7</g>
+        <b>0.7</b>
       </Colour>
     </Model>
   </Object>
@@ -39,13 +39,13 @@
       <OBJ>Podium</OBJ>
       <Position>
         <x>0</x>
-        <y>0</y>
-        <z>0</z>
+        <y>-2</y>
+        <z>-10</z>
       </Position>
       <Colour>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
+        <r>0.5</r>
+        <g>0.5</g>
+        <b>0.5</b>
       </Colour>
     </Model>
   </Object>
@@ -56,13 +56,13 @@
       <OBJ>Floor</OBJ>
       <Position>
         <x>0</x>
-        <y>0</y>
+        <y>-4.5</y>
         <z>0</z>
       </Position>
       <Colour>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
+        <r>0.8</r>
+        <g>0.9</g>
+        <b>0.8</b>
       </Colour>
     </Model>
   </Object>
@@ -72,19 +72,19 @@
     <Model>
       <OBJ>Sword</OBJ>
       <Position>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
+        <x>7</x>
+        <y>-3</y>
+        <z>-8</z>
       </Position>
       <Colour>
-        <r>0</r>
-        <g>0</g>
-        <b>0</b>
+        <r>0.862745</r>
+        <g>0.0784314</g>
+        <b>0.235294</b>
       </Colour>
       <Angle>
-        <x>0</x>
-        <y>0</y>
-        <z>0</z>
+        <x>80</x>
+        <y>10</y>
+        <z>-20</z>
       </Angle>
       <CamLock>true</CamLock>
     </Model>

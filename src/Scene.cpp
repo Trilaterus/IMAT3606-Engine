@@ -57,7 +57,7 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 					}
 
 					// Handle <CamLock>
-					tinyxml2::XMLElement* eCamLock = eObject->FirstChildElement("CamLock");
+					tinyxml2::XMLElement* eCamLock = eModel->FirstChildElement("CamLock");
 					if (eCamLock)
 					{
 						std::string sCamLock = eCamLock->GetText();
@@ -66,7 +66,9 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 							sCamLock != "F" ||
 							sCamLock != "false" ||
 							sCamLock != "False")
-						myGameObject->setModelCamLock(true);
+						{
+							myGameObject->setModelCamLock(true);
+						}
 					}
 
 					// Handle <Position>
@@ -79,21 +81,21 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 						{
 							std::string sX = eXPos->GetText();
 							float fX = std::stof(sX);
-							vfPosition.x;
+							vfPosition.x = fX;
 						}
 						tinyxml2::XMLElement* eYPos = ePosition->FirstChildElement("y");
 						if (eYPos)
 						{
 							std::string sY = eYPos->GetText();
 							float fY = std::stof(sY);
-							vfPosition.y;
+							vfPosition.y = fY;
 						}
 						tinyxml2::XMLElement* eZPos = ePosition->FirstChildElement("z");
 						if (eZPos)
 						{
 							std::string sZ = eZPos->GetText();
-							float fz = std::stof(sZ);
-							vfPosition.z;
+							float fZ = std::stof(sZ);
+							vfPosition.z = fZ;
 						}
 
 						myGameObject->setModelPosition(vfPosition.x, vfPosition.y, vfPosition.z);
@@ -116,14 +118,14 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 						{
 							std::string sG = eG->GetText();
 							float fG = std::stof(sG);
-							vfColour.x = fG;
+							vfColour.y = fG;
 						}
 						tinyxml2::XMLElement* eB = eColour->FirstChildElement("b");
 						if (eB)
 						{
 							std::string sB = eB->GetText();
 							float fB = std::stof(sB);
-							vfColour.x = fB;
+							vfColour.z = fB;
 						}
 
 						myGameObject->setModelColour(vfColour.x, vfColour.y, vfColour.z);
@@ -146,17 +148,17 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 						{
 							std::string sY = eY->GetText();
 							float fY = std::stof(sY);
-							vfAngle.x = fY;
+							vfAngle.y = fY;
 						}
 						tinyxml2::XMLElement* eZ = eAngle->FirstChildElement("z");
 						if (eZ)
 						{
 							std::string sZ = eZ->GetText();
 							float fZ = std::stof(sZ);
-							vfAngle.x = fZ;
+							vfAngle.z = fZ;
 						}
 
-						myGameObject->setModelColour(vfAngle.x, vfAngle.y, vfAngle.z);
+						myGameObject->setModelAngle(vfAngle.x, vfAngle.y, vfAngle.z);
 					}
 				}
 
@@ -176,28 +178,28 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 						{
 							std::string sX = eXPos->GetText();
 							float fX = std::stof(sX);
-							vfPosition.x;
+							vfPosition.x = fX;
 						}
 						tinyxml2::XMLElement* eYPos = ePosition->FirstChildElement("y");
 						if (eYPos)
 						{
 							std::string sY = eYPos->GetText();
 							float fY = std::stof(sY);
-							vfPosition.y;
+							vfPosition.y = fY;
 						}
 						tinyxml2::XMLElement* eZPos = ePosition->FirstChildElement("z");
 						if (eZPos)
 						{
 							std::string sZ = eZPos->GetText();
-							float fz = std::stof(sZ);
-							vfPosition.z;
+							float fZ = std::stof(sZ);
+							vfPosition.z = fZ;
 						}
 
 						myGameObject->setLightPosition(vfPosition);
 					}
 
 					// Handle <Colour>
-					tinyxml2::XMLElement* eColour = eLight->FirstChildElement("Colour");
+					tinyxml2::XMLElement* eColour = eLight->FirstChildElement("Diffuse");
 					if (eColour)
 					{
 						sf::Vector3f vfColour = { 1.0, 1.0, 1.0 };
@@ -213,17 +215,22 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 						{
 							std::string sG = eG->GetText();
 							float fG = std::stof(sG);
-							vfColour.x = fG;
+							vfColour.y = fG;
 						}
 						tinyxml2::XMLElement* eB = eColour->FirstChildElement("b");
 						if (eB)
 						{
 							std::string sB = eB->GetText();
 							float fB = std::stof(sB);
-							vfColour.x = fB;
+							vfColour.z = fB;
 						}
 
 						myGameObject->setDiffuse(vfColour);
+					}
+					else
+					{
+						// If no colour is defined then set it to pure white
+						myGameObject->setDiffuse(sf::Vector3f(1.0f, 1.0f, 1.0f));
 					}
 				}
 
@@ -327,18 +334,12 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 	}
 }
 
-void Scene::update(sf::Event sfEvent)
+void Scene::handleEvent(sf::Event sfEvent)
 {
 	sf::Vector2i WindowCentre = { (int)m_pWindow->getSize().x / 2, (int)m_pWindow->getSize().y / 2 };
 	for (std::map<std::string, GameObject*>::const_iterator it = m_vGameObjects.begin()
 		; it != m_vGameObjects.end(); ++it)
 	{
-		GameObject* myObject = it->second;
-
-		// Add commands for specific Models here
-		if (it->first == "myMonkey")
-			myObject->rotateModel(1.0f, 0.0f, 1.0f, 0.0f);
-
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 			m_pCamera->moveCameraForward(0.2f);
 
@@ -358,11 +359,22 @@ void Scene::update(sf::Event sfEvent)
 				}
 			}
 		}
-		//
+	}
+}
+
+void Scene::update()
+{
+	for (std::map<std::string, GameObject*>::const_iterator it = m_vGameObjects.begin()
+		; it != m_vGameObjects.end(); ++it)
+	{
+		GameObject* myObject = it->second;
+
+		// Add commands for specific Models here
+		if (it->first == "myMonkey")
+			myObject->rotateModel(1.0f, 0.0f, 1.0f, 0.0f);
 
 		if (myObject->hasModel())
 			myObject->updateModel(*m_pWindow);
-
 	}
 }
 

@@ -35,11 +35,6 @@
   </model>
 
   <model>
-    <id>Forest</id>
-    <filepath>resources/objs/entireforest.obj</filepath>
-  </model>
-
-  <model>
     <id>Ball</id>
     <filepath>resources/objs/tinyball.obj</filepath>
   </model>

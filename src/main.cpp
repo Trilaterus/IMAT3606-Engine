@@ -11,7 +11,6 @@ int main()
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 24;
 
-	//Scene myScene("resources/xml/NightDeadForest.xml");
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "TQFTWMS ", sf::Style::Default, contextSettings);
@@ -44,33 +43,6 @@ int main()
 	glDepthMask(GL_TRUE);
 	glClearDepth(1.f);
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Enable lighting (Would be easy to encapsulate in a component.. I hope)
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	glEnable(GL_LIGHTING);
-
-	GameObject myLight;
-	sf::Vector3f vfLightPos(10, 10, -10);
-	myLight.attachLight();
-	myLight.setLightPosition(vfLightPos);
-	myLight.setDiffuse(sf::Vector3f(1.0f, 1.0f, 1.0f));
-	myLight.updateLightAll();
-
-	// Configure the viewport (the same size as the window)
-	glViewport(0, 0, window.getSize().x, window.getSize().y);
-
-	// Setup a perspective projection
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	GLfloat ratio = static_cast<float>(window.getSize().x) / window.getSize().y;
-	glFrustum(-ratio, ratio, -1.f, 1.f, 1.0f, 500.f);
-
-	// Disable normal and color vertex components
-	glDisableClientState(GL_NORMAL_ARRAY);
-	glDisableClientState(GL_COLOR_ARRAY);
-
-	// Create a clock for measuring the time elapsed
-	sf::Clock clock;
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Set up controllable camera
@@ -97,6 +69,36 @@ int main()
 	mySecondCamera.rotateCamera(0, 0, 25);
 
 	GameObject* myCurrentCamera = &myCamera;
+	glEnable(GL_LIGHTING);
+	Scene myScene("resources/xml/NightDeadForest.xml", myCurrentCamera, window);
+	
+	// Configure the viewport (the same size as the window)
+	glViewport(0, 0, window.getSize().x, window.getSize().y);
+
+	// Setup a perspective projection
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	GLfloat ratio = static_cast<float>(window.getSize().x) / window.getSize().y;
+	glFrustum(-ratio, ratio, -1.f, 1.f, 1.0f, 500.f);
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Enable lighting (Would be easy to encapsulate in a component.. I hope)
+	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	/*
+	glEnable(GL_LIGHTING);
+
+	GameObject myLight;
+	sf::Vector3f vfLightPos(10, 10, -10);
+	myLight.attachLight();
+	myLight.setLightPosition(vfLightPos);
+	myLight.setDiffuse(sf::Vector3f(1.0f, 1.0f, 1.0f));
+	myLight.updateLightAll();
+
+
+	// Disable normal and color vertex components
+	glDisableClientState(GL_NORMAL_ARRAY);
+	glDisableClientState(GL_COLOR_ARRAY);
+	*/
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Load files into Singletons
@@ -106,6 +108,7 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create Game Objects and their components
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	/*
 	GameObject myObject;
 	myObject.attachModel("Monkey");
 	myObject.setModelPosition(0, 0, -10);
@@ -144,10 +147,12 @@ int main()
 		myStars[i].setModelColour(1, 1, 1);
 		myStars[i].setModelPosition(rand.generateFloat(-250, 250), rand.generateFloat(100, 200), rand.generateFloat(-250, 250));
 	}
+	*/
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Create UI elements
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	/*
 	UIText myText("Hello World!", 5, 5);
 	myText.setColour(sf::Color::Blue);
 
@@ -155,20 +160,21 @@ int main()
 	myCamText.setColour(sf::Color::Green); // tracks the X axis rotation (since added functionality to stop camera from going upside down, caps at 90 and -90)
 
 	sf::Clock myClock;
+	*/
 
 	// Start game loop
 	while (window.isOpen())
 	{
 		// Process events
-		sf::Event event;
-		while (window.pollEvent(event))
+		sf::Event sfevent;
+		while (window.pollEvent(sfevent))
 		{
 			// Close window: exit
-			if (event.type == sf::Event::Closed)
+			if (sfevent.type == sf::Event::Closed)
 				window.close();
 
 			// Escape key: exit
-			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
+			if ((sfevent.type == sf::Event::KeyPressed) && (sfevent.key.code == sf::Keyboard::Escape))
 			{
 				if (bLocked)
 				{
@@ -182,9 +188,11 @@ int main()
 			}
 
 			// Adjust the viewport when the window is resized
-			if (event.type == sf::Event::Resized)
-				glViewport(0, 0, event.size.width, event.size.height);
+			if (sfevent.type == sf::Event::Resized)
+				glViewport(0, 0, sfevent.size.width, sfevent.size.height);
 
+			myScene.handleEvent(sfevent);
+			/*
 			// Change camera angle if mouse moves
 			if (event.type == sf::Event::MouseMoved)
 			{
@@ -243,8 +251,14 @@ int main()
 					window.setMouseCursorVisible(false);
 				}
 			}
+			*/
 		}
 
+		window.clear();
+		myScene.update();
+		glClear(GL_DEPTH_BUFFER_BIT);
+		myScene.draw();
+		/*
 		// Update objects here
 		myFloor.updateModel(window);
 		myObject.rotateModel(1.0f, 0.0f, 1.0f, 0.0f);
@@ -303,11 +317,12 @@ int main()
 		mySword.drawModel();
 
 		// Draw some text on top of our OpenGL object
-		window.pushGLStates();
 		window.draw(myText);
 		window.draw(myCamText);
 		if (bLocked)
 			window.draw(myCrosshair);
+		*/
+		window.pushGLStates();
 		window.popGLStates();
 
 		// Finally, display the rendered frame on screen
