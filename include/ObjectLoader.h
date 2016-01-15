@@ -1,3 +1,6 @@
+/** \file ObjectLoader.h
+The header file for the ObjectLoader class
+*/
 #ifndef OBJECTLOADER_H
 #define OBJECTLOADER_H
 

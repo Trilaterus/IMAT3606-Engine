@@ -1,3 +1,6 @@
+/** \file CPCamera.h
+The header file for the ComponentCamera class.
+*/
 #ifndef CPCAMERA_H
 #define CPCAMERA_H
 

@@ -1,3 +1,6 @@
+/** \file Component.h
+The header file for the Component class.
+*/
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
@@ -14,4 +17,4 @@ public:
 
 };
 
-#endif
+#endif // COMPONENT_H

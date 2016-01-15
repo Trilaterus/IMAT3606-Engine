@@ -1,3 +1,6 @@
+/** \file CPControllable.h
+The header file for the ComponentControllable class.
+*/
 #ifndef CPCONTROLLABLE_H
 #define CPCONTROLLABLE_H
 

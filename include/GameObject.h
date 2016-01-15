@@ -1,3 +1,6 @@
+/** \file GameObject.h
+The header file for the GameObject class.
+*/
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 

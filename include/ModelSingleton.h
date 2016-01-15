@@ -1,3 +1,6 @@
+/** \file ModelSingleton.h
+The header file for the ModelSingleton class.
+*/
 #ifndef MODELSINGLETON_H
 #define MODELSINGLETON_H
 

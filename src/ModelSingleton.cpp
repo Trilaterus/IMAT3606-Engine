@@ -1,16 +1,32 @@
+/** \file ModelSingleton.cpp
+A singleton class which stores ObjectLoaders in order to ensure efficiency
+when drawing and created Models or meshes.
+*/
 #include "ModelSingleton.h"
 
+/**
+The private default constructor for the class.
+*/
 ModelSingleton::ModelSingleton()
 {
 
 }
 
+/**
+Returns the only instance of the ModelSingleton.
+
+\return The only instance of ModelSingleton
+*/
 ModelSingleton& ModelSingleton::instance()
 {
 	static ModelSingleton instance;
 	return instance;
 }
 
+/**
+Loads and stores all the .objs from an XML file specified within
+the function.
+*/
 void ModelSingleton::init()
 {
 	tinyxml2::XMLDocument ModelXML;
@@ -73,6 +89,14 @@ void ModelSingleton::init()
 	}
 }
 
+/**
+Loads a model from a passed file path and stores it with a passed ID.
+Returns a bool representing its success.
+
+\param sName A string ID for the .obj
+\param sFileName A string file path to the .obj file.
+\return A bool representing the success of the load.
+*/
 bool ModelSingleton::loadModel(std::string sName, std::string sFileName)
 {
 	ObjectLoader object;
@@ -89,6 +113,12 @@ bool ModelSingleton::loadModel(std::string sName, std::string sFileName)
 	}
 }
 
+/**
+Returns an object specified by a passed ID.
+
+\param sName The string ID of the object
+\return An ObjectLoader address related to the ID passed.
+*/
 ObjectLoader& ModelSingleton::getModel(std::string sName)
 {
 	if (m_AllModels.find(sName) == m_AllModels.end())

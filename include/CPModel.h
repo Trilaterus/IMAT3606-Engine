@@ -1,3 +1,7 @@
+/** \file CPModel.h
+The header file for the ComponentModel class.
+*/
+
 #ifndef CPMODEL_H
 #define CPMODEL_H
 

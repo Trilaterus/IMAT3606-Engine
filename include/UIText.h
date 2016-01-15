@@ -1,3 +1,6 @@
+/** \file UIText.h
+A header file for the UIText class.
+*/
 #ifndef UITEXT_H
 #define UITEXT_H
 

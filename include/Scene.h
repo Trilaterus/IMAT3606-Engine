@@ -1,3 +1,6 @@
+/** \file Scene.h
+The header file for the Scene class.
+*/
 #ifndef SCENE_H
 #define SCENE_H
 

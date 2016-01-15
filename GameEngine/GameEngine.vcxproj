@@ -93,7 +93,6 @@
     <ClCompile Include="..\src\CPControllable.cpp" />
     <ClCompile Include="..\src\CPLightSource.cpp" />
     <ClCompile Include="..\src\CPModel.cpp" />
-    <ClCompile Include="..\src\EventManager.cpp" />
     <ClCompile Include="..\src\FontSingleton.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\main.cpp" />
@@ -104,7 +103,6 @@
     <ClCompile Include="..\src\TinyXML\tinyxml2.cpp" />
     <ClCompile Include="..\src\UISprite.cpp" />
     <ClCompile Include="..\src\UIText.cpp" />
-    <ClCompile Include="..\src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Component.h" />
@@ -112,7 +110,6 @@
     <ClInclude Include="..\include\CPControllable.h" />
     <ClInclude Include="..\include\CPLightSource.h" />
     <ClInclude Include="..\include\CPModel.h" />
-    <ClInclude Include="..\include\EventManager.h" />
     <ClInclude Include="..\include\FontSingleton.h" />
     <ClInclude Include="..\include\GameObject.h" />
     <ClInclude Include="..\include\ModelSingleton.h" />
@@ -122,7 +119,6 @@
     <ClInclude Include="..\include\TinyXML\tinyxml2.h" />
     <ClInclude Include="..\include\UISprite.h" />
     <ClInclude Include="..\include\UIText.h" />
-    <ClInclude Include="..\include\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\xml\ModelMeshXML.xml">

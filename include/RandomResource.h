@@ -1,3 +1,6 @@
+/** \file RandomResource.h
+The header file for the RandomResource class.
+*/
 #ifndef RANDOMRESOURCE_H
 #define RANDOMRESOURCE_H
 

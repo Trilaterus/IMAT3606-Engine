@@ -1,3 +1,7 @@
+/** \file FontSingleton.h
+The header file for the FontSingleton class.
+*/
+
 #ifndef FONTSINGLETON_H
 #define FONTSINGLETON_H
 
