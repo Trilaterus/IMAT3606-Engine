@@ -93,6 +93,9 @@
     <ClCompile Include="..\src\RandomResource.cpp">
       <Filter>Source Files\Resources</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\Component.h">
@@ -137,9 +140,15 @@
     <ClInclude Include="..\include\RandomResource.h">
       <Filter>Header Files\Resources</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\xml\ModelMeshXML.xml">
+      <Filter>Resource Files\XML</Filter>
+    </Xml>
+    <Xml Include="resources\xml\NightDeadForest.xml">
       <Filter>Resource Files\XML</Filter>
     </Xml>
   </ItemGroup>

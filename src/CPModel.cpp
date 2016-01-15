@@ -5,6 +5,7 @@ void CPModel::init()
 	clock.restart();
 	m_bIsRotating = false;
 	m_vfColour = { 1.0f, 1.0f, 1.0f };
+	m_bCamLock = false;
 }
 
 CPModel::CPModel()
@@ -85,12 +86,22 @@ void CPModel::setColour(float R, float G, float B)
 	m_vfColour = { R, G, B };
 }
 
+void CPModel::setCamLock(bool b)
+{
+	m_bCamLock = b;
+}
+
+bool CPModel::getCamLock()
+{
+	return m_bCamLock;
+}
+
 void CPModel::update(sf::RenderWindow& window)
 {
 	m_vfAngles += m_vfQuaternion;
 }
 
-void CPModel::drawModel(sf::RenderWindow& window) const
+void CPModel::drawModel() const
 {
 	GLfloat colour[] = { m_vfColour.x, m_vfColour.y, m_vfColour.z };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour);
@@ -117,7 +128,7 @@ void CPModel::drawModel(sf::RenderWindow& window) const
 	//glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 }
 
-void CPModel::drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
+void CPModel::drawModel(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
 {
 	GLfloat colour[] = { m_vfColour.x, m_vfColour.y, m_vfColour.z };
 	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, colour);
@@ -132,11 +143,14 @@ void CPModel::drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Ve
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	// Camera transformations happen first
-	glRotatef(vCamAngle.x, 1.f, 0.f, 0.f);
-	glRotatef(vCamAngle.y, 0.f, 1.f, 0.f);
-	glRotatef(vCamAngle.z, 0.f, 0.f, 1.f);
-	glTranslatef(vCamPos.x, vCamPos.y, vCamPos.z);
+	if (!m_bCamLock)
+	{
+		// Camera transformations happen first
+		glRotatef(vCamAngle.x, 1.f, 0.f, 0.f);
+		glRotatef(vCamAngle.y, 0.f, 1.f, 0.f);
+		glRotatef(vCamAngle.z, 0.f, 0.f, 1.f);
+		glTranslatef(vCamPos.x, vCamPos.y, vCamPos.z);
+	}
 
 	// Then normal object transformations
 	glTranslatef(m_vfPosition.x, m_vfPosition.y, m_vfPosition.z);

@@ -14,6 +14,34 @@ GameObject::~GameObject()
 }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
+// GameObject Functions
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+bool GameObject::hasModel()
+{
+	if (m_pCPModel != nullptr)
+		return true;
+	else
+		return false;
+}
+
+bool GameObject::hasCamera()
+{
+	if (m_pCPCamera != nullptr)
+		return true;
+	else
+		return false;
+}
+
+bool GameObject::hasLight()
+{
+	if (m_pCPLight != nullptr)
+		return true;
+	else
+		return false;
+}
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // //
 // Model Functions
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
@@ -67,19 +95,19 @@ void GameObject::setModelPosition(float fXPos, float fYPos, float fZPos)
 	}
 }
 
-void GameObject::drawModel(sf::RenderWindow& window) const
+void GameObject::drawModel() const
 {
 	if (m_pCPModel != nullptr)
 	{
-		m_pCPModel->drawModel(window);
+		m_pCPModel->drawModel();
 	}
 }
 
-void GameObject::drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
+void GameObject::drawModel(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const
 {
 	if (m_pCPModel != nullptr)
 	{
-		m_pCPModel->drawModel(window, vCamAngle, vCamPos);
+		m_pCPModel->drawModel(vCamAngle, vCamPos);
 	}
 }
 
@@ -88,6 +116,27 @@ void GameObject::setModelColour(float fR, float fG, float fB)
 	if (m_pCPModel != nullptr)
 	{
 		m_pCPModel->setColour(fR, fG, fB);
+	}
+}
+
+void GameObject::setModelCamLock(bool b)
+{
+	if (m_pCPModel != nullptr)
+	{
+		m_pCPModel->setCamLock(b);
+	}
+}
+
+bool GameObject::getModelCamLock()
+{
+	if (m_pCPModel != nullptr)
+	{
+		return m_pCPModel->getCamLock();
+	}
+	else
+	{
+		std::cout << "GameObject: No Model attached!" << std::endl;
+		return false;
 	}
 }
 
@@ -249,7 +298,7 @@ void GameObject::updateLightPos(sf::Vector3f vCamAngle, sf::Vector3f vCamPos)
 // Duplicate Functions
 // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
-void GameObject::update(sf::RenderWindow& window)
+void GameObject::updateModel(sf::RenderWindow& window)
 {
 	if (m_pCPModel != nullptr)
 	{

@@ -3,12 +3,15 @@
 #include "GameObject.h"
 #include "UIText.h"
 #include "RandomResource.h"
+#include "Scene.h"
 
 int main()
 {
 	// Request a 24-bits depth buffer when creating the window
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 24;
+
+	//Scene myScene("resources/xml/NightDeadForest.xml");
 
 	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "TQFTWMS ", sf::Style::Default, contextSettings);
@@ -80,8 +83,6 @@ int main()
 	sf::Vector2i vWindowCenter(window.getSize().x / 2, window.getSize().y / 2);
 	sf::Mouse::setPosition(vWindowCenter, window);
 	window.setMouseCursorVisible(false); // Hide the mouse cursor
-	UIText myCamText("Cam Text", 5, 30);
-	myCamText.setColour(sf::Color::Green); // tracks the X axis rotation (since added functionality to stop camera from going upside down, caps at 90 and -90)
 	bool bCamLeft, bCamRight, bCamFore, bCamBack; // used to create smooth camera movement
 	sf::Texture tCrosshair;
 	tCrosshair.loadFromFile("resources/textures/aquaCrosshair.png");
@@ -149,6 +150,9 @@ int main()
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	UIText myText("Hello World!", 5, 5);
 	myText.setColour(sf::Color::Blue);
+
+	UIText myCamText("Cam Text", 5, 30);
+	myCamText.setColour(sf::Color::Green); // tracks the X axis rotation (since added functionality to stop camera from going upside down, caps at 90 and -90)
 
 	sf::Clock myClock;
 
@@ -242,9 +246,9 @@ int main()
 		}
 
 		// Update objects here
-		myFloor.update(window);
+		myFloor.updateModel(window);
 		myObject.rotateModel(1.0f, 0.0f, 1.0f, 0.0f);
-		myObject.update(window);
+		myObject.updateModel(window);
 		myText.setString(std::to_string((int)(1 / myClock.getElapsedTime().asSeconds())));
 		myClock.restart();
 		myCamText.setString(std::to_string((int)myCurrentCamera->getCameraAngle().y));
@@ -263,13 +267,13 @@ int main()
 				fAngle > -360)
 			{
 				mySword.rotateModel(fSpeed, 1, 0, 0);
-				mySword.update(window);
+				mySword.updateModel(window);
 			}
 			else
 			{
 				bSpin = false;
 				mySword.setModelAngle(80, 10, -20);
-				mySword.update(window);
+				mySword.updateModel(window);
 				fAngle = 0.0;
 			}
 		}
@@ -285,18 +289,18 @@ int main()
 		glClear(GL_DEPTH_BUFFER_BIT);
 
 		// Draw OpenGL objects here
-		myFloor.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
-		myPodium.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
-		myObject.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
-		myForest.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myFloor.drawModel(myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myPodium.drawModel(myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myObject.drawModel(myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myForest.drawModel(myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
 		for (int i = 0; i < iStarTotal; i++)
 		{
-			myStars[i].drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+			myStars[i].drawModel(myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
 		}
 		// By not passing the camera offsets I can draw 3D objects that don't move when
 		// the camera does, hence giving the effect of a UI or held object
 		glClear(GL_DEPTH_BUFFER_BIT);
-		mySword.drawModel(window);
+		mySword.drawModel();
 
 		// Draw some text on top of our OpenGL object
 		window.pushGLStates();

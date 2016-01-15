@@ -16,6 +16,7 @@ private:
 	sf::Vector3f m_vfQuaternion;
 	std::string m_sModelName;
 	sf::Vector3f m_vfColour;
+	bool m_bCamLock; // Will not move with camera (appear to be holding item/3D UI);
 
 	void init(); // Called in every constructor
 
@@ -30,10 +31,12 @@ public:
 	void move(float fXChange, float fYChange, float fZChange); // change the position based on the increments
 	void setPosition(float fXPos, float fYPos, float fZPos); // Set the position regardless of the previous position
 	void setColour(float fR, float fG, float fB); // Change the material colour of the object
+	void setCamLock(bool b);
+	bool getCamLock();
 
 	void update(sf::RenderWindow& window);
-	void drawModel(sf::RenderWindow& window) const; // this would draw it not based on camera (potentially useful for 3D UI (?!?! Must TEST!)
-	void drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const; // Draw objects relative to camera
+	void drawModel() const; // this would draw it not based on camera (potentially useful for 3D UI (?!?! Must TEST!)
+	void drawModel(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const; // Draw objects relative to camera
 };
 
 #endif

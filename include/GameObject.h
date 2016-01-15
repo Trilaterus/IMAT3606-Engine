@@ -20,6 +20,11 @@ public:
 	GameObject();
 	~GameObject();
 
+	// Game Object functions
+	bool hasModel();
+	bool hasCamera();
+	bool hasLight();
+
 	// attachcomponent
 	void attachModel();
 	void attachModel(std::string sModelName);
@@ -34,13 +39,16 @@ public:
 	// MODEL
 
 	void rotateModel(float fAngle, float fX, float fY, float fZ);
-	void drawModel(sf::RenderWindow& window) const;
-	void drawModel(sf::RenderWindow& window, sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const;
+	void drawModel() const;
+	void drawModel(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const;
 	void setModelAngle(float fXAngle, float fYAngle, float fZAngle);
 	void moveModel(float fIncrement);
 	void moveModel(float fXChange, float fYChange, float fZChange);
 	void setModelPosition(float fXPos, float fYPos, float fZPos);
 	void setModelColour(float fR, float fG, float fB);
+	void setModelCamLock(bool b);
+	bool getModelCamLock();
+	void updateModel(sf::RenderWindow& window); // Model,
 
 	// CAMERA
 
@@ -68,7 +76,6 @@ public:
 
 	// DUPLICATES 
 
-	void update(sf::RenderWindow& window); // Model,
 };
 
 #endif // GAMEOBJECT_H

@@ -17,6 +17,7 @@ public:
 	sf::Rect<float> getBounds();
 	void setColour(sf::Color sfColour);
 	void setString(std::string sText);
+	void setPosition(sf::Vector2f vfPosition);
 
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

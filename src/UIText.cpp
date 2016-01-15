@@ -27,6 +27,11 @@ void UIText::setString(std::string sText)
 	m_sText = sText;
 }
 
+void UIText::setPosition(sf::Vector2f vfPosition)
+{
+	m_vPosition = vfPosition;
+}
+
 void UIText::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	sf::Text text;

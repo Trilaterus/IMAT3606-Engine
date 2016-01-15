@@ -13,9 +13,11 @@ ModelSingleton& ModelSingleton::instance()
 
 void ModelSingleton::init()
 {
-	tinyxml2::Whitespace::COLLAPSE_WHITESPACE;
 	tinyxml2::XMLDocument ModelXML;
-	ModelXML.LoadFile("resources/xml/ModelMeshXML.xml");
+	if (ModelXML.LoadFile("resources/xml/ModelMeshXML.xml"))
+	{
+		std::cout << "ModelSingleton: Error opening XML file!" << std::endl;
+	}
 	tinyxml2::XMLElement* eDocument = ModelXML.FirstChildElement("document");
 	if (eDocument)
 	{
