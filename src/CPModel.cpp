@@ -11,7 +11,7 @@ void CPModel::init()
 CPModel::CPModel()
 {
 	init();
-
+	/*
 	// Default option loads an OpenGL textured cube.
 	// We could directly use a sf::Texture as an OpenGL texture (with its Bind() member function),
 	// but here we want more control on it (generate mipmaps, ...) so we create a new one from an image
@@ -32,6 +32,7 @@ CPModel::CPModel()
 	// Bind the texture
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, m_iTexture);
+	*/
 }
 
 CPModel::CPModel(std::string sModelName)

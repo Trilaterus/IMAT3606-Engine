@@ -274,16 +274,16 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 				{
 					//UIText* uiText = new UIText();
 
-					tinyxml2::XMLElement* eString = eText->FirstChildElement("String");
 					// Handle <String>
+					tinyxml2::XMLElement* eString = eText->FirstChildElement("String");
 					if (eString)
 					{
 						std::string sString = eString->GetText();
 						uiText->setString(sString);
 					}
 
-					tinyxml2::XMLElement* ePosition = eText->FirstChildElement("Position");
 					// Handle <Position>
+					tinyxml2::XMLElement* ePosition = eText->FirstChildElement("Position");
 					if (ePosition)
 					{
 						sf::Vector2f vfPosition;
@@ -303,6 +303,36 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 						}
 
 						uiText->setPosition(vfPosition);
+					}
+
+					// Handle Colour
+					tinyxml2::XMLElement* eColour = eText->FirstChildElement("Colour");
+					if (eColour)
+					{
+						sf::Vector3f vfColour = { 1.0, 1.0, 1.0 };
+						tinyxml2::XMLElement* eR = eColour->FirstChildElement("r");
+						if (eR)
+						{
+							std::string sR = eR->GetText();
+							float fR = std::stof(sR) * 255;
+							vfColour.x = fR;
+						}
+						tinyxml2::XMLElement* eG = eColour->FirstChildElement("g");
+						if (eG)
+						{
+							std::string sG = eG->GetText();
+							float fG = std::stof(sG) * 255;
+							vfColour.y = fG;
+						}
+						tinyxml2::XMLElement* eB = eColour->FirstChildElement("b");
+						if (eB)
+						{
+							std::string sB = eB->GetText();
+							float fB = std::stof(sB) * 255;
+							vfColour.z = fB;
+						}
+
+						uiText->setColour(sf::Color(vfColour.x, vfColour.y, vfColour.z));
 					}
 				}
 
@@ -332,6 +362,20 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 			myObject->updateLightAll();
 		}
 	}
+
+	// To improve quality of the scene hard coded stars
+	RandomResource rand;
+	for (int i = 0; i < 100; i++)
+	{
+		m_aStars[i].attachModel("Ball");
+		m_aStars[i].setModelColour(1, 1, 1);
+		m_aStars[i].setModelPosition(rand.generateFloat(-250, 250), rand.generateFloat(100, 200), rand.generateFloat(-250, 250));
+	}
+}
+
+void Scene::changeCamera(GameObject* Camera)
+{
+	m_pCamera = Camera;
 }
 
 void Scene::handleEvent(sf::Event sfEvent)
@@ -340,23 +384,22 @@ void Scene::handleEvent(sf::Event sfEvent)
 	for (std::map<std::string, GameObject*>::const_iterator it = m_vGameObjects.begin()
 		; it != m_vGameObjects.end(); ++it)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			m_pCamera->moveCameraForward(0.2f);
+		
+	}
 
-		// Change camera angle if mouse moves
-		if (sfEvent.type == sf::Event::MouseMoved)
+	// Change camera angle based on mouse movement
+	if (sfEvent.type == sf::Event::MouseMoved)
+	{
+		if (m_bIsMouseLocked)
 		{
-			if (m_bIsMouseLocked)
+			if (sf::Mouse::getPosition(*m_pWindow) != WindowCentre)
 			{
-				if (sf::Mouse::getPosition(*m_pWindow) != WindowCentre)
-				{
-					float XDiff = sf::Mouse::getPosition(*m_pWindow).x - WindowCentre.x;
-					float YDiff = sf::Mouse::getPosition(*m_pWindow).y - WindowCentre.y;
-					float XAngle = (XDiff / WindowCentre.x) * 90; // 90 is sensitivity (180 would turn the character completely around by moving the mouse from one half of the screen to the other
-					float YAngle = (YDiff / WindowCentre.y) * 90;
-					m_pCamera->rotateCamera(YAngle, XAngle, 0.0f);
-					sf::Mouse::setPosition(WindowCentre, *m_pWindow);
-				}
+				float XDiff = sf::Mouse::getPosition(*m_pWindow).x - WindowCentre.x;
+				float YDiff = sf::Mouse::getPosition(*m_pWindow).y - WindowCentre.y;
+				float XAngle = (XDiff / WindowCentre.x) * 90; // 90 is sensitivity (180 would turn the character completely around by moving the mouse from one half of the screen to the other
+				float YAngle = (YDiff / WindowCentre.y) * 90;
+				m_pCamera->rotateCamera(YAngle, XAngle, 0.0f);
+				sf::Mouse::setPosition(WindowCentre, *m_pWindow);
 			}
 		}
 	}
@@ -364,6 +407,7 @@ void Scene::handleEvent(sf::Event sfEvent)
 
 void Scene::update()
 {
+	// Object map
 	for (std::map<std::string, GameObject*>::const_iterator it = m_vGameObjects.begin()
 		; it != m_vGameObjects.end(); ++it)
 	{
@@ -373,9 +417,56 @@ void Scene::update()
 		if (it->first == "myMonkey")
 			myObject->rotateModel(1.0f, 0.0f, 1.0f, 0.0f);
 
+		if (it->first == "mySword")
+		{
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+			{
+				myObject->rotateModel(-10, 1, 0, 0);
+			}
+			else if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
+			{
+				myObject->rotateModel(10, 1, 0, 0);
+			}
+			else
+			{
+				myObject->rotateModel(0, 1, 1, 1);
+			}
+		}
+		//
+
 		if (myObject->hasModel())
 			myObject->updateModel(*m_pWindow);
 	}
+
+	// UI map
+	for (std::map<std::string, UIText*>::const_iterator it = m_vUITexts.begin()
+		; it != m_vUITexts.end(); ++it)
+	{
+		if (it->first == "myFPS")
+		{
+			it->second->setString(std::to_string((int)(1 / m_Clock.getElapsedTime().asSeconds())));
+		}
+		else if (it->first == "myAxis")
+		{
+			it->second->setString(std::to_string((int)m_pCamera->getCameraAngle().y));
+		}
+	}
+
+	// Add controls for Scene members here (window and camera currently)
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		m_pCamera->strafeCameraRight(-0.2f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		m_pCamera->strafeCameraRight(0.2f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		m_pCamera->moveCameraForward(0.2f);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		m_pCamera->moveCameraForward(-0.2f);
+
+	// Restart clock
+	m_Clock.restart();
 }
 
 void Scene::draw()
@@ -397,4 +488,19 @@ void Scene::draw()
 			myObject->drawModel(vfCamAngle, vfCamPos);
 		}
 	}
+
+	// Starry sky for environment quality improvement (Could also have been applied multiple times in Object XML file
+	for (int i = 0; i < 100; i++)
+	{
+		m_aStars[i].drawModel(vfCamAngle, vfCamPos);
+	}
+
+	m_pWindow->pushGLStates();
+	for (std::map<std::string, UIText*>::const_iterator it = m_vUITexts.begin()
+		; it != m_vUITexts.end(); ++it)
+	{
+		UIText* text = it->second;
+		m_pWindow->draw(*text);
+	}
+	m_pWindow->popGLStates();
 }

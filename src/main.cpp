@@ -28,7 +28,7 @@ int main()
 	window.display();
 	
 	window.setVerticalSyncEnabled(true);
-	window.setFramerateLimit(60);
+	//window.setFramerateLimit(60);
 
 	// Make the window the active target for OpenGL calls
 	// Note: If using sf::Texture or sf::Shader with OpenGL,
@@ -191,6 +191,20 @@ int main()
 			if (sfevent.type == sf::Event::Resized)
 				glViewport(0, 0, sfevent.size.width, sfevent.size.height);
 
+			if ((sfevent.type == sf::Event::KeyPressed) && (sfevent.key.code == sf::Keyboard::Space))
+			{
+				if (myCurrentCamera == &myCamera)
+				{
+					myCurrentCamera = &mySecondCamera;
+					myScene.changeCamera(myCurrentCamera);
+				}
+				else
+				{
+					myCurrentCamera = &myCamera;
+					myScene.changeCamera(myCurrentCamera);
+				}
+			}
+
 			myScene.handleEvent(sfevent);
 			/*
 			// Change camera angle if mouse moves
@@ -317,13 +331,13 @@ int main()
 		mySword.drawModel();
 
 		// Draw some text on top of our OpenGL object
+		window.pushGLStates();
 		window.draw(myText);
 		window.draw(myCamText);
 		if (bLocked)
 			window.draw(myCrosshair);
-		*/
-		window.pushGLStates();
 		window.popGLStates();
+		*/
 
 		// Finally, display the rendered frame on screen
 		window.display();

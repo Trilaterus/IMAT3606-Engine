@@ -95,19 +95,29 @@
     <Text>
       <String>Hello World!</String>
       <Position>
-        <x>0</x>
-        <y>0</y>
+        <x>5</x>
+        <y>5</y>
       </Position>
+      <Colour>
+        <r>0</r>
+        <g>0</g>
+        <b>1</b>
+      </Colour>
     </Text>
   </UI>
 
   <UI>
     <ID>myAxis</ID>
     <Text>
+      <Colour>
+        <r>1</r>
+        <g>0</g>
+        <b>0</b>
+      </Colour>
       <String>Text</String>
       <Position>
-        <x>0</x>
-        <y>0</y>
+        <x>5</x>
+        <y>30</y>
       </Position>
     </Text>
   </UI>
