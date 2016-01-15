@@ -16,6 +16,7 @@ private:
 	bool m_bIsMouseLocked; // is the mouse locked
 	sf::Clock m_Clock;
 	GameObject m_aStars[100];
+	sf::Texture m_TextureCrosshair;
 
 public:
 	Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window); // Can only construct from valid XML file and by having some form of camera

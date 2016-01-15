@@ -122,4 +122,21 @@
     </Text>
   </UI>
 
+  <Object>
+    <ID>myForest</ID>
+    <Model>
+      <OBJ>Forest</OBJ>
+      <Position>
+        <x>0</x>
+        <y>-4</y>
+        <z>0</z>
+      </Position>
+      <Colour>
+        <r>0.54</r>
+        <g>0.27</g>
+        <b>0.07</b>
+      </Colour>
+    </Model>
+  </Object>
+
 </Scene>

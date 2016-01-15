@@ -6,6 +6,10 @@ Scene::Scene(std::string sFileName, GameObject* Camera, sf::RenderWindow& Window
 		m_pCamera = Camera;
 	m_bIsMouseLocked = true;
 	m_pWindow = &Window;
+	if (!m_TextureCrosshair.loadFromFile("resources/textures/aquaCrosshair.png"))
+	{
+		std::cout << "Scene: Error missing crosshair texture!" << std::endl;
+	}
 
 	tinyxml2::XMLDocument Scene;
 	const char * cNamen = sFileName.c_str();
@@ -384,7 +388,30 @@ void Scene::handleEvent(sf::Event sfEvent)
 	for (std::map<std::string, GameObject*>::const_iterator it = m_vGameObjects.begin()
 		; it != m_vGameObjects.end(); ++it)
 	{
-		
+
+	}
+
+	// Allow mouse to move around screen if escape is pressed once
+	if ((sfEvent.type == sf::Event::KeyPressed) && (sfEvent.key.code == sf::Keyboard::Escape))
+	{
+		if (!m_bIsMouseLocked)
+		{
+			m_pWindow->close();
+		}
+		else
+		{
+			m_bIsMouseLocked = false;
+			m_pWindow->setMouseCursorVisible(true);
+		}
+	}
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	{
+		if (!m_bIsMouseLocked)
+		{
+			m_bIsMouseLocked = true;
+			m_pWindow->setMouseCursorVisible(false);
+		}
 	}
 
 	// Change camera angle based on mouse movement
@@ -474,6 +501,14 @@ void Scene::draw()
 	sf::Vector3f vfCamAngle = m_pCamera->getCameraAngle();
 	sf::Vector3f vfCamPos = m_pCamera->getCameraPosition();
 
+	glClear(GL_DEPTH_BUFFER_BIT);
+
+	// Starry sky for environment quality improvement (Could also have been applied multiple times in Object XML file
+	for (int i = 0; i < 100; i++)
+	{
+		m_aStars[i].drawModel(vfCamAngle, vfCamPos);
+	}
+
 	for (std::map<std::string, GameObject*>::const_iterator it = m_vGameObjects.begin()
 		; it != m_vGameObjects.end(); ++it)
 	{
@@ -489,12 +524,6 @@ void Scene::draw()
 		}
 	}
 
-	// Starry sky for environment quality improvement (Could also have been applied multiple times in Object XML file
-	for (int i = 0; i < 100; i++)
-	{
-		m_aStars[i].drawModel(vfCamAngle, vfCamPos);
-	}
-
 	m_pWindow->pushGLStates();
 	for (std::map<std::string, UIText*>::const_iterator it = m_vUITexts.begin()
 		; it != m_vUITexts.end(); ++it)
@@ -502,5 +531,10 @@ void Scene::draw()
 		UIText* text = it->second;
 		m_pWindow->draw(*text);
 	}
+	sf::Sprite crosshair;
+	crosshair.setTexture(m_TextureCrosshair);
+	crosshair.setOrigin(m_TextureCrosshair.getSize().x / 2, m_TextureCrosshair.getSize().y / 2);
+	crosshair.setPosition(m_pWindow->getSize().x / 2, m_pWindow->getSize().y / 2);
+	m_pWindow->draw(crosshair);
 	m_pWindow->popGLStates();
 }

@@ -173,20 +173,6 @@ int main()
 			if (sfevent.type == sf::Event::Closed)
 				window.close();
 
-			// Escape key: exit
-			if ((sfevent.type == sf::Event::KeyPressed) && (sfevent.key.code == sf::Keyboard::Escape))
-			{
-				if (bLocked)
-				{
-					window.setMouseCursorVisible(true);
-					bLocked = false;
-				}
-				else
-				{
-					window.close();
-				}
-			}
-
 			// Adjust the viewport when the window is resized
 			if (sfevent.type == sf::Event::Resized)
 				glViewport(0, 0, sfevent.size.width, sfevent.size.height);

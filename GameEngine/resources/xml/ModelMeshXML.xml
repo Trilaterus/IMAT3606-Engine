@@ -39,4 +39,9 @@
     <filepath>resources/objs/tinyball.obj</filepath>
   </model>
 
+  <model>
+    <id>Forest</id>
+    <filepath>resources/objs/entireforest.obj</filepath>
+  </model>
+
 </document>
