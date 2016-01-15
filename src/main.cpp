@@ -88,6 +88,14 @@ int main()
 	sf::Sprite myCrosshair;
 	myCrosshair.setTexture(tCrosshair);
 	myCrosshair.setPosition(vWindowCenter.x, vWindowCenter.y);
+	bool bLocked = true;
+
+	// Second camera
+	GameObject mySecondCamera;
+	mySecondCamera.attachCamera();
+	mySecondCamera.rotateCamera(0, 0, 25);
+
+	GameObject* myCurrentCamera = &myCamera;
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Load files into Singletons
@@ -157,7 +165,17 @@ int main()
 
 			// Escape key: exit
 			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape))
-				window.close();
+			{
+				if (bLocked)
+				{
+					window.setMouseCursorVisible(true);
+					bLocked = false;
+				}
+				else
+				{
+					window.close();
+				}
+			}
 
 			// Adjust the viewport when the window is resized
 			if (event.type == sf::Event::Resized)
@@ -166,14 +184,17 @@ int main()
 			// Change camera angle if mouse moves
 			if (event.type == sf::Event::MouseMoved)
 			{
-				if (sf::Mouse::getPosition(window) != vWindowCenter)
+				if (bLocked)
 				{
-					float XDiff = sf::Mouse::getPosition(window).x - vWindowCenter.x;
-					float YDiff = sf::Mouse::getPosition(window).y - vWindowCenter.y;
-					float XAngle = (XDiff / vWindowCenter.x) * fCameraSensitivity;
-					float YAngle = (YDiff / vWindowCenter.y) * fCameraSensitivity;
-					myCamera.rotateCamera(YAngle, XAngle, 0.0f); 
-					sf::Mouse::setPosition(vWindowCenter, window);
+					if (sf::Mouse::getPosition(window) != vWindowCenter)
+					{
+						float XDiff = sf::Mouse::getPosition(window).x - vWindowCenter.x;
+						float YDiff = sf::Mouse::getPosition(window).y - vWindowCenter.y;
+						float XAngle = (XDiff / vWindowCenter.x) * fCameraSensitivity;
+						float YAngle = (YDiff / vWindowCenter.y) * fCameraSensitivity;
+						myCurrentCamera->rotateCamera(YAngle, XAngle, 0.0f);
+						sf::Mouse::setPosition(vWindowCenter, window);
+					}
 				}
 			}
 
@@ -197,11 +218,27 @@ int main()
 			else
 				bCamBack = false;
 
+			if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Space))
+			{
+				if (myCurrentCamera == &myCamera)
+					myCurrentCamera = &mySecondCamera;
+				else
+					myCurrentCamera = &myCamera;
+			}
+
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 				myLight.toggleLight();
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-				bSpin = true;
+			{
+				if (bLocked)
+					bSpin = true;
+				else
+				{
+					bLocked = true;
+					window.setMouseCursorVisible(false);
+				}
+			}
 		}
 
 		// Update objects here
@@ -210,15 +247,15 @@ int main()
 		myObject.update(window);
 		myText.setString(std::to_string((int)(1 / myClock.getElapsedTime().asSeconds())));
 		myClock.restart();
-		myCamText.setString(std::to_string((int)myCamera.getCameraAngle().y));
+		myCamText.setString(std::to_string((int)myCurrentCamera->getCameraAngle().y));
 		if (bCamLeft)
-			myCamera.strafeCameraRight(-0.2f);
+			myCurrentCamera->strafeCameraRight(-0.2f);
 		if (bCamRight)
-			myCamera.strafeCameraRight(0.2f);
+			myCurrentCamera->strafeCameraRight(0.2f);
 		if (bCamFore)
-			myCamera.moveCameraForward(0.2f);
+			myCurrentCamera->moveCameraForward(0.2f);
 		if (bCamBack)
-			myCamera.moveCameraForward(-0.2f);
+			myCurrentCamera->moveCameraForward(-0.2f);
 		if (bSpin)
 		{
 			fAngle += fSpeed;
@@ -242,19 +279,19 @@ int main()
 		window.clear();
 
 		// Update lights first
-		myLight.updateLightPos(myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		myLight.updateLightPos(myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
 
 		//This clears the colour and depth buffer.
 		glClear(GL_DEPTH_BUFFER_BIT);
 
 		// Draw OpenGL objects here
-		myFloor.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
-		myPodium.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
-		myObject.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
-		myForest.drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+		myFloor.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myPodium.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myObject.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
+		myForest.drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
 		for (int i = 0; i < iStarTotal; i++)
 		{
-			myStars[i].drawModel(window, myCamera.getCameraAngle(), myCamera.getCameraPosition());
+			myStars[i].drawModel(window, myCurrentCamera->getCameraAngle(), myCurrentCamera->getCameraPosition());
 		}
 		// By not passing the camera offsets I can draw 3D objects that don't move when
 		// the camera does, hence giving the effect of a UI or held object
@@ -265,7 +302,8 @@ int main()
 		window.pushGLStates();
 		window.draw(myText);
 		window.draw(myCamText);
-		window.draw(myCrosshair);
+		if (bLocked)
+			window.draw(myCrosshair);
 		window.popGLStates();
 
 		// Finally, display the rendered frame on screen
