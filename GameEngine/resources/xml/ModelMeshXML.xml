@@ -44,4 +44,14 @@
     <filepath>resources/objs/entireforest.obj</filepath>
   </model>
 
+  <model>
+    <id>CollisionBall</id>
+    <filepath>resources/objs/ball.obj</filepath>
+  </model>
+
+  <model>
+    <id>CollisionCube</id>
+    <filepath>resources/objs/cube.obj</filepath>
+  </model>
+
 </document>

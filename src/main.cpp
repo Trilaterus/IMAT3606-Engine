@@ -7,13 +7,12 @@
 
 int main()
 {
-	// Request a 24-bits depth buffer when creating the window
 	sf::ContextSettings contextSettings;
 	contextSettings.depthBits = 24;
 
-	// Create the main window
 	sf::RenderWindow window(sf::VideoMode(800, 600), "TQFTWMS ", sf::Style::Default, contextSettings);
-	
+
+	// Load and display splash screen
 	sf::Texture myTexture;
 	if (!myTexture.loadFromFile("resources/textures/splash.png"))
 	{
@@ -25,16 +24,11 @@ int main()
 	window.draw(mySplashScreen);
 	window.popGLStates();
 	window.display();
-	
+
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
+	window.setActive(); // Sets this window active for OpenGL calls
 
-	// Sets this window active for OpenGL calls
-	window.setActive();
-
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Set up OpenGL
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Enable Z-buffer read and write
 	glEnable(GL_DEPTH_TEST);
 	glDepthMask(GL_TRUE);
@@ -50,71 +44,67 @@ int main()
 	GLfloat ratio = static_cast<float>(window.getSize().x) / window.getSize().y;
 	glFrustum(-ratio, ratio, -1.f, 1.f, 1.0f, 500.f);
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Set up controllable cameras
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
 	// Can disable GL_CULL_FACE as .objs downloaded from external sources may not always have correct normals
 	glEnable(GL_CULL_FACE); // Cull triangles which normal is not towards the camera
+
+	// Set up cameras
 	GameObject myCamera;
 	myCamera.attachCamera();
-	window.setMouseCursorVisible(false); // Hide the mouse cursor
-	
-	// Second camera
+	window.setMouseCursorVisible(false);
 	GameObject mySecondCamera;
 	mySecondCamera.attachCamera();
 	mySecondCamera.rotateCamera(0, 0, 25);
-
 	GameObject* myCurrentCamera = &myCamera;
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Initialise objects through Scene class
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Initialise environment through Scene class
+	Scene* myCurrentScene;
 	Scene myScene("resources/xml/NightDeadForest.xml", myCurrentCamera, window);
+	Scene myColScene("resources/xml/CollisionTestArena.xml", myCurrentCamera, window);
+	myCurrentScene = &myColScene;
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
-	// Initialise files into Singletons
-	// // // // // // // // // // // // // // // // // // // // // // // // // // //
+	// Initialise singletons
 	ModelSingleton::instance().init();
 
 	// Start game loop
 	while (window.isOpen())
 	{
-		// Process events
 		sf::Event sfevent;
 		while (window.pollEvent(sfevent))
 		{
-			// Close window: exit
 			if (sfevent.type == sf::Event::Closed)
+			{
 				window.close();
+			}
 
-			// Adjust the viewport when the window is resized
 			if (sfevent.type == sf::Event::Resized)
+			{
 				glViewport(0, 0, sfevent.size.width, sfevent.size.height);
+			}
 
 			if ((sfevent.type == sf::Event::KeyPressed) && (sfevent.key.code == sf::Keyboard::Space))
 			{
 				if (myCurrentCamera == &myCamera)
 				{
 					myCurrentCamera = &mySecondCamera;
-					myScene.changeCamera(myCurrentCamera);
+					myCurrentScene->changeCamera(myCurrentCamera);
 				}
 				else
 				{
 					myCurrentCamera = &myCamera;
-					myScene.changeCamera(myCurrentCamera);
+					myCurrentScene->changeCamera(myCurrentCamera);
 				}
 			}
 
 			// Any events that happen to the objects are handled within the Scene function
-			myScene.handleEvent(sfevent);
+			myCurrentScene->handleEvent(sfevent);
 		}
 
 		// Clear window, leave params blank for black background
 		window.clear();
 		// Update the objects in the Scene and apply some realtime controls
-		myScene.update();
+		myCurrentScene->update();
 		// Draw the Scene which included the 3D objects and the UI
-		myScene.draw();
+		myCurrentScene->draw();
 		// Finally, display the rendered frame on screen
 		window.display();
 	}

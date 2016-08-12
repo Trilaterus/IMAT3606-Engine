@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: GameObject Class Reference</title>
+<title>IMAT3606-Engine: GameObject Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,13 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">GameObject Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_game_object_8h_source.html">GameObject.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0348e3ee2e83d56eafca7a3547f432c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a0348e3ee2e83d56eafca7a3547f432c4">GameObject</a> ()</td></tr>
-<tr class="separator:a0348e3ee2e83d56eafca7a3547f432c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab82dfdb656f9051c0587e6593b2dda97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#ab82dfdb656f9051c0587e6593b2dda97">~GameObject</a> ()</td></tr>
-<tr class="separator:ab82dfdb656f9051c0587e6593b2dda97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bd921e730f59069ee0751641082ab63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a9bd921e730f59069ee0751641082ab63">hasModel</a> ()</td></tr>
 <tr class="separator:a9bd921e730f59069ee0751641082ab63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8242b74cee1ff1ba9e150a7003a36786"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a8242b74cee1ff1ba9e150a7003a36786">hasCamera</a> ()</td></tr>
@@ -132,6 +132,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0ce7b605f28fa9bd4f9fc46954dc9fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f73c166f5194d4d7972e31943351deb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a6f73c166f5194d4d7972e31943351deb">updateModel</a> (sf::RenderWindow &amp;window)</td></tr>
 <tr class="separator:a6f73c166f5194d4d7972e31943351deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44eaeeeeb126cb2d3498736acb1d325d"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a44eaeeeeb126cb2d3498736acb1d325d">getModelPosition</a> ()</td></tr>
+<tr class="separator:a44eaeeeeb126cb2d3498736acb1d325d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9eb65cdd46164e6dc57df8c42e29ed68"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a9eb65cdd46164e6dc57df8c42e29ed68">getCameraPosition</a> ()</td></tr>
 <tr class="separator:a9eb65cdd46164e6dc57df8c42e29ed68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6d95f21a88cc6388b37fa0728e21ad4"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#ac6d95f21a88cc6388b37fa0728e21ad4">getCameraAngle</a> () const </td></tr>
@@ -167,40 +169,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ab55e586acee48dd26952cb84641a66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a9ab55e586acee48dd26952cb84641a66">updateLightPos</a> (sf::Vector3f vCamAngle, sf::Vector3f vCamPos)</td></tr>
 <tr class="separator:a9ab55e586acee48dd26952cb84641a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0348e3ee2e83d56eafca7a3547f432c4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject::GameObject </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The only constructor for the <a class="el" href="class_game_object.html">GameObject</a> class </p>
-
-</div>
-</div>
-<a class="anchor" id="ab82dfdb656f9051c0587e6593b2dda97"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameObject::~GameObject </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The destructor for the <a class="el" href="class_game_object.html">GameObject</a> class. It calls the destructors of the attached components. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_game_object.html">GameObject</a> class allows components to be attached to it in order to create a data driven and flexible system.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aa6bc64b6fef219a9a77dbf053997134a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -262,10 +234,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attaches a new instance of a <a class="el" href="class_c_p_model.html">CPModel</a> onto the <a class="el" href="class_game_object.html">GameObject</a>. Also immediately loads the model based on the name passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Attaches a new instance of a <a class="el" href="class_c_p_model.html">CPModel</a> onto the <a class="el" href="class_game_object.html">GameObject</a>. Also immediately loads the model based on the name passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sModelName</td><td>A string ID referencing a model in <a class="el" href="class_model_singleton.html">ModelSingleton</a>. </td></tr>
+    <tr><td class="paramname">sModelName</td><td>A string ID referencing a model in <a class="el" href="class_model_singleton.html">ModelSingleton</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -284,8 +255,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the <a class="el" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel()</a> function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">CPModel::drawModel()</a>; </dd></dl>
+<p>Calls the <a class="el" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel()</a> function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">CPModel::drawModel()</a>; </dd></dl>
 
 </div>
 </div>
@@ -312,8 +282,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the <a class="el" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel()</a> function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">CPModel::drawModel()</a>; </dd></dl>
+<p>Calls the <a class="el" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel()</a> function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">CPModel::drawModel()</a>; </dd></dl>
 
 </div>
 </div>
@@ -329,8 +298,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the getAngle() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a90fbce00606115c20c15ebc52ed45366">CPCamera::getAngle()</a>; </dd></dl>
+<p>Calls the getAngle() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a90fbce00606115c20c15ebc52ed45366">CPCamera::getAngle()</a>; </dd></dl>
 
 </div>
 </div>
@@ -346,8 +314,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the getPosition() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#acf8f5024c828b40b870ffda9cc781f1a">CPCamera::getPosition()</a>; </dd></dl>
+<p>Calls the getPosition() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#acf8f5024c828b40b870ffda9cc781f1a">CPCamera::getPosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -363,8 +330,23 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the getCamLock() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">CPModel::getCamLock()</a>; </dd></dl>
+<p>Calls the getCamLock() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">CPModel::getCamLock()</a>; </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a44eaeeeeb126cb2d3498736acb1d325d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Vector3f GameObject::getModelPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calls the getPosition() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#ae326d05c7cc900d2a3e16e599bf1f9e5">CPModel::getPosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -380,8 +362,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Checks whether the <a class="el" href="class_game_object.html">GameObject</a> has a <a class="el" href="class_c_p_camera.html">CPCamera</a> attached.</p>
-<dl class="section return"><dt>Returns</dt><dd>True if a <a class="el" href="class_c_p_camera.html">CPCamera</a> is attached. </dd></dl>
+<p>Checks whether the <a class="el" href="class_game_object.html">GameObject</a> has a <a class="el" href="class_c_p_camera.html">CPCamera</a> attached. </p><dl class="section return"><dt>Returns</dt><dd>True if a <a class="el" href="class_c_p_camera.html">CPCamera</a> is attached </dd></dl>
 
 </div>
 </div>
@@ -397,8 +378,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Checks whether the <a class="el" href="class_game_object.html">GameObject</a> has a <a class="el" href="class_c_p_light_source.html">CPLightSource</a> attached.</p>
-<dl class="section return"><dt>Returns</dt><dd>True if a <a class="el" href="class_c_p_light_source.html">CPLightSource</a> is attached. </dd></dl>
+<p>Checks whether the <a class="el" href="class_game_object.html">GameObject</a> has a <a class="el" href="class_c_p_light_source.html">CPLightSource</a> attached. </p><dl class="section return"><dt>Returns</dt><dd>True if a <a class="el" href="class_c_p_light_source.html">CPLightSource</a> is attached </dd></dl>
 
 </div>
 </div>
@@ -414,8 +394,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Checks whether the <a class="el" href="class_game_object.html">GameObject</a> has a <a class="el" href="class_c_p_model.html">CPModel</a> attached.</p>
-<dl class="section return"><dt>Returns</dt><dd>True if a <a class="el" href="class_c_p_model.html">CPModel</a> is attached. </dd></dl>
+<p>Checks whether the <a class="el" href="class_game_object.html">GameObject</a> has a <a class="el" href="class_c_p_model.html">CPModel</a> attached. </p><dl class="section return"><dt>Returns</dt><dd>True if a <a class="el" href="class_c_p_model.html">CPModel</a> is attached </dd></dl>
 
 </div>
 </div>
@@ -448,8 +427,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the move() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a6a631830ccdb73d5101d365982deb31b">CPCamera::move()</a>; </dd></dl>
+<p>Calls the move() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a6a631830ccdb73d5101d365982deb31b">CPCamera::move()</a>; </dd></dl>
 
 </div>
 </div>
@@ -466,8 +444,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the moveForward() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a2951479e4df2a4ac306763b0c93124c4">CPCamera::moveForward()</a>; </dd></dl>
+<p>Calls the moveForward() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a2951479e4df2a4ac306763b0c93124c4">CPCamera::moveForward()</a>; </dd></dl>
 
 </div>
 </div>
@@ -484,8 +461,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the move() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">CPModel::move()</a>; </dd></dl>
+<p>Calls the move() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">CPModel::move()</a>; </dd></dl>
 
 </div>
 </div>
@@ -518,8 +494,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the move() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">CPModel::move()</a>; </dd></dl>
+<p>Calls the move() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">CPModel::move()</a>; </dd></dl>
 
 </div>
 </div>
@@ -552,8 +527,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the rotate() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a3da5764cff7e86b0bbae9177c8222edf">CPCamera::rotate()</a>; </dd></dl>
+<p>Calls the rotate() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a3da5764cff7e86b0bbae9177c8222edf">CPCamera::rotate()</a>; </dd></dl>
 
 </div>
 </div>
@@ -592,8 +566,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the rotate() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a53378c6fe80fa0e427ceb1c06927431a">CPModel::rotate()</a>; </dd></dl>
+<p>Calls the rotate() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a53378c6fe80fa0e427ceb1c06927431a">CPModel::rotate()</a>; </dd></dl>
 
 </div>
 </div>
@@ -610,8 +583,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the <a class="el" href="class_game_object.html#a984be8c72702d45b4c82b1bff4d6b576">setAmbient()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#a727f189db10430c790e1c82162719448">CPLightSource::setAmbient()</a>; </dd></dl>
+<p>Calls the <a class="el" href="class_game_object.html#a984be8c72702d45b4c82b1bff4d6b576">setAmbient()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#a727f189db10430c790e1c82162719448">CPLightSource::setAmbient()</a>; </dd></dl>
 
 </div>
 </div>
@@ -628,8 +600,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setAngle() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#abd5d741ace6e6e2cf4b1029d41ba7332">CPCamera::setAngle()</a>; </dd></dl>
+<p>Calls the setAngle() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#abd5d741ace6e6e2cf4b1029d41ba7332">CPCamera::setAngle()</a>; </dd></dl>
 
 </div>
 </div>
@@ -662,8 +633,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setAngle() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#abd5d741ace6e6e2cf4b1029d41ba7332">CPCamera::setAngle()</a>; </dd></dl>
+<p>Calls the setAngle() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#abd5d741ace6e6e2cf4b1029d41ba7332">CPCamera::setAngle()</a>; </dd></dl>
 
 </div>
 </div>
@@ -680,8 +650,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setPosition() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#af0bf7fe679e5402f839bccdbf2e6e8e5">CPCamera::setPosition()</a>; </dd></dl>
+<p>Calls the setPosition() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#af0bf7fe679e5402f839bccdbf2e6e8e5">CPCamera::setPosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -714,8 +683,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setPosition() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#af0bf7fe679e5402f839bccdbf2e6e8e5">CPCamera::setPosition()</a>; </dd></dl>
+<p>Calls the setPosition() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#af0bf7fe679e5402f839bccdbf2e6e8e5">CPCamera::setPosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -732,8 +700,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the <a class="el" href="class_game_object.html#a63e1f632bb6f2aa76ab2842ac5442759">setDiffuse()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#a85f6a16b2f754ad8607a869ea0cc87d8">CPLightSource::setDiffuse()</a>; </dd></dl>
+<p>Calls the <a class="el" href="class_game_object.html#a63e1f632bb6f2aa76ab2842ac5442759">setDiffuse()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#a85f6a16b2f754ad8607a869ea0cc87d8">CPLightSource::setDiffuse()</a>; </dd></dl>
 
 </div>
 </div>
@@ -750,8 +717,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setPosition() function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#ab780027e03e9de6298aafa142ddd0c13">CPLightSource::setPosition()</a>; </dd></dl>
+<p>Calls the setPosition() function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#ab780027e03e9de6298aafa142ddd0c13">CPLightSource::setPosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -784,8 +750,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setAngle() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a43edafe3f7d899c60b775c4d94b5d55b">CPModel::setAngle()</a>; </dd></dl>
+<p>Calls the setAngle() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a43edafe3f7d899c60b775c4d94b5d55b">CPModel::setAngle()</a>; </dd></dl>
 
 </div>
 </div>
@@ -802,8 +767,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setCamLock() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a96f4cfbf5960efbff98763add93ba588">CPModel::setCamLock()</a>; </dd></dl>
+<p>Calls the setCamLock() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a96f4cfbf5960efbff98763add93ba588">CPModel::setCamLock()</a>; </dd></dl>
 
 </div>
 </div>
@@ -836,8 +800,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setColour() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#ad9950f2e4482b75781c9aa625cd8da8c">CPModel::setColour()</a>; </dd></dl>
+<p>Calls the setColour() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#ad9950f2e4482b75781c9aa625cd8da8c">CPModel::setColour()</a>; </dd></dl>
 
 </div>
 </div>
@@ -870,8 +833,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the setPosition() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a9da13be8d3a9049bbbef215eac6d1914">CPModel::setPosition()</a>; </dd></dl>
+<p>Calls the setPosition() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#a9da13be8d3a9049bbbef215eac6d1914">CPModel::setPosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -888,8 +850,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the <a class="el" href="class_game_object.html#aaa3e474ef2fc93eaeccc1b3db85be570">setSpecular()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#ae3bc483a0ba0542ff7d679da45245d2b">CPLightSource::setSpecular()</a>; </dd></dl>
+<p>Calls the <a class="el" href="class_game_object.html#aaa3e474ef2fc93eaeccc1b3db85be570">setSpecular()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#ae3bc483a0ba0542ff7d679da45245d2b">CPLightSource::setSpecular()</a>; </dd></dl>
 
 </div>
 </div>
@@ -906,8 +867,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the strafeRight() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a2335d6a10bc75de624a3c7889f892e43">CPCamera::strafeRight()</a>; </dd></dl>
+<p>Calls the strafeRight() function from <a class="el" href="class_c_p_camera.html">CPCamera</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_camera.html#a2335d6a10bc75de624a3c7889f892e43">CPCamera::strafeRight()</a>; </dd></dl>
 
 </div>
 </div>
@@ -923,8 +883,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the <a class="el" href="class_game_object.html#a7b17fd3d2f6c64a00ed822d6ac58075f">toggleLight()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#afac7be8da48e751116b3a5f6b25f423c">CPLightSource::toggleLight()</a>; </dd></dl>
+<p>Calls the <a class="el" href="class_game_object.html#a7b17fd3d2f6c64a00ed822d6ac58075f">toggleLight()</a> function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#afac7be8da48e751116b3a5f6b25f423c">CPLightSource::toggleLight()</a>; </dd></dl>
 
 </div>
 </div>
@@ -940,8 +899,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the updateAll() function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#a78c8695b7deb591b5075eb0fa84cdace">CPLightSource::updateAll()</a>; </dd></dl>
+<p>Calls the updateAll() function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#a78c8695b7deb591b5075eb0fa84cdace">CPLightSource::updateAll()</a>; </dd></dl>
 
 </div>
 </div>
@@ -968,8 +926,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the updatePosition() function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#ab7d159d3fa10ac362f1147dd680a8865">CPLightSource::updatePosition()</a>; </dd></dl>
+<p>Calls the updatePosition() function from <a class="el" href="class_c_p_light_source.html">CPLightSource</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_light_source.html#ab7d159d3fa10ac362f1147dd680a8865">CPLightSource::updatePosition()</a>; </dd></dl>
 
 </div>
 </div>
@@ -986,14 +943,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls the update() function from <a class="el" href="class_c_p_model.html">CPModel</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">CPModel::update()</a>; </dd></dl>
+<p>Calls the update() function from <a class="el" href="class_c_p_model.html">CPModel</a>. </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">CPModel::update()</a>; </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_game_object_8h_source.html">GameObject.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_game_object_8cpp.html">GameObject.cpp</a></li>
+<li>include/<a class="el" href="_game_object_8h_source.html">GameObject.h</a></li>
+<li>src/GameObject.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -100,6 +100,7 @@
     <ClCompile Include="..\src\ObjectLoader.cpp" />
     <ClCompile Include="..\src\RandomResource.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
+    <ClCompile Include="..\src\TDCD.cpp" />
     <ClCompile Include="..\src\TinyXML\tinyxml2.cpp" />
     <ClCompile Include="..\src\UISprite.cpp" />
     <ClCompile Include="..\src\UIText.cpp" />
@@ -116,11 +117,15 @@
     <ClInclude Include="..\include\ObjectLoader.h" />
     <ClInclude Include="..\include\RandomResource.h" />
     <ClInclude Include="..\include\Scene.h" />
+    <ClInclude Include="..\include\TDCD.h" />
     <ClInclude Include="..\include\TinyXML\tinyxml2.h" />
     <ClInclude Include="..\include\UISprite.h" />
     <ClInclude Include="..\include\UIText.h" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="resources\xml\CollisionTestArena.xml">
+      <SubType>Designer</SubType>
+    </Xml>
     <Xml Include="resources\xml\ModelMeshXML.xml">
       <SubType>Designer</SubType>
     </Xml>

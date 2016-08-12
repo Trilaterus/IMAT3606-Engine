@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: UIText Class Reference</title>
+<title>IMAT3606-Engine: UIText Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,6 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">UIText Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_u_i_text_8h_source.html">UIText.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for UIText:</div>
 <div class="dyncontent">
@@ -113,7 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9180a56ee4d70c99c0c09f2697718cc8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_text.html#a9180a56ee4d70c99c0c09f2697718cc8">draw</a> (sf::RenderTarget &amp;target, sf::RenderStates states) const </td></tr>
 <tr class="separator:a9180a56ee4d70c99c0c09f2697718cc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_u_i_text.html">UIText</a> class encapsulates the sf::Font to be polymorphically stored as a UIElement. The class allows for text colours, strings, sizes and positions to be changed.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa757b7d914e2b81a796444c95843aaea"></a>
 <div class="memitem">
 <div class="memproto">
@@ -143,12 +150,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The default constructor for the class. You must pass a string to display, an X axis position and a Y axis position.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>The default constructor for the class. You must pass a string to display, an X axis position and a Y axis position. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sText</td><td>The text to be displayed. </td></tr>
-    <tr><td class="paramname">fXPos</td><td>The X position of the text. </td></tr>
-    <tr><td class="paramname">fYPos</td><td>The Y position of the text. </td></tr>
+    <tr><td class="paramname">sText</td><td>The text to be displayed </td></tr>
+    <tr><td class="paramname">fXPos</td><td>The X position of the text </td></tr>
+    <tr><td class="paramname">fYPos</td><td>The Y position of the text </td></tr>
   </table>
   </dd>
 </dl>
@@ -179,11 +185,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The sf::Drawable inherited function allows the window to draw the text.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>The sf::Drawable inherited function allows the window to draw the text. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">target</td><td>The surface drawing the text. </td></tr>
-    <tr><td class="paramname">states</td><td></td></tr>
+    <tr><td class="paramname">states</td><td>Additional information that may modify rendering </td></tr>
   </table>
   </dd>
 </dl>
@@ -202,8 +207,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the global bounds of the sf::Text, useful for determining whether the mouse is hovered over the text.</p>
-<dl class="section return"><dt>Returns</dt><dd>An sf::Rect&lt;float&gt; defining the global bounds of the object. </dd></dl>
+<p>Returns the global bounds of the sf::Text, useful for determining whether the mouse is hovered over the text. </p><dl class="section return"><dt>Returns</dt><dd>An sf::Rect&lt;float&gt; defining the global bounds of the object </dd></dl>
 
 </div>
 </div>
@@ -220,10 +224,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current RBG colour with the colour passed. It needs an sf::Color value which is comprised of an R, G and B on a scale from 0 to 255.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current RBG colour with the colour passed. It needs an sf::Color value which is comprised of an R, G and B on a scale from 0 to 255. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sfColour</td><td>A new colour for the text. </td></tr>
+    <tr><td class="paramname">sfColour</td><td>A new colour for the text </td></tr>
   </table>
   </dd>
 </dl>
@@ -243,10 +246,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current position of the text with the vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current position of the text with the vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vfPosition</td><td>A 2D float vector representing the new position of the text. </td></tr>
+    <tr><td class="paramname">vfPosition</td><td>A 2D float vector representing the new position of the text </td></tr>
   </table>
   </dd>
 </dl>
@@ -266,10 +268,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current string of the text with the string passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current string of the text with the string passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sText</td><td>A new string for the text. </td></tr>
+    <tr><td class="paramname">sText</td><td>A new string for the text </td></tr>
   </table>
   </dd>
 </dl>
@@ -277,8 +278,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_u_i_text_8h_source.html">UIText.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_u_i_text_8cpp.html">UIText.cpp</a></li>
+<li>include/<a class="el" href="_u_i_text_8h_source.html">UIText.h</a></li>
+<li>src/UIText.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

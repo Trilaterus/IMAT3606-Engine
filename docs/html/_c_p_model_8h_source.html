@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/CPModel.h Source File</title>
+<title>IMAT3606-Engine: include/CPModel.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -87,62 +89,76 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">CPModel.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_c_p_model_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef CPMODEL_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define CPMODEL_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;SFML\Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;SFML\OpenGL.hpp&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_model_singleton_8h.html">ModelSingleton.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef CPMODEL_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define CPMODEL_H</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_c_p_model.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_p_model.html">CPModel</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    sf::Clock clock;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    sf::Vector3f m_vfPosition;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    sf::Vector3f m_vfAngles;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    GLuint m_iTexture;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> m_bIsRotating;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    sf::Vector3f m_vfQuaternion;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::string m_sModelName;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    sf::Vector3f m_vfColour;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> m_bCamLock; <span class="comment">// Will not move with camera (appear to be holding item/3D UI);</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> init(); <span class="comment">// Called in every constructor</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_c_p_model.html#a927766242acfa2506c8ad0697d219b4e">CPModel</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_c_p_model.html#a927766242acfa2506c8ad0697d219b4e">CPModel</a>(std::string sModelName); <span class="comment">// The string identifier in the map of ModelSingleton</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_c_p_model.html#a7720c208f89babc242631d947cf98600">~CPModel</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a53378c6fe80fa0e427ceb1c06927431a">rotate</a>(<span class="keywordtype">float</span> fAngle, <span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ); <span class="comment">// Change the angle by the increment</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a43edafe3f7d899c60b775c4d94b5d55b">setAngle</a>(<span class="keywordtype">float</span> fXAngle, <span class="keywordtype">float</span> fYAngle, <span class="keywordtype">float</span> fZAngle); <span class="comment">// Set the angle regardless of its previous angle</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">move</a>(<span class="keywordtype">float</span> fIncrement); <span class="comment">// change the position by the increment based on the direction its facing</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">move</a>(<span class="keywordtype">float</span> fXChange, <span class="keywordtype">float</span> fYChange, <span class="keywordtype">float</span> fZChange); <span class="comment">// change the position based on the increments</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a9da13be8d3a9049bbbef215eac6d1914">setPosition</a>(<span class="keywordtype">float</span> fXPos, <span class="keywordtype">float</span> fYPos, <span class="keywordtype">float</span> fZPos); <span class="comment">// Set the position regardless of the previous position</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#ad9950f2e4482b75781c9aa625cd8da8c">setColour</a>(<span class="keywordtype">float</span> fR, <span class="keywordtype">float</span> fG, <span class="keywordtype">float</span> fB); <span class="comment">// Change the material colour of the object</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a96f4cfbf5960efbff98763add93ba588">setCamLock</a>(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">getCamLock</a>();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">update</a>(sf::RenderWindow&amp; window);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">drawModel</a>() <span class="keyword">const</span>; <span class="comment">// this would draw it not based on camera (potentially useful for 3D UI (?!?! Must TEST!)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">drawModel</a>(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) <span class="keyword">const</span>; <span class="comment">// Draw objects relative to camera</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="_model_singleton_8h_html"><div class="ttname"><a href="_model_singleton_8h.html">ModelSingleton.h</a></div></div>
-<div class="ttc" id="class_c_p_model_html_a53378c6fe80fa0e427ceb1c06927431a"><div class="ttname"><a href="class_c_p_model.html#a53378c6fe80fa0e427ceb1c06927431a">CPModel::rotate</a></div><div class="ttdeci">void rotate(float fAngle, float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:67</div></div>
-<div class="ttc" id="class_c_p_model_html_ad9950f2e4482b75781c9aa625cd8da8c"><div class="ttname"><a href="class_c_p_model.html#ad9950f2e4482b75781c9aa625cd8da8c">CPModel::setColour</a></div><div class="ttdeci">void setColour(float fR, float fG, float fB)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:136</div></div>
-<div class="ttc" id="class_c_p_model_html_a927766242acfa2506c8ad0697d219b4e"><div class="ttname"><a href="class_c_p_model.html#a927766242acfa2506c8ad0697d219b4e">CPModel::CPModel</a></div><div class="ttdeci">CPModel()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:30</div></div>
-<div class="ttc" id="class_c_p_model_html_a43edafe3f7d899c60b775c4d94b5d55b"><div class="ttname"><a href="class_c_p_model.html#a43edafe3f7d899c60b775c4d94b5d55b">CPModel::setAngle</a></div><div class="ttdeci">void setAngle(float fXAngle, float fYAngle, float fZAngle)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:81</div></div>
-<div class="ttc" id="class_c_p_model_html_acc1c3b0eaa42f9632a5fe439f0335cdf"><div class="ttname"><a href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">CPModel::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:169</div></div>
-<div class="ttc" id="class_c_p_model_html_adbcaa7fe329f4feefec228f1dda4c4a9"><div class="ttname"><a href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">CPModel::getCamLock</a></div><div class="ttdeci">bool getCamLock()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:159</div></div>
-<div class="ttc" id="class_c_p_model_html"><div class="ttname"><a href="class_c_p_model.html">CPModel</a></div><div class="ttdef"><b>Definition:</b> CPModel.h:12</div></div>
-<div class="ttc" id="class_c_p_model_html_a96f4cfbf5960efbff98763add93ba588"><div class="ttname"><a href="class_c_p_model.html#a96f4cfbf5960efbff98763add93ba588">CPModel::setCamLock</a></div><div class="ttdeci">void setCamLock(bool b)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:148</div></div>
-<div class="ttc" id="class_c_p_model_html_a7720c208f89babc242631d947cf98600"><div class="ttname"><a href="class_c_p_model.html#a7720c208f89babc242631d947cf98600">CPModel::~CPModel</a></div><div class="ttdeci">~CPModel()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:52</div></div>
-<div class="ttc" id="class_c_p_model_html_a707df095df75e273fbf8dfe47543d2e0"><div class="ttname"><a href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">CPModel::move</a></div><div class="ttdeci">void move(float fIncrement)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:93</div></div>
-<div class="ttc" id="class_c_p_model_html_a9da13be8d3a9049bbbef215eac6d1914"><div class="ttname"><a href="class_c_p_model.html#a9da13be8d3a9049bbbef215eac6d1914">CPModel::setPosition</a></div><div class="ttdeci">void setPosition(float fXPos, float fYPos, float fZPos)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:121</div></div>
-<div class="ttc" id="class_c_p_model_html_a00d173b1ceff1b421b3e92013f0040ad"><div class="ttname"><a href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">CPModel::drawModel</a></div><div class="ttdeci">void drawModel() const </div><div class="ttdef"><b>Definition:</b> CPModel.cpp:180</div></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SFML\Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;SFML\OpenGL.hpp&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;ModelSingleton.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_c_p_model.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_p_model.html">CPModel</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;{</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    sf::Clock clock;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    sf::Vector3f m_vfPosition;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    sf::Vector3f m_vfAngles;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    GLuint m_iTexture;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> m_bIsRotating;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    sf::Vector3f m_vfQuaternion;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::string m_sModelName;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    sf::Vector3f m_vfColour;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> m_bCamLock; <span class="comment">// Will not move with camera (appear to be holding item/3D UI);</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_c_p_model.html#a927766242acfa2506c8ad0697d219b4e">CPModel</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_c_p_model.html#a927766242acfa2506c8ad0697d219b4e">CPModel</a>(std::string sModelName);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_c_p_model.html#a7720c208f89babc242631d947cf98600">~CPModel</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a53378c6fe80fa0e427ceb1c06927431a">rotate</a>(<span class="keywordtype">float</span> fAngle, <span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ); </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a43edafe3f7d899c60b775c4d94b5d55b">setAngle</a>(<span class="keywordtype">float</span> fXAngle, <span class="keywordtype">float</span> fYAngle, <span class="keywordtype">float</span> fZAngle);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">move</a>(<span class="keywordtype">float</span> fIncrement);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">move</a>(<span class="keywordtype">float</span> fXChange, <span class="keywordtype">float</span> fYChange, <span class="keywordtype">float</span> fZChange);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a9da13be8d3a9049bbbef215eac6d1914">setPosition</a>(<span class="keywordtype">float</span> fXPos, <span class="keywordtype">float</span> fYPos, <span class="keywordtype">float</span> fZPos);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#ad9950f2e4482b75781c9aa625cd8da8c">setColour</a>(<span class="keywordtype">float</span> fR, <span class="keywordtype">float</span> fG, <span class="keywordtype">float</span> fB);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a96f4cfbf5960efbff98763add93ba588">setCamLock</a>(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">getCamLock</a>();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    sf::Vector3f <a class="code" href="class_c_p_model.html#ae326d05c7cc900d2a3e16e599bf1f9e5">getPosition</a>();</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">update</a>(sf::RenderWindow&amp; window);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">drawModel</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">drawModel</a>(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_c_p_model_html_a53378c6fe80fa0e427ceb1c06927431a"><div class="ttname"><a href="class_c_p_model.html#a53378c6fe80fa0e427ceb1c06927431a">CPModel::rotate</a></div><div class="ttdeci">void rotate(float fAngle, float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:29</div></div>
+<div class="ttc" id="class_c_p_model_html_ad9950f2e4482b75781c9aa625cd8da8c"><div class="ttname"><a href="class_c_p_model.html#ad9950f2e4482b75781c9aa625cd8da8c">CPModel::setColour</a></div><div class="ttdeci">void setColour(float fR, float fG, float fB)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:64</div></div>
+<div class="ttc" id="class_c_p_model_html_a927766242acfa2506c8ad0697d219b4e"><div class="ttname"><a href="class_c_p_model.html#a927766242acfa2506c8ad0697d219b4e">CPModel::CPModel</a></div><div class="ttdeci">CPModel()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:12</div></div>
+<div class="ttc" id="class_c_p_model_html_a43edafe3f7d899c60b775c4d94b5d55b"><div class="ttname"><a href="class_c_p_model.html#a43edafe3f7d899c60b775c4d94b5d55b">CPModel::setAngle</a></div><div class="ttdeci">void setAngle(float fXAngle, float fYAngle, float fZAngle)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:36</div></div>
+<div class="ttc" id="class_c_p_model_html_acc1c3b0eaa42f9632a5fe439f0335cdf"><div class="ttname"><a href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">CPModel::update</a></div><div class="ttdeci">void update(sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:85</div></div>
+<div class="ttc" id="class_c_p_model_html_adbcaa7fe329f4feefec228f1dda4c4a9"><div class="ttname"><a href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">CPModel::getCamLock</a></div><div class="ttdeci">bool getCamLock()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:74</div></div>
+<div class="ttc" id="class_c_p_model_html"><div class="ttname"><a href="class_c_p_model.html">CPModel</a></div><div class="ttdef"><b>Definition:</b> CPModel.h:16</div></div>
+<div class="ttc" id="class_c_p_model_html_a96f4cfbf5960efbff98763add93ba588"><div class="ttname"><a href="class_c_p_model.html#a96f4cfbf5960efbff98763add93ba588">CPModel::setCamLock</a></div><div class="ttdeci">void setCamLock(bool b)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:69</div></div>
+<div class="ttc" id="class_c_p_model_html_a7720c208f89babc242631d947cf98600"><div class="ttname"><a href="class_c_p_model.html#a7720c208f89babc242631d947cf98600">CPModel::~CPModel</a></div><div class="ttdeci">~CPModel()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:24</div></div>
+<div class="ttc" id="class_c_p_model_html_a707df095df75e273fbf8dfe47543d2e0"><div class="ttname"><a href="class_c_p_model.html#a707df095df75e273fbf8dfe47543d2e0">CPModel::move</a></div><div class="ttdeci">void move(float fIncrement)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:43</div></div>
+<div class="ttc" id="class_c_p_model_html_ae326d05c7cc900d2a3e16e599bf1f9e5"><div class="ttname"><a href="class_c_p_model.html#ae326d05c7cc900d2a3e16e599bf1f9e5">CPModel::getPosition</a></div><div class="ttdeci">sf::Vector3f getPosition()</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:79</div></div>
+<div class="ttc" id="class_c_p_model_html_a9da13be8d3a9049bbbef215eac6d1914"><div class="ttname"><a href="class_c_p_model.html#a9da13be8d3a9049bbbef215eac6d1914">CPModel::setPosition</a></div><div class="ttdeci">void setPosition(float fXPos, float fYPos, float fZPos)</div><div class="ttdef"><b>Definition:</b> CPModel.cpp:57</div></div>
+<div class="ttc" id="class_c_p_model_html_a00d173b1ceff1b421b3e92013f0040ad"><div class="ttname"><a href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">CPModel::drawModel</a></div><div class="ttdeci">void drawModel() const </div><div class="ttdef"><b>Definition:</b> CPModel.cpp:90</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

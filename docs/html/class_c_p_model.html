@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: CPModel Class Reference</title>
+<title>IMAT3606-Engine: CPModel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,6 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">CPModel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_c_p_model_8h_source.html">CPModel.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -114,6 +118,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a96f4cfbf5960efbff98763add93ba588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbcaa7fe329f4feefec228f1dda4c4a9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_model.html#adbcaa7fe329f4feefec228f1dda4c4a9">getCamLock</a> ()</td></tr>
 <tr class="separator:adbcaa7fe329f4feefec228f1dda4c4a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae326d05c7cc900d2a3e16e599bf1f9e5"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_model.html#ae326d05c7cc900d2a3e16e599bf1f9e5">getPosition</a> ()</td></tr>
+<tr class="separator:ae326d05c7cc900d2a3e16e599bf1f9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc1c3b0eaa42f9632a5fe439f0335cdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_model.html#acc1c3b0eaa42f9632a5fe439f0335cdf">update</a> (sf::RenderWindow &amp;window)</td></tr>
 <tr class="separator:acc1c3b0eaa42f9632a5fe439f0335cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00d173b1ceff1b421b3e92013f0040ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_model.html#a00d173b1ceff1b421b3e92013f0040ad">drawModel</a> () const </td></tr>
@@ -121,7 +127,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a32ed86f0fa525095e2b3d879770e94ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_model.html#a32ed86f0fa525095e2b3d879770e94ca">drawModel</a> (sf::Vector3f vCamAngle, sf::Vector3f vCamPos) const </td></tr>
 <tr class="separator:a32ed86f0fa525095e2b3d879770e94ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The ComponentModel class associates a mesh or model with a chosen <a class="el" href="class_game_object.html">GameObject</a>. The mesh position, angle and colour can be modified. The mesh can also be drawn in a way in which the camera offset does not apply to it, essentially creating a 3D UI effect.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a927766242acfa2506c8ad0697d219b4e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -134,8 +143,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The default constructor for a <a class="el" href="class_c_p_model.html">CPModel</a>. It calls the private function init() to set some necessary variable values.</p>
-<dl class="section see"><dt>See also</dt><dd>init() </dd></dl>
+<p>The default constructor for a <a class="el" href="class_c_p_model.html">CPModel</a>. It calls the private function init() to set some necessary variable values. </p><dl class="section see"><dt>See also</dt><dd>init() </dd></dl>
 
 </div>
 </div>
@@ -152,7 +160,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This constructor allows you to choose a specific model to load rather than the default. Model names are used in the <a class="el" href="class_model_singleton.html">ModelSingleton</a> class and are defined by the model XML file the <a class="el" href="class_model_singleton.html">ModelSingleton</a> class uses. An incorrect name will result in the default object being drawn. </p>
+<p>This constructor allows you to choose a specific model to load rather than the default. Model names are used in the <a class="el" href="class_model_singleton.html">ModelSingleton</a> class and are defined by the model XML file the <a class="el" href="class_model_singleton.html">ModelSingleton</a> class uses. An incorrect name will result in the default object being drawn. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sModelName</td><td>A string representing the model name in the XML file to render </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd>init() </dd></dl>
 
 </div>
 </div>
@@ -212,11 +226,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Draw the model and apply the camera offset. This gives the effect that the object is in a real world space and the user can potentially move the camera around the model.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Draw the model and apply the camera offset. This gives the effect that the object is in a real world space and the user can potentially move the camera around the model. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vCamAngle</td><td>The angle vector to offset the model. </td></tr>
-    <tr><td class="paramname">vCamPos</td><td>The position vector to offset the model. </td></tr>
+    <tr><td class="paramname">vCamAngle</td><td>The angle vector to offset the model </td></tr>
+    <tr><td class="paramname">vCamPos</td><td>The position vector to offset the model </td></tr>
   </table>
   </dd>
 </dl>
@@ -235,8 +248,23 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the current state of the models camera lock.</p>
-<dl class="section return"><dt>Returns</dt><dd>Current state of models camera lock. </dd></dl>
+<p>Returns the current state of the models camera lock. </p><dl class="section return"><dt>Returns</dt><dd>Current state of models camera lock </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae326d05c7cc900d2a3e16e599bf1f9e5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sf::Vector3f CPModel::getPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Returns the current position of this model. </p><dl class="section return"><dt>Returns</dt><dd>Current position of the model </dd></dl>
 
 </div>
 </div>
@@ -253,10 +281,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Moves the model in the direction it is currently facing.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Moves the model in the direction it is currently facing. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fIncrement</td><td>The amount to move the model. </td></tr>
+    <tr><td class="paramname">fIncrement</td><td>The amount to move the model </td></tr>
   </table>
   </dd>
 </dl>
@@ -292,12 +319,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Increments the models position based on the 3 floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Increments the models position based on the 3 floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fXChange</td><td>The amount to increment the X axis. </td></tr>
-    <tr><td class="paramname">fYChange</td><td>The amount to increment the Y axis. </td></tr>
-    <tr><td class="paramname">fZChange</td><td>The amount to increment the Z axis. </td></tr>
+    <tr><td class="paramname">fXChange</td><td>The amount to increment the X axis </td></tr>
+    <tr><td class="paramname">fYChange</td><td>The amount to increment the Y axis </td></tr>
+    <tr><td class="paramname">fZChange</td><td>The amount to increment the Z axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -339,13 +365,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Increments the current angle of the model by the passed float amount. You must also specify the axis at which the rotation occurs on a scale from 0 to 1.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Increments the current angle of the model by the passed float amount. You must also specify the axis at which the rotation occurs on a scale from 0 to 1. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fAngle</td><td>The amount to increment the models angle. </td></tr>
-    <tr><td class="paramname">fX</td><td>The effect of fAngle on the X axis. </td></tr>
-    <tr><td class="paramname">fY</td><td>The effect of fAngle on the Y axis. </td></tr>
-    <tr><td class="paramname">fZ</td><td>The effect of fAngle on the Z axis. </td></tr>
+    <tr><td class="paramname">fX</td><td>The effect of fAngle on the X axis </td></tr>
+    <tr><td class="paramname">fY</td><td>The effect of fAngle on the Y axis </td></tr>
+    <tr><td class="paramname">fZ</td><td>The effect of fAngle on the Z axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -381,12 +406,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current angle of the model with the 3 floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current angle of the model with the 3 floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fXAngle</td><td>The amount to set the X axis angle. </td></tr>
-    <tr><td class="paramname">fYAngle</td><td>The amount to set the Y axis angle. </td></tr>
-    <tr><td class="paramname">fZAngle</td><td>The amount to set the Z axis angle. </td></tr>
+    <tr><td class="paramname">fXAngle</td><td>The amount to set the X axis angle </td></tr>
+    <tr><td class="paramname">fYAngle</td><td>The amount to set the Y axis angle </td></tr>
+    <tr><td class="paramname">fZAngle</td><td>The amount to set the Z axis angle </td></tr>
   </table>
   </dd>
 </dl>
@@ -406,8 +430,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets whether or not the model should be affected by the offsets of the camera. If true the model acts like 3D UI and does not move with the camera.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sets whether or not the model should be affected by the offsets of the camera. If true the model acts like 3D UI and does not move with the camera. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">b</td><td>A boolean defining whether or not the camera lock for the model is set </td></tr>
   </table>
@@ -424,19 +447,19 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void CPModel::setColour </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>R</em>, </td>
+          <td class="paramname"><em>fR</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>G</em>, </td>
+          <td class="paramname"><em>fG</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>B</em>&#160;</td>
+          <td class="paramname"><em>fB</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -445,12 +468,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current colour of the model with the 3 floats passed. This is using an RGB colour scheme on a scale from 0 to 1.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current colour of the model with the 3 floats passed. This is using an RGB colour scheme on a scale from 0 to 1. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">R</td><td>The new Red value. </td></tr>
-    <tr><td class="paramname">G</td><td>The new Green value. </td></tr>
-    <tr><td class="paramname">B</td><td>The new Blue value. </td></tr>
+    <tr><td class="paramname">R</td><td>The new Red value </td></tr>
+    <tr><td class="paramname">G</td><td>The new Green value </td></tr>
+    <tr><td class="paramname">B</td><td>The new Blue value </td></tr>
   </table>
   </dd>
 </dl>
@@ -486,12 +508,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current position of the model with the 3 floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current position of the model with the 3 floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fXPos</td><td>The new position along the X axis. </td></tr>
-    <tr><td class="paramname">fYPos</td><td>The new position along the Y axis. </td></tr>
-    <tr><td class="paramname">fZPos</td><td>The new position along the Z axis. </td></tr>
+    <tr><td class="paramname">fXPos</td><td>The new position along the X axis </td></tr>
+    <tr><td class="paramname">fYPos</td><td>The new position along the Y axis </td></tr>
+    <tr><td class="paramname">fZPos</td><td>The new position along the Z axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -511,10 +532,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Update the variables of the model</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Update the variables of the model </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">window</td><td>The window the model is being updated on. </td></tr>
+    <tr><td class="paramname">window</td><td>The window the model is being updated on </td></tr>
   </table>
   </dd>
 </dl>
@@ -522,8 +542,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_c_p_model_8h_source.html">CPModel.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_c_p_model_8cpp.html">CPModel.cpp</a></li>
+<li>include/<a class="el" href="_c_p_model_8h_source.html">CPModel.h</a></li>
+<li>src/CPModel.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

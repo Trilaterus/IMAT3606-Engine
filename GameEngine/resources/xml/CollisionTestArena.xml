@@ -1,0 +1,42 @@
+<Scene>
+  <Object>
+    <ID>myLight</ID>
+    <Light>
+      <Position>
+        <x>10</x>
+        <y>10</y>
+        <z>-10</z>
+      </Position>
+      <Diffuse>
+        <r>1</r>
+        <g>1</g>
+        <b>1</b>
+      </Diffuse>
+    </Light>
+  </Object>
+
+  <Object>
+    <ID>myBall</ID>
+    <Model>
+      <OBJ>CollisionBall</OBJ>
+      <Position>
+        <x>-1.5</x>
+        <y>0</y>
+        <z>-10</z>
+      </Position>
+    </Model>
+  </Object>
+
+  <Object>
+    <ID>myCube</ID>
+    <Model>
+      <OBJ>CollisionCube</OBJ>
+      <Position>
+        <x>1.5</x>
+        <y>0</y>
+        <z>-10</z>
+      </Position>
+    </Model>
+  </Object>
+  
+</Scene>

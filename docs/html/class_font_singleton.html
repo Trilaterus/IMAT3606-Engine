@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: FontSingleton Class Reference</title>
+<title>IMAT3606-Engine: FontSingleton Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,6 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">FontSingleton Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_font_singleton_8h_source.html">FontSingleton.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,7 +107,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abd9b6d4bf6ad72444c9660ecb16c1a45"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_font_singleton.html">FontSingleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_font_singleton.html#abd9b6d4bf6ad72444c9660ecb16c1a45">instance</a> ()</td></tr>
 <tr class="separator:abd9b6d4bf6ad72444c9660ecb16c1a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>@ A singleton class which stores sf::Fonts in order to ensure efficiency when drawing and creating text.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a62f8d68d861bff9c4d797fa8fc42ab1e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -117,14 +124,13 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the font specified by a passed ID.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Returns the font specified by a passed ID. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sName</td><td>The string ID of the font. </td></tr>
+    <tr><td class="paramname">sName</td><td>The string ID of the font </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An sf::Font address related to the ID passed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An sf::Font address related to the ID passed </dd></dl>
 
 </div>
 </div>
@@ -148,8 +154,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the only instance of the <a class="el" href="class_font_singleton.html">FontSingleton</a>.</p>
-<dl class="section return"><dt>Returns</dt><dd>The only instance of <a class="el" href="class_font_singleton.html">FontSingleton</a>. </dd></dl>
+<p>Returns the only instance of the <a class="el" href="class_font_singleton.html">FontSingleton</a>. </p><dl class="section return"><dt>Returns</dt><dd>The only instance of <a class="el" href="class_font_singleton.html">FontSingleton</a> </dd></dl>
 
 </div>
 </div>
@@ -176,21 +181,20 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Loads a font into the singleton and returns a bool determining its success. You may pass the ID of "defualt" to change the default font.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Loads a font into the singleton and returns a bool determining its success. You may pass the ID of "defualt" to change the default font. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sName</td><td>The associated ID for the font. </td></tr>
-    <tr><td class="paramname">sFileName</td><td>The file path to the font file. </td></tr>
+    <tr><td class="paramname">sName</td><td>The associated ID for the font </td></tr>
+    <tr><td class="paramname">sFileName</td><td>The file path to the font file </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A boolean representing its success. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing its success </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_font_singleton_8h_source.html">FontSingleton.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_font_singleton_8cpp.html">FontSingleton.cpp</a></li>
+<li>include/<a class="el" href="_font_singleton_8h_source.html">FontSingleton.h</a></li>
+<li>src/FontSingleton.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

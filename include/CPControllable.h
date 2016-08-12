@@ -1,6 +1,9 @@
-/** \file CPControllable.h
-The header file for the ComponentControllable class.
-*/
+/** TODO
+The ComponentControllable class gives the GameObject the ability to function
+based on hardware events.
+
+@author Hussain */
+
 #ifndef CPCONTROLLABLE_H
 #define CPCONTROLLABLE_H
 
@@ -11,12 +14,12 @@ The header file for the ComponentControllable class.
 class CPControllable
 {
 private:
-	std::set<sf::Event> m_Events; // Events to listen out for
+	std::set<sf::Event> m_Events;
 
 public:
 	CPControllable();
 
-	bool handleEvent(sf::Event sfEvent); // returns true if the event passed is the same as one of the listeners
+	bool handleEvent(sf::Event sfEvent);
 	void addMouseListener();
 	void addKeyListener(sf::Keyboard::Key sfKey);
 };

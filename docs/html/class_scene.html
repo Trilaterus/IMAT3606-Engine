@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: Scene Class Reference</title>
+<title>IMAT3606-Engine: Scene Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,6 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Scene Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_scene_8h_source.html">Scene.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -103,7 +107,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac0e3d2c98ba6063a086467fb2c19142f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ac0e3d2c98ba6063a086467fb2c19142f">draw</a> ()</td></tr>
 <tr class="separator:ac0e3d2c98ba6063a086467fb2c19142f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_scene.html">Scene</a> class uses an XML to define all the variables of the <a class="el" href="class_game_object.html">GameObject</a>, its components and currently some <a class="el" href="class_u_i_text.html">UIText</a>. It requires a single camera and a window to perform the necessary functions such as updating and drawing all of its held GameObjects and UITexts.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a971eda55e316add1b281dabc3ee5eb15"></a>
 <div class="memitem">
 <div class="memproto">
@@ -133,12 +140,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The default constructor for the <a class="el" href="class_scene.html">Scene</a> class. It needs a file path to the XML holding information about the environment, a pointer to a <a class="el" href="class_game_object.html">GameObject</a> that has a camera and a reference to the window to draw the SFML elements.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>The default constructor for the <a class="el" href="class_scene.html">Scene</a> class. It needs a file path to the XML holding information about the environment, a pointer to a <a class="el" href="class_game_object.html">GameObject</a> that has a camera and a reference to the window to draw the SFML elements. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sFileName</td><td>The file path to the XML environment. </td></tr>
-    <tr><td class="paramname">Camera</td><td>A <a class="el" href="class_game_object.html">GameObject</a> with a camera component attached, </td></tr>
-    <tr><td class="paramname">Window</td><td>A reference to an sf::RenderWindow. </td></tr>
+    <tr><td class="paramname">sFileName</td><td>The file path to the XML environment </td></tr>
+    <tr><td class="paramname">Camera</td><td>A <a class="el" href="class_game_object.html">GameObject</a> with a camera component attached </td></tr>
+    <tr><td class="paramname">Window</td><td>A reference to an sf::RenderWindow </td></tr>
   </table>
   </dd>
 </dl>
@@ -159,10 +165,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Changes the current camera with the <a class="el" href="class_game_object.html">GameObject</a> camera passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Changes the current camera with the <a class="el" href="class_game_object.html">GameObject</a> camera passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Camera</td><td>The new camera to use for drawing and updating. </td></tr>
+    <tr><td class="paramname">Camera</td><td>The new camera to use for drawing and updating </td></tr>
   </table>
   </dd>
 </dl>
@@ -198,10 +203,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Call within the pollEvent() function of SFML. It allows for the functions to be performed based on incoming hardware events.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Call within the pollEvent() function of SFML. It allows for the functions to be performed based on incoming hardware events. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">The</td><td>currently polled sf::Event. </td></tr>
+    <tr><td class="paramname">The</td><td>currently polled sf::Event </td></tr>
   </table>
   </dd>
 </dl>
@@ -225,8 +229,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_scene_8cpp.html">Scene.cpp</a></li>
+<li>include/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
+<li>src/Scene.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/GameObject.h Source File</title>
+<title>IMAT3606-Engine: include/GameObject.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -87,129 +89,155 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">GameObject.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_game_object_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef GAMEOBJECT_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define GAMEOBJECT_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_component_8h.html">Component.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_p_model_8h.html">CPModel.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_p_controllable_8h.html">CPControllable.h</a>&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_p_camera_8h.html">CPCamera.h</a>&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c_p_light_source_8h.html">CPLightSource.h</a>&quot;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_game_object.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_object.html">GameObject</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_c_p_model.html">CPModel</a>* m_pCPModel;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_c_p_camera.html">CPCamera</a>* m_pCPCamera;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_c_p_light_source.html">CPLightSource</a>* m_pCPLight;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_game_object.html#a0348e3ee2e83d56eafca7a3547f432c4">GameObject</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_game_object.html#ab82dfdb656f9051c0587e6593b2dda97">~GameObject</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// Game Object functions</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#a9bd921e730f59069ee0751641082ab63">hasModel</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#a8242b74cee1ff1ba9e150a7003a36786">hasCamera</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#aebb5a2d5774f0b6ddbd90fff3a5a68d1">hasLight</a>();</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef GAMEOBJECT_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define GAMEOBJECT_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Component.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;CPModel.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;CPControllable.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;CPCamera.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;CPLightSource.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_game_object.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_object.html">GameObject</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_c_p_model.html">CPModel</a>* m_pCPModel;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_c_p_camera.html">CPCamera</a>* m_pCPCamera;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_c_p_light_source.html">CPLightSource</a>* m_pCPLight;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_game_object.html">GameObject</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="class_game_object.html">GameObject</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Game Object functions //</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// attachcomponent</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#abaf096f12baad17bd3f312ef2753766b">attachModel</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#abaf096f12baad17bd3f312ef2753766b">attachModel</a>(std::string sModelName);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#aa6bc64b6fef219a9a77dbf053997134a">attachCamera</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#af39dda86d6f755ffedffa55077460249">attachLight</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// dettachcomponent (?)</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// All component functions</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// MODEL</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a2806c58f34f8761c6400126f708d1ae7">rotateModel</a>(<span class="keywordtype">float</span> fAngle, <span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel</a>(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a176c6e4542b5f796967913c070cd9d75">setModelAngle</a>(<span class="keywordtype">float</span> fXAngle, <span class="keywordtype">float</span> fYAngle, <span class="keywordtype">float</span> fZAngle);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#af95c1dff7f2838db82e03e121506aa6e">moveModel</a>(<span class="keywordtype">float</span> fIncrement);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#af95c1dff7f2838db82e03e121506aa6e">moveModel</a>(<span class="keywordtype">float</span> fXChange, <span class="keywordtype">float</span> fYChange, <span class="keywordtype">float</span> fZChange);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a9a72bc36e28d491bb27437ca342f0562">setModelPosition</a>(<span class="keywordtype">float</span> fXPos, <span class="keywordtype">float</span> fYPos, <span class="keywordtype">float</span> fZPos);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#ab33c1302f08934fa03fe02929cba4071">setModelColour</a>(<span class="keywordtype">float</span> fR, <span class="keywordtype">float</span> fG, <span class="keywordtype">float</span> fB);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a15ac136ea377ff3e433c65013201f0a7">setModelCamLock</a>(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#a0ce7b605f28fa9bd4f9fc46954dc9fff">getModelCamLock</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a6f73c166f5194d4d7972e31943351deb">updateModel</a>(sf::RenderWindow&amp; window); <span class="comment">// Model,</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// CAMERA</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#a9bd921e730f59069ee0751641082ab63">hasModel</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#a8242b74cee1ff1ba9e150a7003a36786">hasCamera</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#aebb5a2d5774f0b6ddbd90fff3a5a68d1">hasLight</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// attachComponent functions //</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#abaf096f12baad17bd3f312ef2753766b">attachModel</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#abaf096f12baad17bd3f312ef2753766b">attachModel</a>(std::string sModelName);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    sf::Vector3f <a class="code" href="class_game_object.html#a9eb65cdd46164e6dc57df8c42e29ed68">getCameraPosition</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    sf::Vector3f <a class="code" href="class_game_object.html#ac6d95f21a88cc6388b37fa0728e21ad4">getCameraAngle</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8db1a04b002506ff1a20058b4965b2b6">setCameraPosition</a>(sf::Vector3f vPosition);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8db1a04b002506ff1a20058b4965b2b6">setCameraPosition</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a843be195978ce755bfdaf14d1bb72e93">moveCamera</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a509c1bc3cead34638beecb379efbcd60">moveCameraForward</a>(<span class="keywordtype">float</span> fIncrement);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#aa225a4e447157c3e21bc0ae6a830fb9e">strafeCameraRight</a>(<span class="keywordtype">float</span> fIncrement);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8f077201611575d6170ef41fccbb5712">setCameraAngle</a>(sf::Vector3f vAngle);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8f077201611575d6170ef41fccbb5712">setCameraAngle</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a80c1c969ba2870704310dc0b307fd788">rotateCamera</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#aa6bc64b6fef219a9a77dbf053997134a">attachCamera</a>();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#af39dda86d6f755ffedffa55077460249">attachLight</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="comment">// dettachcomponent (?)</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// LIGHT</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// All component functions</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a60d0957f5f765168d898943613169e18">setLightPosition</a>(sf::Vector3f vfPosition);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a984be8c72702d45b4c82b1bff4d6b576">setAmbient</a>(sf::Vector3f vfAmbient);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a63e1f632bb6f2aa76ab2842ac5442759">setDiffuse</a>(sf::Vector3f vfDiffuse);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#aaa3e474ef2fc93eaeccc1b3db85be570">setSpecular</a>(sf::Vector3f vfSpecular);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a7b17fd3d2f6c64a00ed822d6ac58075f">toggleLight</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#ac7d31fe6115f269adad4c531a0a2de0a">updateLightAll</a>();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a9ab55e586acee48dd26952cb84641a66">updateLightPos</a>(sf::Vector3f vCamAngle, sf::Vector3f vCamPos);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">// DUPLICATES </span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif // GAMEOBJECT_H</span></div>
-<div class="ttc" id="class_game_object_html_a15ac136ea377ff3e433c65013201f0a7"><div class="ttname"><a href="class_game_object.html#a15ac136ea377ff3e433c65013201f0a7">GameObject::setModelCamLock</a></div><div class="ttdeci">void setModelCamLock(bool b)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:203</div></div>
-<div class="ttc" id="class_game_object_html_a0348e3ee2e83d56eafca7a3547f432c4"><div class="ttname"><a href="class_game_object.html#a0348e3ee2e83d56eafca7a3547f432c4">GameObject::GameObject</a></div><div class="ttdeci">GameObject()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:11</div></div>
-<div class="ttc" id="class_game_object_html_a8f077201611575d6170ef41fccbb5712"><div class="ttname"><a href="class_game_object.html#a8f077201611575d6170ef41fccbb5712">GameObject::setCameraAngle</a></div><div class="ttdeci">void setCameraAngle(sf::Vector3f vAngle)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:350</div></div>
-<div class="ttc" id="class_game_object_html_a21a3ed8223f59e2702ac315d981aa1c2"><div class="ttname"><a href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">GameObject::drawModel</a></div><div class="ttdeci">void drawModel() const </div><div class="ttdef"><b>Definition:</b> GameObject.cpp:164</div></div>
-<div class="ttc" id="_c_p_model_8h_html"><div class="ttname"><a href="_c_p_model_8h.html">CPModel.h</a></div></div>
-<div class="ttc" id="class_game_object_html_a6f73c166f5194d4d7972e31943351deb"><div class="ttname"><a href="class_game_object.html#a6f73c166f5194d4d7972e31943351deb">GameObject::updateModel</a></div><div class="ttdeci">void updateModel(sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:234</div></div>
-<div class="ttc" id="_c_p_light_source_8h_html"><div class="ttname"><a href="_c_p_light_source_8h.html">CPLightSource.h</a></div></div>
-<div class="ttc" id="class_game_object_html_abaf096f12baad17bd3f312ef2753766b"><div class="ttname"><a href="class_game_object.html#abaf096f12baad17bd3f312ef2753766b">GameObject::attachModel</a></div><div class="ttdeci">void attachModel()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:78</div></div>
-<div class="ttc" id="class_game_object_html_a9a72bc36e28d491bb27437ca342f0562"><div class="ttname"><a href="class_game_object.html#a9a72bc36e28d491bb27437ca342f0562">GameObject::setModelPosition</a></div><div class="ttdeci">void setModelPosition(float fXPos, float fYPos, float fZPos)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:151</div></div>
-<div class="ttc" id="_c_p_controllable_8h_html"><div class="ttname"><a href="_c_p_controllable_8h.html">CPControllable.h</a></div></div>
-<div class="ttc" id="class_game_object_html_af39dda86d6f755ffedffa55077460249"><div class="ttname"><a href="class_game_object.html#af39dda86d6f755ffedffa55077460249">GameObject::attachLight</a></div><div class="ttdeci">void attachLight()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:391</div></div>
-<div class="ttc" id="class_game_object_html_aa225a4e447157c3e21bc0ae6a830fb9e"><div class="ttname"><a href="class_game_object.html#aa225a4e447157c3e21bc0ae6a830fb9e">GameObject::strafeCameraRight</a></div><div class="ttdeci">void strafeCameraRight(float fIncrement)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:337</div></div>
-<div class="ttc" id="class_game_object_html_a60d0957f5f765168d898943613169e18"><div class="ttname"><a href="class_game_object.html#a60d0957f5f765168d898943613169e18">GameObject::setLightPosition</a></div><div class="ttdeci">void setLightPosition(sf::Vector3f vfPosition)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:401</div></div>
-<div class="ttc" id="class_c_p_camera_html"><div class="ttname"><a href="class_c_p_camera.html">CPCamera</a></div><div class="ttdef"><b>Definition:</b> CPCamera.h:9</div></div>
-<div class="ttc" id="class_game_object_html_aa6bc64b6fef219a9a77dbf053997134a"><div class="ttname"><a href="class_game_object.html#aa6bc64b6fef219a9a77dbf053997134a">GameObject::attachCamera</a></div><div class="ttdeci">void attachCamera()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:249</div></div>
-<div class="ttc" id="class_game_object_html_ac6d95f21a88cc6388b37fa0728e21ad4"><div class="ttname"><a href="class_game_object.html#ac6d95f21a88cc6388b37fa0728e21ad4">GameObject::getCameraAngle</a></div><div class="ttdeci">sf::Vector3f getCameraAngle() const </div><div class="ttdef"><b>Definition:</b> GameObject.cpp:272</div></div>
-<div class="ttc" id="class_game_object_html_a2806c58f34f8761c6400126f708d1ae7"><div class="ttname"><a href="class_game_object.html#a2806c58f34f8761c6400126f708d1ae7">GameObject::rotateModel</a></div><div class="ttdeci">void rotateModel(float fAngle, float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:99</div></div>
-<div class="ttc" id="class_game_object_html_a63e1f632bb6f2aa76ab2842ac5442759"><div class="ttname"><a href="class_game_object.html#a63e1f632bb6f2aa76ab2842ac5442759">GameObject::setDiffuse</a></div><div class="ttdeci">void setDiffuse(sf::Vector3f vfDiffuse)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:427</div></div>
-<div class="ttc" id="class_game_object_html_a8242b74cee1ff1ba9e150a7003a36786"><div class="ttname"><a href="class_game_object.html#a8242b74cee1ff1ba9e150a7003a36786">GameObject::hasCamera</a></div><div class="ttdeci">bool hasCamera()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:50</div></div>
-<div class="ttc" id="class_game_object_html_a984be8c72702d45b4c82b1bff4d6b576"><div class="ttname"><a href="class_game_object.html#a984be8c72702d45b4c82b1bff4d6b576">GameObject::setAmbient</a></div><div class="ttdeci">void setAmbient(sf::Vector3f vfAmbient)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:414</div></div>
-<div class="ttc" id="class_game_object_html_a9bd921e730f59069ee0751641082ab63"><div class="ttname"><a href="class_game_object.html#a9bd921e730f59069ee0751641082ab63">GameObject::hasModel</a></div><div class="ttdeci">bool hasModel()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:37</div></div>
-<div class="ttc" id="class_game_object_html_ac7d31fe6115f269adad4c531a0a2de0a"><div class="ttname"><a href="class_game_object.html#ac7d31fe6115f269adad4c531a0a2de0a">GameObject::updateLightAll</a></div><div class="ttdeci">void updateLightAll()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:466</div></div>
-<div class="ttc" id="class_game_object_html_a80c1c969ba2870704310dc0b307fd788"><div class="ttname"><a href="class_game_object.html#a80c1c969ba2870704310dc0b307fd788">GameObject::rotateCamera</a></div><div class="ttdeci">void rotateCamera(float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:376</div></div>
-<div class="ttc" id="class_game_object_html_a176c6e4542b5f796967913c070cd9d75"><div class="ttname"><a href="class_game_object.html#a176c6e4542b5f796967913c070cd9d75">GameObject::setModelAngle</a></div><div class="ttdeci">void setModelAngle(float fXAngle, float fYAngle, float fZAngle)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:112</div></div>
-<div class="ttc" id="class_c_p_light_source_html"><div class="ttname"><a href="class_c_p_light_source.html">CPLightSource</a></div><div class="ttdef"><b>Definition:</b> CPLightSource.h:10</div></div>
-<div class="ttc" id="_c_p_camera_8h_html"><div class="ttname"><a href="_c_p_camera_8h.html">CPCamera.h</a></div></div>
-<div class="ttc" id="class_game_object_html_a843be195978ce755bfdaf14d1bb72e93"><div class="ttname"><a href="class_game_object.html#a843be195978ce755bfdaf14d1bb72e93">GameObject::moveCamera</a></div><div class="ttdeci">void moveCamera(float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:311</div></div>
-<div class="ttc" id="class_game_object_html_a7b17fd3d2f6c64a00ed822d6ac58075f"><div class="ttname"><a href="class_game_object.html#a7b17fd3d2f6c64a00ed822d6ac58075f">GameObject::toggleLight</a></div><div class="ttdeci">void toggleLight()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:453</div></div>
-<div class="ttc" id="class_c_p_model_html"><div class="ttname"><a href="class_c_p_model.html">CPModel</a></div><div class="ttdef"><b>Definition:</b> CPModel.h:12</div></div>
-<div class="ttc" id="class_game_object_html"><div class="ttname"><a href="class_game_object.html">GameObject</a></div><div class="ttdef"><b>Definition:</b> GameObject.h:15</div></div>
-<div class="ttc" id="_component_8h_html"><div class="ttname"><a href="_component_8h.html">Component.h</a></div></div>
-<div class="ttc" id="class_game_object_html_ab33c1302f08934fa03fe02929cba4071"><div class="ttname"><a href="class_game_object.html#ab33c1302f08934fa03fe02929cba4071">GameObject::setModelColour</a></div><div class="ttdeci">void setModelColour(float fR, float fG, float fB)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:190</div></div>
-<div class="ttc" id="class_game_object_html_aaa3e474ef2fc93eaeccc1b3db85be570"><div class="ttname"><a href="class_game_object.html#aaa3e474ef2fc93eaeccc1b3db85be570">GameObject::setSpecular</a></div><div class="ttdeci">void setSpecular(sf::Vector3f vfSpecular)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:440</div></div>
-<div class="ttc" id="class_game_object_html_ab82dfdb656f9051c0587e6593b2dda97"><div class="ttname"><a href="class_game_object.html#ab82dfdb656f9051c0587e6593b2dda97">GameObject::~GameObject</a></div><div class="ttdeci">~GameObject()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:20</div></div>
-<div class="ttc" id="class_game_object_html_a9eb65cdd46164e6dc57df8c42e29ed68"><div class="ttname"><a href="class_game_object.html#a9eb65cdd46164e6dc57df8c42e29ed68">GameObject::getCameraPosition</a></div><div class="ttdeci">sf::Vector3f getCameraPosition()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:259</div></div>
-<div class="ttc" id="class_game_object_html_a9ab55e586acee48dd26952cb84641a66"><div class="ttname"><a href="class_game_object.html#a9ab55e586acee48dd26952cb84641a66">GameObject::updateLightPos</a></div><div class="ttdeci">void updateLightPos(sf::Vector3f vCamAngle, sf::Vector3f vCamPos)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:479</div></div>
-<div class="ttc" id="class_game_object_html_a509c1bc3cead34638beecb379efbcd60"><div class="ttname"><a href="class_game_object.html#a509c1bc3cead34638beecb379efbcd60">GameObject::moveCameraForward</a></div><div class="ttdeci">void moveCameraForward(float fIncrement)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:324</div></div>
-<div class="ttc" id="class_game_object_html_a8db1a04b002506ff1a20058b4965b2b6"><div class="ttname"><a href="class_game_object.html#a8db1a04b002506ff1a20058b4965b2b6">GameObject::setCameraPosition</a></div><div class="ttdeci">void setCameraPosition(sf::Vector3f vPosition)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:285</div></div>
-<div class="ttc" id="class_game_object_html_af95c1dff7f2838db82e03e121506aa6e"><div class="ttname"><a href="class_game_object.html#af95c1dff7f2838db82e03e121506aa6e">GameObject::moveModel</a></div><div class="ttdeci">void moveModel(float fIncrement)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:125</div></div>
-<div class="ttc" id="class_game_object_html_aebb5a2d5774f0b6ddbd90fff3a5a68d1"><div class="ttname"><a href="class_game_object.html#aebb5a2d5774f0b6ddbd90fff3a5a68d1">GameObject::hasLight</a></div><div class="ttdeci">bool hasLight()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:63</div></div>
-<div class="ttc" id="class_game_object_html_a0ce7b605f28fa9bd4f9fc46954dc9fff"><div class="ttname"><a href="class_game_object.html#a0ce7b605f28fa9bd4f9fc46954dc9fff">GameObject::getModelCamLock</a></div><div class="ttdeci">bool getModelCamLock()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:216</div></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// MODEL //</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a2806c58f34f8761c6400126f708d1ae7">rotateModel</a>(<span class="keywordtype">float</span> fAngle, <span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">drawModel</a>(sf::Vector3f vCamAngle, sf::Vector3f vCamPos) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a176c6e4542b5f796967913c070cd9d75">setModelAngle</a>(<span class="keywordtype">float</span> fXAngle, <span class="keywordtype">float</span> fYAngle, <span class="keywordtype">float</span> fZAngle);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#af95c1dff7f2838db82e03e121506aa6e">moveModel</a>(<span class="keywordtype">float</span> fIncrement);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#af95c1dff7f2838db82e03e121506aa6e">moveModel</a>(<span class="keywordtype">float</span> fXChange, <span class="keywordtype">float</span> fYChange, <span class="keywordtype">float</span> fZChange);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a9a72bc36e28d491bb27437ca342f0562">setModelPosition</a>(<span class="keywordtype">float</span> fXPos, <span class="keywordtype">float</span> fYPos, <span class="keywordtype">float</span> fZPos);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#ab33c1302f08934fa03fe02929cba4071">setModelColour</a>(<span class="keywordtype">float</span> fR, <span class="keywordtype">float</span> fG, <span class="keywordtype">float</span> fB);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a15ac136ea377ff3e433c65013201f0a7">setModelCamLock</a>(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_game_object.html#a0ce7b605f28fa9bd4f9fc46954dc9fff">getModelCamLock</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a6f73c166f5194d4d7972e31943351deb">updateModel</a>(sf::RenderWindow&amp; window);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    sf::Vector3f <a class="code" href="class_game_object.html#a44eaeeeeb126cb2d3498736acb1d325d">getModelPosition</a>();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="comment">// CAMERA //</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    sf::Vector3f <a class="code" href="class_game_object.html#a9eb65cdd46164e6dc57df8c42e29ed68">getCameraPosition</a>();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    sf::Vector3f <a class="code" href="class_game_object.html#ac6d95f21a88cc6388b37fa0728e21ad4">getCameraAngle</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8db1a04b002506ff1a20058b4965b2b6">setCameraPosition</a>(sf::Vector3f vPosition);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8db1a04b002506ff1a20058b4965b2b6">setCameraPosition</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a843be195978ce755bfdaf14d1bb72e93">moveCamera</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a509c1bc3cead34638beecb379efbcd60">moveCameraForward</a>(<span class="keywordtype">float</span> fIncrement);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#aa225a4e447157c3e21bc0ae6a830fb9e">strafeCameraRight</a>(<span class="keywordtype">float</span> fIncrement);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8f077201611575d6170ef41fccbb5712">setCameraAngle</a>(sf::Vector3f vAngle);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a8f077201611575d6170ef41fccbb5712">setCameraAngle</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a80c1c969ba2870704310dc0b307fd788">rotateCamera</a>(<span class="keywordtype">float</span> fX, <span class="keywordtype">float</span> fY, <span class="keywordtype">float</span> fZ);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// LIGHT //</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a60d0957f5f765168d898943613169e18">setLightPosition</a>(sf::Vector3f vfPosition);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a984be8c72702d45b4c82b1bff4d6b576">setAmbient</a>(sf::Vector3f vfAmbient);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a63e1f632bb6f2aa76ab2842ac5442759">setDiffuse</a>(sf::Vector3f vfDiffuse);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#aaa3e474ef2fc93eaeccc1b3db85be570">setSpecular</a>(sf::Vector3f vfSpecular);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a7b17fd3d2f6c64a00ed822d6ac58075f">toggleLight</a>();</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#ac7d31fe6115f269adad4c531a0a2de0a">updateLightAll</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_object.html#a9ab55e586acee48dd26952cb84641a66">updateLightPos</a>(sf::Vector3f vCamAngle, sf::Vector3f vCamPos);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;};</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="preprocessor">#endif // GAMEOBJECT_H</span></div>
+<div class="ttc" id="class_game_object_html_a15ac136ea377ff3e433c65013201f0a7"><div class="ttname"><a href="class_game_object.html#a15ac136ea377ff3e433c65013201f0a7">GameObject::setModelCamLock</a></div><div class="ttdeci">void setModelCamLock(bool b)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:122</div></div>
+<div class="ttc" id="class_game_object_html_a8f077201611575d6170ef41fccbb5712"><div class="ttname"><a href="class_game_object.html#a8f077201611575d6170ef41fccbb5712">GameObject::setCameraAngle</a></div><div class="ttdeci">void setCameraAngle(sf::Vector3f vAngle)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:230</div></div>
+<div class="ttc" id="class_game_object_html_a21a3ed8223f59e2702ac315d981aa1c2"><div class="ttname"><a href="class_game_object.html#a21a3ed8223f59e2702ac315d981aa1c2">GameObject::drawModel</a></div><div class="ttdeci">void drawModel() const </div><div class="ttdef"><b>Definition:</b> GameObject.cpp:66</div></div>
+<div class="ttc" id="class_game_object_html_a6f73c166f5194d4d7972e31943351deb"><div class="ttname"><a href="class_game_object.html#a6f73c166f5194d4d7972e31943351deb">GameObject::updateModel</a></div><div class="ttdeci">void updateModel(sf::RenderWindow &amp;window)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:143</div></div>
+<div class="ttc" id="class_game_object_html_a44eaeeeeb126cb2d3498736acb1d325d"><div class="ttname"><a href="class_game_object.html#a44eaeeeeb126cb2d3498736acb1d325d">GameObject::getModelPosition</a></div><div class="ttdeci">sf::Vector3f getModelPosition()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:151</div></div>
+<div class="ttc" id="class_game_object_html_abaf096f12baad17bd3f312ef2753766b"><div class="ttname"><a href="class_game_object.html#abaf096f12baad17bd3f312ef2753766b">GameObject::attachModel</a></div><div class="ttdeci">void attachModel()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:48</div></div>
+<div class="ttc" id="class_game_object_html_a9a72bc36e28d491bb27437ca342f0562"><div class="ttname"><a href="class_game_object.html#a9a72bc36e28d491bb27437ca342f0562">GameObject::setModelPosition</a></div><div class="ttdeci">void setModelPosition(float fXPos, float fYPos, float fZPos)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:106</div></div>
+<div class="ttc" id="class_game_object_html_af39dda86d6f755ffedffa55077460249"><div class="ttname"><a href="class_game_object.html#af39dda86d6f755ffedffa55077460249">GameObject::attachLight</a></div><div class="ttdeci">void attachLight()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:258</div></div>
+<div class="ttc" id="class_game_object_html_aa225a4e447157c3e21bc0ae6a830fb9e"><div class="ttname"><a href="class_game_object.html#aa225a4e447157c3e21bc0ae6a830fb9e">GameObject::strafeCameraRight</a></div><div class="ttdeci">void strafeCameraRight(float fIncrement)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:222</div></div>
+<div class="ttc" id="class_game_object_html_a60d0957f5f765168d898943613169e18"><div class="ttname"><a href="class_game_object.html#a60d0957f5f765168d898943613169e18">GameObject::setLightPosition</a></div><div class="ttdeci">void setLightPosition(sf::Vector3f vfPosition)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:263</div></div>
+<div class="ttc" id="class_c_p_camera_html"><div class="ttname"><a href="class_c_p_camera.html">CPCamera</a></div><div class="ttdef"><b>Definition:</b> CPCamera.h:14</div></div>
+<div class="ttc" id="class_game_object_html_aa6bc64b6fef219a9a77dbf053997134a"><div class="ttname"><a href="class_game_object.html#aa6bc64b6fef219a9a77dbf053997134a">GameObject::attachCamera</a></div><div class="ttdeci">void attachCamera()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:165</div></div>
+<div class="ttc" id="class_game_object_html_ac6d95f21a88cc6388b37fa0728e21ad4"><div class="ttname"><a href="class_game_object.html#ac6d95f21a88cc6388b37fa0728e21ad4">GameObject::getCameraAngle</a></div><div class="ttdeci">sf::Vector3f getCameraAngle() const </div><div class="ttdef"><b>Definition:</b> GameObject.cpp:180</div></div>
+<div class="ttc" id="class_game_object_html_a2806c58f34f8761c6400126f708d1ae7"><div class="ttname"><a href="class_game_object.html#a2806c58f34f8761c6400126f708d1ae7">GameObject::rotateModel</a></div><div class="ttdeci">void rotateModel(float fAngle, float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:58</div></div>
+<div class="ttc" id="class_game_object_html_a63e1f632bb6f2aa76ab2842ac5442759"><div class="ttname"><a href="class_game_object.html#a63e1f632bb6f2aa76ab2842ac5442759">GameObject::setDiffuse</a></div><div class="ttdeci">void setDiffuse(sf::Vector3f vfDiffuse)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:279</div></div>
+<div class="ttc" id="class_game_object_html_a8242b74cee1ff1ba9e150a7003a36786"><div class="ttname"><a href="class_game_object.html#a8242b74cee1ff1ba9e150a7003a36786">GameObject::hasCamera</a></div><div class="ttdeci">bool hasCamera()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:28</div></div>
+<div class="ttc" id="class_game_object_html_a984be8c72702d45b4c82b1bff4d6b576"><div class="ttname"><a href="class_game_object.html#a984be8c72702d45b4c82b1bff4d6b576">GameObject::setAmbient</a></div><div class="ttdeci">void setAmbient(sf::Vector3f vfAmbient)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:271</div></div>
+<div class="ttc" id="class_game_object_html_a9bd921e730f59069ee0751641082ab63"><div class="ttname"><a href="class_game_object.html#a9bd921e730f59069ee0751641082ab63">GameObject::hasModel</a></div><div class="ttdeci">bool hasModel()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:20</div></div>
+<div class="ttc" id="class_game_object_html_ac7d31fe6115f269adad4c531a0a2de0a"><div class="ttname"><a href="class_game_object.html#ac7d31fe6115f269adad4c531a0a2de0a">GameObject::updateLightAll</a></div><div class="ttdeci">void updateLightAll()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:303</div></div>
+<div class="ttc" id="class_game_object_html_a80c1c969ba2870704310dc0b307fd788"><div class="ttname"><a href="class_game_object.html#a80c1c969ba2870704310dc0b307fd788">GameObject::rotateCamera</a></div><div class="ttdeci">void rotateCamera(float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:246</div></div>
+<div class="ttc" id="class_game_object_html_a176c6e4542b5f796967913c070cd9d75"><div class="ttname"><a href="class_game_object.html#a176c6e4542b5f796967913c070cd9d75">GameObject::setModelAngle</a></div><div class="ttdeci">void setModelAngle(float fXAngle, float fYAngle, float fZAngle)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:82</div></div>
+<div class="ttc" id="class_c_p_light_source_html"><div class="ttname"><a href="class_c_p_light_source.html">CPLightSource</a></div><div class="ttdef"><b>Definition:</b> CPLightSource.h:15</div></div>
+<div class="ttc" id="class_game_object_html_a843be195978ce755bfdaf14d1bb72e93"><div class="ttname"><a href="class_game_object.html#a843be195978ce755bfdaf14d1bb72e93">GameObject::moveCamera</a></div><div class="ttdeci">void moveCamera(float fX, float fY, float fZ)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:206</div></div>
+<div class="ttc" id="class_game_object_html_a7b17fd3d2f6c64a00ed822d6ac58075f"><div class="ttname"><a href="class_game_object.html#a7b17fd3d2f6c64a00ed822d6ac58075f">GameObject::toggleLight</a></div><div class="ttdeci">void toggleLight()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:295</div></div>
+<div class="ttc" id="class_c_p_model_html"><div class="ttname"><a href="class_c_p_model.html">CPModel</a></div><div class="ttdef"><b>Definition:</b> CPModel.h:16</div></div>
+<div class="ttc" id="class_game_object_html"><div class="ttname"><a href="class_game_object.html">GameObject</a></div><div class="ttdef"><b>Definition:</b> GameObject.h:18</div></div>
+<div class="ttc" id="class_game_object_html_ab33c1302f08934fa03fe02929cba4071"><div class="ttname"><a href="class_game_object.html#ab33c1302f08934fa03fe02929cba4071">GameObject::setModelColour</a></div><div class="ttdeci">void setModelColour(float fR, float fG, float fB)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:114</div></div>
+<div class="ttc" id="class_game_object_html_aaa3e474ef2fc93eaeccc1b3db85be570"><div class="ttname"><a href="class_game_object.html#aaa3e474ef2fc93eaeccc1b3db85be570">GameObject::setSpecular</a></div><div class="ttdeci">void setSpecular(sf::Vector3f vfSpecular)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:287</div></div>
+<div class="ttc" id="class_game_object_html_a9eb65cdd46164e6dc57df8c42e29ed68"><div class="ttname"><a href="class_game_object.html#a9eb65cdd46164e6dc57df8c42e29ed68">GameObject::getCameraPosition</a></div><div class="ttdeci">sf::Vector3f getCameraPosition()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:170</div></div>
+<div class="ttc" id="class_game_object_html_a9ab55e586acee48dd26952cb84641a66"><div class="ttname"><a href="class_game_object.html#a9ab55e586acee48dd26952cb84641a66">GameObject::updateLightPos</a></div><div class="ttdeci">void updateLightPos(sf::Vector3f vCamAngle, sf::Vector3f vCamPos)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:311</div></div>
+<div class="ttc" id="class_game_object_html_a509c1bc3cead34638beecb379efbcd60"><div class="ttname"><a href="class_game_object.html#a509c1bc3cead34638beecb379efbcd60">GameObject::moveCameraForward</a></div><div class="ttdeci">void moveCameraForward(float fIncrement)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:214</div></div>
+<div class="ttc" id="class_game_object_html_a8db1a04b002506ff1a20058b4965b2b6"><div class="ttname"><a href="class_game_object.html#a8db1a04b002506ff1a20058b4965b2b6">GameObject::setCameraPosition</a></div><div class="ttdeci">void setCameraPosition(sf::Vector3f vPosition)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:190</div></div>
+<div class="ttc" id="class_game_object_html_af95c1dff7f2838db82e03e121506aa6e"><div class="ttname"><a href="class_game_object.html#af95c1dff7f2838db82e03e121506aa6e">GameObject::moveModel</a></div><div class="ttdeci">void moveModel(float fIncrement)</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:90</div></div>
+<div class="ttc" id="class_game_object_html_aebb5a2d5774f0b6ddbd90fff3a5a68d1"><div class="ttname"><a href="class_game_object.html#aebb5a2d5774f0b6ddbd90fff3a5a68d1">GameObject::hasLight</a></div><div class="ttdeci">bool hasLight()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:36</div></div>
+<div class="ttc" id="class_game_object_html_a0ce7b605f28fa9bd4f9fc46954dc9fff"><div class="ttname"><a href="class_game_object.html#a0ce7b605f28fa9bd4f9fc46954dc9fff">GameObject::getModelCamLock</a></div><div class="ttdeci">bool getModelCamLock()</div><div class="ttdef"><b>Definition:</b> GameObject.cpp:130</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

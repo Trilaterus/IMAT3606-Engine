@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: ModelSingleton Class Reference</title>
+<title>IMAT3606-Engine: ModelSingleton Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,6 +92,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ModelSingleton Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_model_singleton_8h_source.html">ModelSingleton.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -105,7 +109,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a09cc9634b39446ce5dc24c5b7d91140e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_model_singleton.html">ModelSingleton</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_singleton.html#a09cc9634b39446ce5dc24c5b7d91140e">instance</a> ()</td></tr>
 <tr class="separator:a09cc9634b39446ce5dc24c5b7d91140e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A singleton class which stores ObjectLoaders in order to ensure efficiency when drawing and created Models or meshes.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a5f9bec56a1a8db2f49301f7e346282f2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -119,14 +126,13 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns an object specified by a passed ID.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Returns an object specified by a passed ID. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sName</td><td>The string ID of the object </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="class_object_loader.html">ObjectLoader</a> address related to the ID passed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An <a class="el" href="class_object_loader.html">ObjectLoader</a> address related to the ID passed </dd></dl>
 
 </div>
 </div>
@@ -166,8 +172,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns the only instance of the <a class="el" href="class_model_singleton.html">ModelSingleton</a>.</p>
-<dl class="section return"><dt>Returns</dt><dd>The only instance of <a class="el" href="class_model_singleton.html">ModelSingleton</a> </dd></dl>
+<p>Returns the only instance of the <a class="el" href="class_model_singleton.html">ModelSingleton</a>. </p><dl class="section return"><dt>Returns</dt><dd>The only instance of <a class="el" href="class_model_singleton.html">ModelSingleton</a> </dd></dl>
 
 </div>
 </div>
@@ -194,21 +199,20 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Loads a model from a passed file path and stores it with a passed ID. Returns a bool representing its success.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Loads a model from a passed file path and stores it with a passed ID. Returns a bool representing its success. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sName</td><td>A string ID for the .obj </td></tr>
-    <tr><td class="paramname">sFileName</td><td>A string file path to the .obj file. </td></tr>
+    <tr><td class="paramname">sFileName</td><td>A string file path to the .obj file </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A bool representing the success of the load. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A bool representing the success of the load </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_model_singleton_8h_source.html">ModelSingleton.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_model_singleton_8cpp.html">ModelSingleton.cpp</a></li>
+<li>include/<a class="el" href="_model_singleton_8h_source.html">ModelSingleton.h</a></li>
+<li>src/ModelSingleton.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

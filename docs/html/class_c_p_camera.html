@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: CPCamera Class Reference</title>
+<title>IMAT3606-Engine: CPCamera Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,11 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">CPCamera Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_c_p_camera_8h_source.html">CPCamera.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aff21e8bfbb7d877122f2bada926b0c22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_camera.html#aff21e8bfbb7d877122f2bada926b0c22">CPCamera</a> ()</td></tr>
-<tr class="separator:aff21e8bfbb7d877122f2bada926b0c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf8f5024c828b40b870ffda9cc781f1a"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_camera.html#acf8f5024c828b40b870ffda9cc781f1a">getPosition</a> ()</td></tr>
 <tr class="separator:acf8f5024c828b40b870ffda9cc781f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90fbce00606115c20c15ebc52ed45366"><td class="memItemLeft" align="right" valign="top">sf::Vector3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_camera.html#a90fbce00606115c20c15ebc52ed45366">getAngle</a> () const </td></tr>
@@ -115,24 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3da5764cff7e86b0bbae9177c8222edf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_camera.html#a3da5764cff7e86b0bbae9177c8222edf">rotate</a> (float fX, float fY, float fZ)</td></tr>
 <tr class="separator:a3da5764cff7e86b0bbae9177c8222edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aff21e8bfbb7d877122f2bada926b0c22"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CPCamera::CPCamera </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The only constructor for the <a class="el" href="class_c_p_camera.html">CPCamera</a> class. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The ComponentCamera class essentially stores a 3D position and angle vector in order to equally offset all the objects affected. Consider OpenGL to be a fixed window frame, to give the illusion of moving a camera we move all the objects by an offset instead. This camera aims to provide a First Person Shooter (or FPS) style camera with strafe-like movement functions.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a90fbce00606115c20c15ebc52ed45366"></a>
 <div class="memitem">
 <div class="memproto">
@@ -145,8 +133,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the current angle of the camera as a 3D vector.</p>
-<dl class="section return"><dt>Returns</dt><dd>Current angle as 3D vector. </dd></dl>
+<p>Returns the current angle of the camera as a 3D vector. </p><dl class="section return"><dt>Returns</dt><dd>Current angle as 3D vector </dd></dl>
 
 </div>
 </div>
@@ -162,8 +149,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the current position of the camera as a 3D vector.</p>
-<dl class="section return"><dt>Returns</dt><dd>Current position as 3D vector. </dd></dl>
+<p>Returns the current position of the camera as a 3D vector. </p><dl class="section return"><dt>Returns</dt><dd>Current position as 3D vector </dd></dl>
 
 </div>
 </div>
@@ -196,12 +182,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Moves the camera based on the 3 floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Moves the camera based on the 3 floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fX</td><td>Moves the camera by the given amount on the X axis. </td></tr>
-    <tr><td class="paramname">fY</td><td>Moves the camera by the given amount on the Y axis. </td></tr>
-    <tr><td class="paramname">fZ</td><td>Moves the camera by the given amount on the Z axis. </td></tr>
+    <tr><td class="paramname">fX</td><td>Moves the camera by the given amount on the X axis </td></tr>
+    <tr><td class="paramname">fY</td><td>Moves the camera by the given amount on the Y axis </td></tr>
+    <tr><td class="paramname">fZ</td><td>Moves the camera by the given amount on the Z axis </td></tr>
   </table>
   </dd>
 </dl>
@@ -221,10 +206,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Moves the camera forward based on the direction it is currently facing. It can also be used to move backwards if a negative float is passed to it.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Moves the camera forward based on the direction it is currently facing. It can also be used to move backwards if a negative float is passed to it. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fIncrement</td><td>The amount of distance to move. </td></tr>
+    <tr><td class="paramname">fIncrement</td><td>The amount of distance to move </td></tr>
   </table>
   </dd>
 </dl>
@@ -260,12 +244,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Increments the current angle of the camera by the three floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Increments the current angle of the camera by the three floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fX</td><td>The X axis angle increment. </td></tr>
-    <tr><td class="paramname">fY</td><td>The Y axis angle increment. </td></tr>
-    <tr><td class="paramname">fZ</td><td>The Z axis angle increment. </td></tr>
+    <tr><td class="paramname">fX</td><td>The X axis angle increment </td></tr>
+    <tr><td class="paramname">fY</td><td>The Y axis angle increment </td></tr>
+    <tr><td class="paramname">fZ</td><td>The Z axis angle increment </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,10 +268,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current angle of the camera with the 3D vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current angle of the camera with the 3D vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vAngle</td><td>The new camera angle vector. </td></tr>
+    <tr><td class="paramname">vAngle</td><td>The new camera angle vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -324,12 +306,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current angle of the camera with the three floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current angle of the camera with the three floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fX</td><td>The new X axis angle. </td></tr>
-    <tr><td class="paramname">fY</td><td>The new Y axis angle. </td></tr>
-    <tr><td class="paramname">fZ</td><td>The new Z axis angle. </td></tr>
+    <tr><td class="paramname">fX</td><td>The new X axis angle </td></tr>
+    <tr><td class="paramname">fY</td><td>The new Y axis angle </td></tr>
+    <tr><td class="paramname">fZ</td><td>The new Z axis angle </td></tr>
   </table>
   </dd>
 </dl>
@@ -349,10 +330,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current camera position vector with the vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current camera position vector with the vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vPosition</td><td>The new camera position vector. </td></tr>
+    <tr><td class="paramname">vPosition</td><td>The new camera position vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -388,8 +368,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current camera position vector with the 3 floats passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current camera position vector with the 3 floats passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fX</td><td>The new camera X axis position </td></tr>
     <tr><td class="paramname">fY</td><td>The new camera Y axis position </td></tr>
@@ -413,10 +392,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Moves the camera to the right of the direction it is currently facing, similar to a strafe. It can also be used to move left if a negative float is passed to it</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Moves the camera to the right of the direction it is currently facing, similar to a strafe. It can also be used to move left if a negative float is passed to it </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fIncrement</td><td>The amount of distance to strafe. </td></tr>
+    <tr><td class="paramname">fIncrement</td><td>The amount of distance to strafe </td></tr>
   </table>
   </dd>
 </dl>
@@ -424,8 +402,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_c_p_camera_8h_source.html">CPCamera.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_c_p_camera_8cpp.html">CPCamera.cpp</a></li>
+<li>include/<a class="el" href="_c_p_camera_8h_source.html">CPCamera.h</a></li>
+<li>src/CPCamera.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['gameobject',['GameObject',['../class_game_object.html#a0348e3ee2e83d56eafca7a3547f432c4',1,'GameObject']]],
   ['generatebool',['generateBool',['../class_random_resource.html#aa7ebc3fd191692e8c15e8dc4c94d5324',1,'RandomResource']]],
   ['generatefloat',['generateFloat',['../class_random_resource.html#a42796be15e2fc8df11fe36371ec5f592',1,'RandomResource']]],
   ['generateint',['generateInt',['../class_random_resource.html#a11e1a5eefbf332022662619ab7814813',1,'RandomResource']]],
@@ -12,9 +11,11 @@ var searchData=
   ['getfacevindex',['getFaceVIndex',['../class_object_loader.html#a8448992daa46e70c5bbb3a0eeecb5f9e',1,'ObjectLoader']]],
   ['getfacevindexfirst',['getFaceVIndexFirst',['../class_object_loader.html#a84ca3eb32b9324cb6a69f64c9af290ab',1,'ObjectLoader']]],
   ['getfont',['getFont',['../class_font_singleton.html#a62f8d68d861bff9c4d797fa8fc42ab1e',1,'FontSingleton']]],
+  ['getmagnitude',['getMagnitude',['../namespacetdcd.html#a8b948f1c4c7bf12f0e381f8086c8fac0',1,'tdcd']]],
   ['getmodel',['getModel',['../class_model_singleton.html#a5f9bec56a1a8db2f49301f7e346282f2',1,'ModelSingleton']]],
   ['getmodelcamlock',['getModelCamLock',['../class_game_object.html#a0ce7b605f28fa9bd4f9fc46954dc9fff',1,'GameObject']]],
-  ['getposition',['getPosition',['../class_c_p_camera.html#acf8f5024c828b40b870ffda9cc781f1a',1,'CPCamera']]],
+  ['getmodelposition',['getModelPosition',['../class_game_object.html#a44eaeeeeb126cb2d3498736acb1d325d',1,'GameObject']]],
+  ['getposition',['getPosition',['../class_c_p_camera.html#acf8f5024c828b40b870ffda9cc781f1a',1,'CPCamera::getPosition()'],['../class_c_p_model.html#ae326d05c7cc900d2a3e16e599bf1f9e5',1,'CPModel::getPosition()']]],
   ['gettexturenormals',['getTextureNormals',['../class_object_loader.html#acad69cbae44fc41260d1c78e96626b3e',1,'ObjectLoader']]],
   ['getvertexcoords',['getVertexCoords',['../class_object_loader.html#ad92d3254395ef8f0fb53173f3b8391e9',1,'ObjectLoader']]],
   ['getvertexcoordsfirst',['getVertexCoordsFirst',['../class_object_loader.html#a45f8418261ecdd5f3dfd1d42629cdca1',1,'ObjectLoader']]],

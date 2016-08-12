@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: RandomResource Class Reference</title>
+<title>IMAT3606-Engine: RandomResource Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,11 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">RandomResource Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_random_resource_8h_source.html">RandomResource.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a807ce41410869117271f9c4131ee1ea7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_random_resource.html#a807ce41410869117271f9c4131ee1ea7">RandomResource</a> ()</td></tr>
-<tr class="separator:a807ce41410869117271f9c4131ee1ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e1a5eefbf332022662619ab7814813"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_random_resource.html#a11e1a5eefbf332022662619ab7814813">generateInt</a> (int iMin, int iMax)</td></tr>
 <tr class="separator:a11e1a5eefbf332022662619ab7814813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42796be15e2fc8df11fe36371ec5f592"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_random_resource.html#a42796be15e2fc8df11fe36371ec5f592">generateFloat</a> (float fMin, float fMax)</td></tr>
@@ -101,24 +103,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa7ebc3fd191692e8c15e8dc4c94d5324"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_random_resource.html#aa7ebc3fd191692e8c15e8dc4c94d5324">generateBool</a> ()</td></tr>
 <tr class="separator:aa7ebc3fd191692e8c15e8dc4c94d5324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a807ce41410869117271f9c4131ee1ea7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">RandomResource::RandomResource </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The only constructor for the <a class="el" href="class_random_resource.html">RandomResource</a> class. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_random_resource.html">RandomResource</a> class is designed to simply and efficiently return random values. It uses a method which ensures random numbers between compiles. TODO: Generate functions need parameter checking. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aa7ebc3fd191692e8c15e8dc4c94d5324"></a>
 <div class="memitem">
 <div class="memproto">
@@ -131,8 +118,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a boolean by randomly generating an integer which is either 0 or 1.</p>
-<dl class="section return"><dt>Returns</dt><dd>A random boolean value. </dd></dl>
+<p>Returns a boolean by randomly generating an integer which is either 0 or 1. </p><dl class="section return"><dt>Returns</dt><dd>A random boolean value </dd></dl>
 
 </div>
 </div>
@@ -159,15 +145,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a random float between the specified minimum and maximum range.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Returns a random float between the specified minimum and maximum range. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fMin</td><td>The lowest float the resource could return. </td></tr>
-    <tr><td class="paramname">fMin</td><td>The highest float the resource could return. </td></tr>
+    <tr><td class="paramname">fMin</td><td>The lowest float the resource could return </td></tr>
+    <tr><td class="paramname">fMin</td><td>The highest float the resource could return </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A float between the specified min and max values. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A float between the specified min and max values </dd></dl>
 
 </div>
 </div>
@@ -194,21 +179,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a random integer between the specified minimum and maximum range.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Returns a random integer between the specified minimum and maximum range. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iMin</td><td>The lowest int the resource could return. </td></tr>
-    <tr><td class="paramname">iMax</td><td>The highest int the resource could return. </td></tr>
+    <tr><td class="paramname">iMin</td><td>The lowest int the resource could return </td></tr>
+    <tr><td class="paramname">iMax</td><td>The highest int the resource could return </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An int between the specified min and max values. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An int between the specified min and max values </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_random_resource_8h_source.html">RandomResource.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_random_resource_8cpp.html">RandomResource.cpp</a></li>
+<li>include/<a class="el" href="_random_resource_8h_source.html">RandomResource.h</a></li>
+<li>src/RandomResource.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

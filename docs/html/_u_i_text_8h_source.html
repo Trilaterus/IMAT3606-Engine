@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/UIText.h Source File</title>
+<title>IMAT3606-Engine: include/UIText.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -87,40 +89,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">UIText.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_u_i_text_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef UITEXT_H</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define UITEXT_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;SFML\Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_singleton_8h.html">FontSingleton.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_u_i_text.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_u_i_text.html">UIText</a> : <span class="keyword">public</span> sf::Drawable</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::string m_sText;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    sf::Vector2f m_vPosition;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    sf::Color m_sfColour;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_u_i_text.html#aa757b7d914e2b81a796444c95843aaea">UIText</a>(std::string sText, <span class="keywordtype">float</span> fXPos, <span class="keywordtype">float</span> fYPos);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    sf::Rect&lt;float&gt; <a class="code" href="class_u_i_text.html#a64b00b3fc0a55d8197f1c0b929b6e93c">getBounds</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#a8164390c693dd3611858770b395f9699">setColour</a>(sf::Color sfColour);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#af08d0862591659304bd471491ddafec1">setString</a>(std::string sText);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#a1c1243a1837ff154ac033c6102392720">setPosition</a>(sf::Vector2f vfPosition);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#a9180a56ee4d70c99c0c09f2697718cc8">draw</a>(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_u_i_text_html"><div class="ttname"><a href="class_u_i_text.html">UIText</a></div><div class="ttdef"><b>Definition:</b> UIText.h:10</div></div>
-<div class="ttc" id="class_u_i_text_html_a9180a56ee4d70c99c0c09f2697718cc8"><div class="ttname"><a href="class_u_i_text.html#a9180a56ee4d70c99c0c09f2697718cc8">UIText::draw</a></div><div class="ttdeci">void draw(sf::RenderTarget &amp;target, sf::RenderStates states) const </div><div class="ttdef"><b>Definition:</b> UIText.cpp:82</div></div>
-<div class="ttc" id="class_u_i_text_html_a1c1243a1837ff154ac033c6102392720"><div class="ttname"><a href="class_u_i_text.html#a1c1243a1837ff154ac033c6102392720">UIText::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector2f vfPosition)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:70</div></div>
-<div class="ttc" id="class_u_i_text_html_aa757b7d914e2b81a796444c95843aaea"><div class="ttname"><a href="class_u_i_text.html#aa757b7d914e2b81a796444c95843aaea">UIText::UIText</a></div><div class="ttdeci">UIText(std::string sText, float fXPos, float fYPos)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:17</div></div>
-<div class="ttc" id="_font_singleton_8h_html"><div class="ttname"><a href="_font_singleton_8h.html">FontSingleton.h</a></div></div>
-<div class="ttc" id="class_u_i_text_html_af08d0862591659304bd471491ddafec1"><div class="ttname"><a href="class_u_i_text.html#af08d0862591659304bd471491ddafec1">UIText::setString</a></div><div class="ttdeci">void setString(std::string sText)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:59</div></div>
-<div class="ttc" id="class_u_i_text_html_a8164390c693dd3611858770b395f9699"><div class="ttname"><a href="class_u_i_text.html#a8164390c693dd3611858770b395f9699">UIText::setColour</a></div><div class="ttdeci">void setColour(sf::Color sfColour)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:48</div></div>
-<div class="ttc" id="class_u_i_text_html_a64b00b3fc0a55d8197f1c0b929b6e93c"><div class="ttname"><a href="class_u_i_text.html#a64b00b3fc0a55d8197f1c0b929b6e93c">UIText::getBounds</a></div><div class="ttdeci">sf::Rect&lt; float &gt; getBounds()</div><div class="ttdef"><b>Definition:</b> UIText.cpp:32</div></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef UITEXT_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define UITEXT_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;SFML\Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;FontSingleton.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_u_i_text.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_u_i_text.html">UIText</a> : <span class="keyword">public</span> sf::Drawable</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::string m_sText;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    sf::Vector2f m_vPosition;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    sf::Color m_sfColour;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_u_i_text.html#aa757b7d914e2b81a796444c95843aaea">UIText</a>(std::string sText, <span class="keywordtype">float</span> fXPos, <span class="keywordtype">float</span> fYPos);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    sf::Rect&lt;float&gt; <a class="code" href="class_u_i_text.html#a64b00b3fc0a55d8197f1c0b929b6e93c">getBounds</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#a8164390c693dd3611858770b395f9699">setColour</a>(sf::Color sfColour);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#af08d0862591659304bd471491ddafec1">setString</a>(std::string sText);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#a1c1243a1837ff154ac033c6102392720">setPosition</a>(sf::Vector2f vfPosition);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_u_i_text.html#a9180a56ee4d70c99c0c09f2697718cc8">draw</a>(sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_u_i_text_html"><div class="ttname"><a href="class_u_i_text.html">UIText</a></div><div class="ttdef"><b>Definition:</b> UIText.h:14</div></div>
+<div class="ttc" id="class_u_i_text_html_a9180a56ee4d70c99c0c09f2697718cc8"><div class="ttname"><a href="class_u_i_text.html#a9180a56ee4d70c99c0c09f2697718cc8">UIText::draw</a></div><div class="ttdeci">void draw(sf::RenderTarget &amp;target, sf::RenderStates states) const </div><div class="ttdef"><b>Definition:</b> UIText.cpp:35</div></div>
+<div class="ttc" id="class_u_i_text_html_a1c1243a1837ff154ac033c6102392720"><div class="ttname"><a href="class_u_i_text.html#a1c1243a1837ff154ac033c6102392720">UIText::setPosition</a></div><div class="ttdeci">void setPosition(sf::Vector2f vfPosition)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:30</div></div>
+<div class="ttc" id="class_u_i_text_html_aa757b7d914e2b81a796444c95843aaea"><div class="ttname"><a href="class_u_i_text.html#aa757b7d914e2b81a796444c95843aaea">UIText::UIText</a></div><div class="ttdeci">UIText(std::string sText, float fXPos, float fYPos)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:3</div></div>
+<div class="ttc" id="class_u_i_text_html_af08d0862591659304bd471491ddafec1"><div class="ttname"><a href="class_u_i_text.html#af08d0862591659304bd471491ddafec1">UIText::setString</a></div><div class="ttdeci">void setString(std::string sText)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:25</div></div>
+<div class="ttc" id="class_u_i_text_html_a8164390c693dd3611858770b395f9699"><div class="ttname"><a href="class_u_i_text.html#a8164390c693dd3611858770b395f9699">UIText::setColour</a></div><div class="ttdeci">void setColour(sf::Color sfColour)</div><div class="ttdef"><b>Definition:</b> UIText.cpp:20</div></div>
+<div class="ttc" id="class_u_i_text_html_a64b00b3fc0a55d8197f1c0b929b6e93c"><div class="ttname"><a href="class_u_i_text.html#a64b00b3fc0a55d8197f1c0b929b6e93c">UIText::getBounds</a></div><div class="ttdeci">sf::Rect&lt; float &gt; getBounds()</div><div class="ttdef"><b>Definition:</b> UIText.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

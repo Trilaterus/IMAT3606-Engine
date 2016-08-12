@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: CPLightSource Class Reference</title>
+<title>IMAT3606-Engine: CPLightSource Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,11 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">CPLightSource Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_c_p_light_source_8h_source.html">CPLightSource.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8541020ad1abc3b3b758b933b558ce38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_light_source.html#a8541020ad1abc3b3b758b933b558ce38">CPLightSource</a> ()</td></tr>
-<tr class="separator:a8541020ad1abc3b3b758b933b558ce38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab780027e03e9de6298aafa142ddd0c13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_light_source.html#ab780027e03e9de6298aafa142ddd0c13">setPosition</a> (sf::Vector3f vfPosition)</td></tr>
 <tr class="separator:ab780027e03e9de6298aafa142ddd0c13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a727f189db10430c790e1c82162719448"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_light_source.html#a727f189db10430c790e1c82162719448">setAmbient</a> (sf::Vector3f vfAmbient)</td></tr>
@@ -109,24 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab7d159d3fa10ac362f1147dd680a8865"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_p_light_source.html#ab7d159d3fa10ac362f1147dd680a8865">updatePosition</a> (sf::Vector3f vfCameraAngle, sf::Vector3f vfCameraPos)</td></tr>
 <tr class="separator:ab7d159d3fa10ac362f1147dd680a8865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a8541020ad1abc3b3b758b933b558ce38"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CPLightSource::CPLightSource </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The only constructor the the <a class="el" href="class_c_p_light_source.html">CPLightSource</a> class. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The ComponentLightSource class allows the <a class="el" href="class_game_object.html">GameObject</a> that has it attached to emit light. The lights colour, position and attentuation can be changed. To use a <a class="el" href="class_c_p_light_source.html">CPLightSource</a> in code you must remember to call <a class="el" href="class_c_p_light_source.html#a78c8695b7deb591b5075eb0fa84cdace">updateAll()</a> once to enable the light (although this is usually done for you in the <a class="el" href="class_scene.html">Scene</a> class initialisation).</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a727f189db10430c790e1c82162719448"></a>
 <div class="memitem">
 <div class="memproto">
@@ -140,10 +128,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current RGB ambient light value with the 3D vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current RGB ambient light value with the 3D vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vfAmbient</td><td>The new ambient colour vector on a scale from 0 to 1. </td></tr>
+    <tr><td class="paramname">vfAmbient</td><td>The new ambient colour vector on a scale from 0 to 1 </td></tr>
   </table>
   </dd>
 </dl>
@@ -163,10 +150,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current RGB diffuse light value with the 3D vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current RGB diffuse light value with the 3D vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vfDiffuse</td><td>The new diffuse colour vector on a scale from 0 to 1. </td></tr>
+    <tr><td class="paramname">vfDiffuse</td><td>The new diffuse colour vector on a scale from 0 to 1 </td></tr>
   </table>
   </dd>
 </dl>
@@ -186,10 +172,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current LightSource position with the 3D vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current LightSource position with the 3D vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vfPosition</td><td>The new lightsource position float vector. </td></tr>
+    <tr><td class="paramname">vfPosition</td><td>The new lightsource position float vector </td></tr>
   </table>
   </dd>
 </dl>
@@ -209,10 +194,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current RGB specular light value with the 3D vector passed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current RGB specular light value with the 3D vector passed. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vfSpecular</td><td>The new specular colour vector on a scale from 0 to 1. </td></tr>
+    <tr><td class="paramname">vfSpecular</td><td>The new specular colour vector on a scale from 0 to 1 </td></tr>
   </table>
   </dd>
 </dl>
@@ -247,7 +231,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Binds the associated colour values to the appropriate OpenGL functions. Call this function once to enable the lights, although it is usually done through the <a class="el" href="class_scene.html">Scene</a> class. </p>
+<p>Binds the associated colour values to the appropriate OpenGL functions. Call this function once to enable the lights, although it is usually done through the <a class="el" href="class_scene.html">Scene</a> class. You will need to call this function if the lights colours are changing often. </p>
 
 </div>
 </div>
@@ -274,11 +258,10 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updates the position of the light based on the camera.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Updates the position of the light based on the camera. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">vfCameraAngle</td><td>A 3D vector representing the angle offsets of the camera. </td></tr>
-    <tr><td class="paramname">vfCameraPos</td><td>A 3D vector representing the position offsets of the camera. </td></tr>
+    <tr><td class="paramname">vfCameraAngle</td><td>A 3D vector representing the angle offsets of the camera </td></tr>
+    <tr><td class="paramname">vfCameraPos</td><td>A 3D vector representing the position offsets of the camera </td></tr>
   </table>
   </dd>
 </dl>
@@ -286,8 +269,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_c_p_light_source_8h_source.html">CPLightSource.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_c_p_light_source_8cpp.html">CPLightSource.cpp</a></li>
+<li>include/<a class="el" href="_c_p_light_source_8h_source.html">CPLightSource.h</a></li>
+<li>src/CPLightSource.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

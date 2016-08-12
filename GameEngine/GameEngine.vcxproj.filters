@@ -87,6 +87,9 @@
     <ClCompile Include="..\src\Component.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TDCD.cpp">
+      <Filter>Source Files\Resources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\CPCamera.h">
@@ -131,12 +134,18 @@
     <ClInclude Include="..\include\Component.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\TDCD.h">
+      <Filter>Header Files\Resources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="resources\xml\ModelMeshXML.xml">
       <Filter>Resource Files\XML</Filter>
     </Xml>
     <Xml Include="resources\xml\NightDeadForest.xml">
+      <Filter>Resource Files\XML</Filter>
+    </Xml>
+    <Xml Include="resources\xml\CollisionTestArena.xml">
       <Filter>Resource Files\XML</Filter>
     </Xml>
   </ItemGroup>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['objectloader',['ObjectLoader',['../class_object_loader.html#af9ecb6be20590e95539db718aaa74096',1,'ObjectLoader::ObjectLoader()'],['../class_object_loader.html#afa7184a8580ee4e9fd69211391668be1',1,'ObjectLoader::ObjectLoader(std::string filename)'],['../class_object_loader.html#ab6c22bd6bc62c49a0c1414ad6e6baee8',1,'ObjectLoader::ObjectLoader(std::string filename, bool load)']]]
+  ['objectloader',['ObjectLoader',['../class_object_loader.html#af9ecb6be20590e95539db718aaa74096',1,'ObjectLoader::ObjectLoader()'],['../class_object_loader.html#ab650befe77bd47743ffda416b6b774c7',1,'ObjectLoader::ObjectLoader(std::string sFilename)'],['../class_object_loader.html#af694aa8a125976e4e66d9b5c0f6ce29b',1,'ObjectLoader::ObjectLoader(std::string sFilename, bool bLoad)']]]
 ];

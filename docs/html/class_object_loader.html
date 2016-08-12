@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>IMAT3606 Game Engine Project: ObjectLoader Class Reference</title>
+<title>IMAT3606-Engine: ObjectLoader Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,8 +23,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">IMAT3606 Game Engine Project
+   <div id="projectname">IMAT3606-Engine
    </div>
+   <div id="projectbrief">Game engine independantly coded for university coursework</div>
   </td>
  </tr>
  </tbody>
@@ -38,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,15 +92,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ObjectLoader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_object_loader_8h_source.html">ObjectLoader.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af9ecb6be20590e95539db718aaa74096"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#af9ecb6be20590e95539db718aaa74096">ObjectLoader</a> ()</td></tr>
 <tr class="separator:af9ecb6be20590e95539db718aaa74096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa7184a8580ee4e9fd69211391668be1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#afa7184a8580ee4e9fd69211391668be1">ObjectLoader</a> (std::string filename)</td></tr>
-<tr class="separator:afa7184a8580ee4e9fd69211391668be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6c22bd6bc62c49a0c1414ad6e6baee8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#ab6c22bd6bc62c49a0c1414ad6e6baee8">ObjectLoader</a> (std::string filename, bool load)</td></tr>
-<tr class="separator:ab6c22bd6bc62c49a0c1414ad6e6baee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab650befe77bd47743ffda416b6b774c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#ab650befe77bd47743ffda416b6b774c7">ObjectLoader</a> (std::string sFilename)</td></tr>
+<tr class="separator:ab650befe77bd47743ffda416b6b774c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af694aa8a125976e4e66d9b5c0f6ce29b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#af694aa8a125976e4e66d9b5c0f6ce29b">ObjectLoader</a> (std::string sFilename, bool bLoad)</td></tr>
+<tr class="separator:af694aa8a125976e4e66d9b5c0f6ce29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad92d3254395ef8f0fb53173f3b8391e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#ad92d3254395ef8f0fb53173f3b8391e9">getVertexCoords</a> ()</td></tr>
 <tr class="separator:ad92d3254395ef8f0fb53173f3b8391e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acad69cbae44fc41260d1c78e96626b3e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_loader.html#acad69cbae44fc41260d1c78e96626b3e">getTextureNormals</a> ()</td></tr>
@@ -153,7 +157,10 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>m_vfVertexNormals</b></td></tr>
 <tr class="separator:af94cf74d5e4ae4a44dd0fca913e924a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_object_loader.html">ObjectLoader</a> class allows for the vertices, normals and texture normals to be parsed from varying layout of .obj files. Although called an <a class="el" href="class_object_loader.html">ObjectLoader</a> it in itself holds the values of the object (It could do with a name refactor). In this version the texture normals have been disabled to reduce risk of crashing.</p>
+<dl class="section author"><dt>Author</dt><dd>Hussain </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="af9ecb6be20590e95539db718aaa74096"></a>
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +177,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a class="anchor" id="afa7184a8580ee4e9fd69211391668be1"></a>
+<a class="anchor" id="ab650befe77bd47743ffda416b6b774c7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -183,8 +190,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This constructor allows you to pass the file path for the object, but it does not load the object. Used for potential threading.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>This constructor allows you to pass the file path for the object, but it does not load the object. Used for potential threading. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sFilename</td><td>A string that represents the location of the .obj file </td></tr>
   </table>
@@ -193,7 +199,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 
 </div>
 </div>
-<a class="anchor" id="ab6c22bd6bc62c49a0c1414ad6e6baee8"></a>
+<a class="anchor" id="af694aa8a125976e4e66d9b5c0f6ce29b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -201,13 +207,13 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="memname">ObjectLoader::ObjectLoader </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
+          <td class="paramname"><em>sFilename</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>load</em>&#160;</td>
+          <td class="paramname"><em>bLoad</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -216,7 +222,13 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This constructor saves the file path and immediatly attempts to load the object, printing appropriate error messages to the console if the object cannot be loaded. </p>
+<p>This constructor saves the file path and immediatly attempts to load the object, printing appropriate error messages to the console if the object cannot be loaded. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sFilename</td><td>A string that represents the location of the .obj file </td></tr>
+    <tr><td class="paramname">bLoad</td><td>A bool that indicates whether to load the object immediately </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -233,8 +245,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the entire face index.</p>
-<dl class="section return"><dt>Returns</dt><dd>The entire face index as a vector of ints. </dd></dl>
+<p>Returns the entire face index. </p><dl class="section return"><dt>Returns</dt><dd>The entire face index as a vector of ints </dd></dl>
 
 </div>
 </div>
@@ -250,8 +261,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a pointer to the first face index in a vector.</p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to an int which is the first face index. </dd></dl>
+<p>Returns a pointer to the first face index in a vector. </p><dl class="section return"><dt>Returns</dt><dd>A pointer to an int which is the first face index </dd></dl>
 
 </div>
 </div>
@@ -267,8 +277,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the texture normals of the object.</p>
-<dl class="section return"><dt>Returns</dt><dd>The texture normals as a vector of floats. </dd></dl>
+<p>Returns the texture normals of the object. </p><dl class="section return"><dt>Returns</dt><dd>The texture normals as a vector of floats </dd></dl>
 
 </div>
 </div>
@@ -284,8 +293,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the vertex coordinates of the object.</p>
-<dl class="section return"><dt>Returns</dt><dd>The vertex coordinates as a vector of floats. </dd></dl>
+<p>Returns the vertex coordinates of the object. </p><dl class="section return"><dt>Returns</dt><dd>The vertex coordinates as a vector of floats </dd></dl>
 
 </div>
 </div>
@@ -301,8 +309,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a pointer to the first vertex coordinate in a vector.</p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a float which is the first vertex coordinate. </dd></dl>
+<p>Returns a pointer to the first vertex coordinate in a vector. </p><dl class="section return"><dt>Returns</dt><dd>A pointer to a float which is the first vertex coordinate </dd></dl>
 
 </div>
 </div>
@@ -318,8 +325,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns the vertex normals of the object.</p>
-<dl class="section return"><dt>Returns</dt><dd>The vertex normals as a vector of floats. </dd></dl>
+<p>Returns the vertex normals of the object. </p><dl class="section return"><dt>Returns</dt><dd>The vertex normals as a vector of floats </dd></dl>
 
 </div>
 </div>
@@ -335,8 +341,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a pointer to the first vertex normal in a vector.</p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a float which is the first vertex normal. </dd></dl>
+<p>Returns a pointer to the first vertex normal in a vector. </p><dl class="section return"><dt>Returns</dt><dd>A pointer to a float which is the first vertex normal </dd></dl>
 
 </div>
 </div>
@@ -352,8 +357,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Returns a pointer to the first vertex texture in a vector.</p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a float which is the first vertex texture. </dd></dl>
+<p>Returns a pointer to the first vertex texture in a vector. </p><dl class="section return"><dt>Returns</dt><dd>A pointer to a float which is the first vertex texture </dd></dl>
 
 </div>
 </div>
@@ -369,8 +373,7 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attempts to load the object, printing appropriate error messages to the console if the object cannot be loaded. Returns a true boolean if successful and a false if not.</p>
-<dl class="section return"><dt>Returns</dt><dd>A boolean representing if the object loaded or not. </dd></dl>
+<p>Attempts to load the object, printing appropriate error messages to the console if the object cannot be loaded. Returns a true boolean if successful and a false if not. </p><dl class="section return"><dt>Returns</dt><dd>A boolean representing if the object loaded or not </dd></dl>
 
 </div>
 </div>
@@ -382,13 +385,12 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
           <td class="memname">void ObjectLoader::setFilePath </td>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>sFilename</em></td><td>)</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Replaces the current file path value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Replaces the current file path value. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sFilename</td><td>A string that represents the location of the .obj </td></tr>
   </table>
@@ -398,8 +400,8 @@ std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/include/<a class="el" href="_object_loader_8h_source.html">ObjectLoader.h</a></li>
-<li>H:/Documents/Uni Stuff/Y3/Games Programming/IndividualProject/Attempt 3 (SFML)/GameEngine/src/<a class="el" href="_object_loader_8cpp.html">ObjectLoader.cpp</a></li>
+<li>include/<a class="el" href="_object_loader_8h_source.html">ObjectLoader.h</a></li>
+<li>src/ObjectLoader.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
